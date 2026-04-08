@@ -1,0 +1,76 @@
+# ATHENA — Project Constitution
+
+> Copy this file to your project root as `ATHENA.md` and fill it in.
+> Keep it honest and brief. ATHENA reads this every session.
+
+---
+
+## Project
+
+**Name:** [Your project name]
+**Description:** [One sentence: what it does and who it's for]
+
+---
+
+## Stack
+
+- **Language(s):** [e.g. TypeScript, Ruby, Go]
+- **Framework(s):** [e.g. Next.js, Rails, Gin]
+- **Database:** [e.g. PostgreSQL, MySQL, DynamoDB]
+- **Cache / Queue:** [e.g. Redis, Sidekiq, SQS]
+- **Infrastructure:** [e.g. AWS, Fly.io, Vercel, Docker]
+
+---
+
+## Architecture
+
+[Describe the high-level structure in 3-5 lines. Example:]
+
+- Monorepo with `api/` (Rails) and `web/` (Next.js)
+- REST API consumed by the web client and mobile apps
+- Background jobs via Sidekiq for async processing
+- PostgreSQL as primary store; Redis for caching and queues
+
+---
+
+## Rules
+
+> Only list things ATHENA gets wrong without being told. Max 10.
+
+1. [e.g. Always use service objects for business logic — never put it in controllers]
+2. [e.g. All API responses follow the JSON:API spec]
+3. [e.g. Use `snake_case` for Ruby, `camelCase` for TypeScript]
+4. [e.g. Never use raw SQL — use the ORM]
+5. [e.g. Every new endpoint requires a request spec]
+6.
+7.
+8.
+9.
+10.
+
+---
+
+## How to verify
+
+```bash
+# Run tests
+[e.g. bundle exec rspec]
+
+# Run linter
+[e.g. bundle exec rubocop]
+
+# Type check
+[e.g. npx tsc --noEmit]
+
+# Start dev server
+[e.g. bin/dev]
+```
+
+---
+
+## Team conventions
+
+- **Branch naming:** [e.g. `feature/`, `fix/`, `chore/`]
+- **Commit format:** [e.g. Conventional Commits — `feat:`, `fix:`, `chore:`]
+- **PR process:** [e.g. Squash merge, require 1 approval, CI must pass]
+- **Spec location:** `specs/` — one file per feature, approved before implementation
