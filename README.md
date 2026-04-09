@@ -63,12 +63,14 @@ cp /path/to/athena/ATHENA.md.template ./ATHENA.md
 
 **3. Use it**
 ```
-/athena scope "Add real-time notifications"
-/athena spec "User authentication with OAuth"
-/athena build specs/auth.md
-/athena review src/controllers/
-/athena debug "checkout fails for EU users"
-/athena retro --last 7d
+/scope "Add real-time notifications"
+/spec "User authentication with OAuth"
+/build specs/auth.md
+/review src/controllers/
+/debug "checkout fails for EU users"
+/retro --last 7d
+/map
+/adr "chose PostgreSQL over MongoDB"
 ```
 
 ---

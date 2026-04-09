@@ -18,45 +18,74 @@ cd athena
 
 ## Claude Code
 
-### Option 1: Plugin marketplace (recommended)
+### Install
 
-Search for "ATHENA" in the Claude Code skill marketplace and install directly.
-
-### Option 2: Manual install
-
-**Global** (available in all projects):
 ```bash
-mkdir -p ~/.claude/skills
-git clone https://github.com/[your-org]/athena.git ~/.claude/skills/athena
+git clone https://github.com/[your-org]/athena.git
+cd athena
+./setup.sh
 ```
 
-**Local** (this project only):
-```bash
-mkdir -p .claude/skills
-git clone https://github.com/[your-org]/athena.git .claude/skills/athena
+`setup.sh` installs the core and creates individual skill commands so each mode is callable directly:
+
+```
+/scope "Should we build this?"
+/spec "User authentication with OAuth"
+/build specs/auth.md
+/review src/controllers/
+/debug "checkout fails for EU users"
+/qa http://localhost:3000
+/refactor src/legacy/
+/fix "fix typo in error message"
+/retro --last 7d
+/map
+/adr "chose PostgreSQL over MongoDB"
 ```
 
-### Verify installation
+Or use the unified entry point: `/athena [mode] [args]`
 
-Open Claude Code in any project and run:
+### How it works
+
+The installer creates two things in `~/.claude/skills/`:
+
 ```
-/athena fix "test installation"
+~/.claude/skills/
+├── athena/          ← core: modes/, references/, templates/
+├── scope/           ← thin wrapper → loads athena/modes/scope.md
+├── spec/
+├── build/
+├── debug/
+├── review/
+├── qa/
+├── refactor/
+├── fix/
+├── retro/
+├── map/
+└── adr/
 ```
 
-You should see ATHENA respond with the patch workflow.
+Each wrapper loads your project's `ATHENA.md` and `lessons.md` first, then hands off to the full mode workflow.
 
 ### Setup project constitution
 
 ```bash
 cp ~/.claude/skills/athena/ATHENA.md.template ./ATHENA.md
-# Edit ATHENA.md with your project's stack, rules, and conventions
+# Edit: stack, architecture, rules, test commands
 ```
 
 ### Initialize lessons
 
 ```
-/athena retro --last 30d
+/retro --last 30d
 ```
+
+### Uninstall
+
+```bash
+cd ~/.claude/skills/athena && ./setup.sh --uninstall
+```
+
+Removes all ATHENA skill wrappers and the core. Non-ATHENA skills are untouched.
 
 ---
 
