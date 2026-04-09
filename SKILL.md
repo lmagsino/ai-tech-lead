@@ -5,7 +5,7 @@ description: >
   building features, investigating bugs, reviewing code quality, modernizing legacy code,
   writing specifications, visual QA, or challenging product direction. Works on both
   greenfield and existing codebases. Activate with /athena followed by a mode name.
-  Modes: scope, spec, build, debug, review, qa, refactor, fix, retro.
+  Modes: scope, spec, build, debug, review, qa, refactor, fix, retro, map, adr.
   Use this skill whenever the user mentions planning a feature, writing a spec,
   building something, reviewing code, debugging, refactoring, investigating a bug,
   or questioning whether something should be built. Even if they don't say "athena."
@@ -52,6 +52,8 @@ description: >
 | **refactor** | "Refactor" / modernize / migrate / upgrade | modes/refactor.md |
 | **fix** | "Quick fix" / typo / config change / small update | modes/fix.md |
 | **retro** | "What did we learn" / retrospective / health check | modes/retro.md |
+| **map** | "Explain this codebase" / new contributor / where to start | modes/map.md |
+| **adr** | "Document this decision" / why we chose X / ADR | modes/adr.md |
 
 ---
 
@@ -65,6 +67,8 @@ When the user does not specify a mode, select automatically:
 - User asks to review code or a PR → `/review`
 - User describes a feature to build → check if a spec exists. If yes → `/build`. If no → `/spec`
 - User asks to refactor or modernize → `/refactor`
+- User is new to the codebase or asks how it works → `/map`
+- User wants to document a technical decision → `/adr`
 - Ambiguous → ask the user which mode to use
 
 ---
@@ -93,4 +97,7 @@ When a mode is invoked:
 /athena refactor src/legacy/
 /athena fix "fix typo in error message"
 /athena retro --last 7d
+/athena map
+/athena map src/payments/
+/athena adr "chose PostgreSQL over MongoDB"
 ```
