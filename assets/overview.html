@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATHENA — Spec-Driven Engineering Intelligence</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0d1117;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 24px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .wordmark {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #7d8590;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #f0f6fc;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .title span {
+      background: linear-gradient(135deg, #58a6ff 0%, #bc8cff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: #7d8590;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Beliefs strip */
+    .beliefs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+
+    .belief {
+      font-size: 12px;
+      font-weight: 500;
+      color: #8b949e;
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 100px;
+      padding: 6px 14px;
+      letter-spacing: 0.01em;
+    }
+
+    /* Skills grid */
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7d8590;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 880px;
+      margin-bottom: 64px;
+    }
+
+    .card {
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 12px;
+      padding: 22px;
+      position: relative;
+      transition: border-color 0.15s;
+    }
+
+    .card:hover {
+      border-color: #30363d;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .card-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .command {
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 2px;
+    }
+
+    .trigger {
+      font-size: 11px;
+      color: #7d8590;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: #8b949e;
+      line-height: 1.5;
+    }
+
+    .card-output {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #21262d;
+      font-size: 11px;
+      color: #6e7681;
+      font-style: italic;
+    }
+
+    /* Color accents */
+    .c-blue   { background: rgba(88, 166, 255, 0.1); }
+    .c-purple { background: rgba(188, 140, 255, 0.1); }
+    .c-green  { background: rgba(63, 185, 80, 0.1); }
+    .c-red    { background: rgba(248, 81, 73, 0.1); }
+    .c-yellow { background: rgba(210, 153, 34, 0.1); }
+    .c-cyan   { background: rgba(56, 189, 248, 0.1); }
+    .c-orange { background: rgba(251, 146, 60, 0.1); }
+    .c-pink   { background: rgba(244, 114, 182, 0.1); }
+    .c-teal   { background: rgba(45, 212, 191, 0.1); }
+
+    /* Context tiers */
+    .tiers {
+      width: 100%;
+      max-width: 880px;
+      margin-bottom: 64px;
+    }
+
+    .tiers-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .tier {
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-bottom: 14px;
+    }
+
+    .tier-badge.hot    { background: rgba(248,81,73,0.12); color: #f85149; }
+    .tier-badge.warm   { background: rgba(210,153,34,0.12); color: #d29922; }
+    .tier-badge.cold   { background: rgba(88,166,255,0.12); color: #58a6ff; }
+
+    .tier-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 8px;
+    }
+
+    .tier-desc {
+      font-size: 12px;
+      color: #7d8590;
+      line-height: 1.6;
+    }
+
+    .tier-items {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .tier-item {
+      font-size: 12px;
+      color: #8b949e;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      background: #0d1117;
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    /* Workflow */
+    .flow {
+      width: 100%;
+      max-width: 880px;
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 64px;
+    }
+
+    .flow-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 20px;
+    }
+
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flow-pill {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid;
+    }
+
+    .flow-pill.scope    { color: #bc8cff; border-color: rgba(188,140,255,0.3); background: rgba(188,140,255,0.08); }
+    .flow-pill.spec     { color: #58a6ff; border-color: rgba(88,166,255,0.3); background: rgba(88,166,255,0.08); }
+    .flow-pill.build    { color: #3fb950; border-color: rgba(63,185,80,0.3); background: rgba(63,185,80,0.08); }
+    .flow-pill.review   { color: #d29922; border-color: rgba(210,153,34,0.3); background: rgba(210,153,34,0.08); }
+    .flow-pill.qa       { color: #38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.08); }
+    .flow-pill.ship     { color: #f0f6fc; border-color: rgba(240,246,252,0.2); background: rgba(240,246,252,0.05); }
+
+    .flow-arrow {
+      color: #30363d;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      color: #6e7681;
+      font-size: 12px;
+    }
+
+    .footer code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: #8b949e;
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="wordmark">Engineering Intelligence</div>
+    <h1 class="title">ATH<span>ENA</span></h1>
+    <p class="subtitle">
+      Spec-driven workflows for AI coding agents. Nine skills that guide you from idea to production — with discipline.
+    </p>
+  </header>
+
+  <!-- Beliefs -->
+  <div class="beliefs">
+    <span class="belief">Specs before code</span>
+    <span class="belief">Evidence before conclusions</span>
+    <span class="belief">Behavior tests before implementation</span>
+    <span class="belief">Blast radius before committing</span>
+    <span class="belief">Patterns over incidents</span>
+  </div>
+
+  <!-- Skills grid -->
+  <div class="section-label">Nine Skills</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-purple">🔭</div>
+        <div class="card-meta">
+          <div class="command">/athena scope</div>
+          <div class="trigger">"Should we build this?"</div>
+        </div>
+      </div>
+      <div class="card-desc">Product, design, and engineering challenge before a line of code is written.</div>
+      <div class="card-output">→ GO / RETHINK / KILL with reasoning</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-blue">📐</div>
+        <div class="card-meta">
+          <div class="command">/athena spec</div>
+          <div class="trigger">"Write a spec"</div>
+        </div>
+      </div>
+      <div class="card-desc">Probe for edge cases, acceptance criteria, and out-of-scope explicitly.</div>
+      <div class="card-output">→ specs/[feature].md</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-green">⚙️</div>
+        <div class="card-meta">
+          <div class="command">/athena build</div>
+          <div class="trigger">"Build this"</div>
+        </div>
+      </div>
+      <div class="card-desc">Test-first implementation against the spec. Clean code gate before each commit.</div>
+      <div class="card-output">→ Implementation + behavior tests</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-red">🔬</div>
+        <div class="card-meta">
+          <div class="command">/athena debug</div>
+          <div class="trigger">"There's a bug"</div>
+        </div>
+      </div>
+      <div class="card-desc">Trace to root cause. Scoped fix. Regression test. RCA document.</div>
+      <div class="card-output">→ docs/rca/[date]-[description].md</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-yellow">🛡️</div>
+        <div class="card-meta">
+          <div class="command">/athena review</div>
+          <div class="trigger">"Review this code"</div>
+        </div>
+      </div>
+      <div class="card-desc">5-pass scorecard: SOLID, smells, anti-patterns, security, spec conformance.</div>
+      <div class="card-output">→ Severity-ranked findings with file:line</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-cyan">🖥️</div>
+        <div class="card-meta">
+          <div class="command">/athena qa</div>
+          <div class="trigger">"Check the UI"</div>
+        </div>
+      </div>
+      <div class="card-desc">Multi-viewport screenshots, console scan, a11y check, spec UI criteria.</div>
+      <div class="card-output">→ Visual health report + screenshots</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-orange">🔄</div>
+        <div class="card-meta">
+          <div class="command">/athena refactor</div>
+          <div class="trigger">"Refactor this"</div>
+        </div>
+      </div>
+      <div class="card-desc">Behavior tests first. Incremental migration, one pattern at a time. Never rewrites.</div>
+      <div class="card-output">→ Modernized code + parity report</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-pink">⚡</div>
+        <div class="card-meta">
+          <div class="command">/athena fix</div>
+          <div class="trigger">"Quick fix"</div>
+        </div>
+      </div>
+      <div class="card-desc">Trivial changes under 3 files. Lightweight gate. No ceremony.</div>
+      <div class="card-output">→ Fix committed</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="icon c-teal">📊</div>
+        <div class="card-meta">
+          <div class="command">/athena retro</div>
+          <div class="trigger">"What did we learn?"</div>
+        </div>
+      </div>
+      <div class="card-desc">Analyze git history. Update lessons.md. Tech debt roadmap by ROI.</div>
+      <div class="card-output">→ lessons.md + debt roadmap</div>
+    </div>
+
+  </div>
+
+  <!-- Context architecture -->
+  <div class="section-label">Three-Tier Context</div>
+  <div class="tiers" style="margin-bottom: 64px;">
+    <div class="tiers-row">
+      <div class="tier">
+        <div class="tier-badge hot">🔴 Hot</div>
+        <div class="tier-title">Always loaded</div>
+        <div class="tier-desc">Project-specific context loaded on every invocation — your stack, rules, and accumulated lessons.</div>
+        <div class="tier-items">
+          <div class="tier-item">ATHENA.md</div>
+          <div class="tier-item">lessons.md</div>
+          <div class="tier-item">active spec</div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-badge warm">🟡 Warm</div>
+        <div class="tier-title">Loaded per-skill</div>
+        <div class="tier-desc">Reference documents loaded only when the relevant skill is invoked. Context stays focused.</div>
+        <div class="tier-items">
+          <div class="tier-item">references/clean-code</div>
+          <div class="tier-item">references/security-owasp</div>
+          <div class="tier-item">references/code-smells</div>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-badge cold">🔵 Cold</div>
+        <div class="tier-title">On-demand subagents</div>
+        <div class="tier-desc">Heavy operations run in subagents. Never floods the main context with large file dumps.</div>
+        <div class="tier-items">
+          <div class="tier-item">codebase scanning</div>
+          <div class="tier-item">git history analysis</div>
+          <div class="tier-item">dependency mapping</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standard workflow -->
+  <div class="section-label">Standard Greenfield Workflow</div>
+  <div class="flow">
+    <div class="flow-title">New feature, from idea to ship</div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-pill scope">/scope</div>
+        <div class="flow-arrow">→</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-pill spec">/spec</div>
+        <div class="flow-arrow">→</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-pill build">/build</div>
+        <div class="flow-arrow">→</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-pill review">/review</div>
+        <div class="flow-arrow">→</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-pill qa">/qa</div>
+        <div class="flow-arrow">→</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-pill ship">ship</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Works with Claude Code, Codex, Cursor, Gemini CLI, OpenCode &nbsp;·&nbsp; MIT License</p>
+    <p style="margin-top: 8px;">Install: <code>./setup.sh</code> &nbsp;·&nbsp; Configure: <code>ATHENA.md</code></p>
+  </footer>
+
+</body>
+</html>
