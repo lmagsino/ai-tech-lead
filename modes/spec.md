@@ -23,6 +23,14 @@ Greenfield projects only.
 
 `templates/spec.md`
 
+## Handoff
+
+**Receives:** Feature description, or `scopes/[feature-name].md` from `/scope`. If a scope file exists, read it first — it contains the refined problem statement, identified AI components, and constraints.
+
+**Produces:** `specs/[feature-name].md` — the approved specification, including all AI component designs.
+
+**Next mode:** `/build specs/[feature-name].md`
+
 ## Workflow
 
 ```
