@@ -36,21 +36,16 @@ create_mode_wrappers() {
   local core_dir="$2"
 
   declare -A DESCRIPTIONS=(
-    ["scope"]="Evaluate whether something should be built — product, design, and engineering challenge before any code is written. Use when asked should we build this, product direction, feasibility, or before writing a spec."
-    ["spec"]="Write a complete, testable specification before implementation begins. Use when asked to write a spec, define requirements, or document a feature before building it."
-    ["build"]="Implement exactly what the spec defines — test first, clean code gate before each commit. Use when asked to build, implement, or create a feature from a spec."
-    ["debug"]="Diagnose bugs and incidents — trace to root cause, scoped fix, regression test, RCA document. Use when there is a bug, error, production issue, or incident."
-    ["review"]="Formal 5-pass code review covering structural integrity, code smells, anti-patterns, security, and spec conformance. Use when asked to review code or a PR."
-    ["qa"]="Visual QA — multi-viewport screenshots, console error scan, accessibility check, spec UI criteria verification. Use when asked to check the UI, test visually, or QA a page."
-    ["refactor"]="Incremental modernization with behavior tests first — one pattern at a time, never rewrites. Use when asked to refactor, modernize, or migrate legacy code."
-    ["fix"]="Fast, minimal fix for trivial changes under 3 files — typos, config updates, small corrections. No ceremony. Use when asked for a quick fix or small update."
-    ["retro"]="Engineering retrospective — analyze git history, detect patterns, update lessons.md, produce tech debt roadmap. Use when asked what did we learn or to run a retro."
-    ["map"]="Explore an unfamiliar codebase and produce a structured mental model — entry points, module map, data flow, hotspots, where to start. Use when new to a codebase or asked how it works."
-    ["adr"]="Write an Architecture Decision Record — context, options considered, decision, consequences. Use when asked to document a technical decision or write an ADR."
+    ["scope"]="Evaluate whether something should be built — challenge product direction, feasibility, and approach before any code is written. Always asks if there is an AI-native version. Use when asked should we build this, product direction, or before writing a spec."
+    ["spec"]="Write a complete, testable specification before implementation begins. Includes AI component design by default — model selection, prompt design, evals, fallbacks, cost estimate. Use when asked to write a spec or define requirements."
+    ["build"]="Implement exactly what the spec defines — AI infrastructure first, then tests, then code. Use when asked to build, implement, or create a feature from a spec."
+    ["review"]="Formal 5-pass code review: structural integrity, code smells, security (including prompt injection), clean code, and AI component review. Use when asked to review code or a PR."
+    ["debug"]="Diagnose bugs and AI misbehavior — trace to root cause, regression test, RCA document. Handles both code bugs and AI bugs (hallucinations, prompt drift, output schema failures). Use when there is a bug, error, or AI quality issue."
+    ["ship"]="Pre-launch checklist for AI-native applications — functionality, AI systems, security, infrastructure. Produces GO / NO-GO recommendation. Use when ready to launch or deploy."
   )
 
   echo "  Creating skill commands:"
-  for mode in scope spec build debug review qa refactor fix retro map adr; do
+  for mode in scope spec build review debug ship; do
     local wrapper_dir="$skills_dir/$mode"
 
     # Warn if a skill with this name already exists (not from athena)
@@ -111,17 +106,12 @@ install_claude_code() {
   echo ""
   echo "  ✓ Done. Call skills directly in Claude Code:"
   echo ""
-  echo "    /scope \"Should we build X?\""
-  echo "    /spec \"User authentication with OAuth\""
-  echo "    /build specs/auth.md"
-  echo "    /review src/controllers/"
-  echo "    /debug \"checkout fails for EU users\""
-  echo "    /qa http://localhost:3000"
-  echo "    /refactor src/legacy/"
-  echo "    /fix \"fix typo in error message\""
-  echo "    /retro --last 7d"
-  echo "    /map"
-  echo "    /adr \"chose PostgreSQL over MongoDB\""
+  echo "    /scope \"Should we add AI-powered recommendations?\""
+  echo "    /spec \"Conversational onboarding with LLM\""
+  echo "    /build specs/onboarding.md"
+  echo "    /review src/"
+  echo "    /debug \"AI responses are hallucinating product names\""
+  echo "    /ship"
   echo ""
   echo "  Or with the unified entry point: /athena [mode] [args]"
   echo ""
@@ -131,7 +121,7 @@ uninstall_claude_code() {
   local skills_dir="${1:-$HOME/.claude/skills}"
   echo "  Removing ATHENA skills from $skills_dir..."
   rm -rf "$skills_dir/athena"
-  for mode in scope spec build debug review qa refactor fix retro map adr; do
+  for mode in scope spec build review debug ship; do
     if [[ -f "$skills_dir/$mode/SKILL.md" ]] && grep -q "ATHENA" "$skills_dir/$mode/SKILL.md" 2>/dev/null; then
       rm -rf "$skills_dir/$mode"
       echo "    ✓ removed /$mode"
@@ -203,18 +193,6 @@ if [[ ! -f "$PWD/ATHENA.md" ]]; then
     cp "$ATHENA_DIR/ATHENA.md.template" "$PWD/ATHENA.md"
     echo ""
     echo "  ✓ Created ATHENA.md — edit it to add your project's stack and rules."
-    echo ""
-  fi
-fi
-
-# Offer to initialize lessons.md
-if command -v claude &>/dev/null && [[ ! -f "$PWD/lessons.md" ]] && [[ -d "$PWD/.git" ]]; then
-  echo "  Would you like to initialize lessons.md from your git history?"
-  read -rp "  Run /retro --last 30d? [y/n]: " run_retro
-
-  if [[ "$run_retro" == "y" || "$run_retro" == "Y" ]]; then
-    echo ""
-    echo "  Run this in Claude Code: /retro --last 30d"
     echo ""
   fi
 fi
