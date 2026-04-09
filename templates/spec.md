@@ -3,7 +3,7 @@
 > Status: DRAFT | REVIEW | APPROVED
 > Author: [name]
 > Date: [date]
-> Related: [links to tickets, designs, etc.]
+> Scope output: [link to scopes/feature.md if this came from /scope]
 
 ---
 
@@ -25,7 +25,27 @@ As a [who], I want to [what], so that [why].
 - [ ] [Specific, testable criterion 2]
 - [ ] [...]
 
-> Each criterion must be testable. "Should be fast" is not a criterion. "P95 response time < 200ms" is.
+> Each criterion must be testable. "Should be fast" is not a criterion. "P95 response time < 500ms including AI call" is.
+
+---
+
+## AI components
+
+> Complete this section for every LLM call, embedding operation, or agent in the feature.
+> If this feature has no AI components, write "None" and delete the sub-sections.
+
+### [Component name — e.g. "Reply suggestions"]
+
+- **Type:** LLM call | Embedding | Agent | RAG pipeline
+- **Model:** [e.g. claude-haiku-4-5 — chosen for low latency and high call volume]
+- **Input:** [What goes in — data shape, max size, any PII concerns]
+- **Output:** [What comes out — schema, example]
+- **Prompt location:** `src/ai/prompts/[name].ts`
+- **Output schema:** `src/ai/schemas/[name].ts`
+- **Fallback:** [What the user sees if this AI call fails or times out]
+- **Timeout:** [e.g. 5s — after which fallback kicks in]
+- **Eval criteria:** [How do we know the output is good? e.g. "acceptance rate > 40%"]
+- **Cost estimate:** [~N tokens/call × expected volume = $X/day]
 
 ---
 
@@ -55,28 +75,34 @@ As a [who], I want to [what], so that [why].
 
 ## UI behavior
 
-[What the user sees at each step. Include: initial state, loading state, success state, error state, empty state.]
+[What the user sees at each step.]
+
+**Initial state:** [What the user sees before any action]
+**Loading state:** [What the user sees during async operations — especially AI calls]
+**Success state:** [What the user sees on success]
+**Error state:** [What the user sees on failure]
+**AI unavailable state:** [What the user sees when AI is down or slow — must not be a blank screen or raw error]
+**Empty state:** [What the user sees with no data]
 
 ---
 
 ## Edge cases
 
-[Unusual inputs, boundary conditions, concurrent access scenarios, error scenarios the user might hit.]
+[Unusual inputs, boundary conditions, error scenarios.]
+
+Include AI-specific edge cases:
+- What happens if the AI returns an empty or malformed response?
+- What happens if the AI call times out?
+- What happens if the model returns content that fails schema validation?
 
 ---
 
 ## Out of scope
 
-[Explicitly list what we are NOT building in this iteration. This prevents scope creep.]
+[Explicitly list what we are NOT building in this iteration.]
 
 - [Not building X]
 - [Not building Y]
-
----
-
-## Architecture decisions
-
-[If significant choices were made, document them as ADRs. Format: Context → Decision → Consequences.]
 
 ---
 
