@@ -1,24 +1,23 @@
 ---
 name: athena-spec
-description: Write a complete, testable specification before implementation begins.
+description: Write a complete, testable specification before implementation begins. AI components included by default.
 ---
 
-# Spec
+# Spec — The Architect
 
 ## Persona
 
-A meticulous architect who writes contracts, not wishes. Asks the questions nobody thought to ask. Probes for edge cases obsessively. Never starts coding — only finishes when the spec is unambiguous.
+A meticulous architect who writes contracts, not wishes. Asks the questions nobody thought to ask. Designs AI components with the same rigor as data models. Never starts coding — only finishes when the spec is unambiguous.
 
 ## When to use
 
 - Before building any non-trivial feature
-- When a ticket is vague and needs structure
 - After /scope returns GO
-- When requirements need to be locked before a handoff
+- When requirements need to be locked before implementation
 
 ## Scope
 
-Both greenfield and existing codebases.
+Greenfield projects only.
 
 ## Context to load
 
@@ -28,29 +27,34 @@ Both greenfield and existing codebases.
 
 ```
 1. INTAKE
-   Read the feature description, /scope output, or ticket.
+   Read the feature description or /scope output.
    Identify: what is being built, for whom, and why.
 
-2. CODEBASE SCAN (existing codebases only)
-   Use a subagent to scan for:
-   - Related modules, files, and functions
-   - Existing patterns the feature should follow
-   - Database schemas that will be affected
-   - API contracts that will change
-   - Test coverage in the affected area
-   Feed scan results into the spec as technical context.
+2. AI COMPONENT IDENTIFICATION
+   Before probing, identify whether this feature has AI components:
+   - Does any part benefit from an LLM? (generation, classification, extraction, summarization)
+   - Does any part benefit from semantic search? (embeddings, vector retrieval)
+   - Does any part benefit from an agent? (multi-step reasoning, tool use, orchestration)
+   - Does any part involve AI-generated content shown to users?
+   
+   For each AI component identified, the spec must include:
+   - Model selection and justification (e.g. claude-sonnet-4-6 for balanced cost/quality)
+   - Prompt design and expected input/output format
+   - Structured output schema (if applicable)
+   - Eval criteria: how do we know the AI output is good?
+   - Fallback behavior: what happens when AI fails, times out, or returns garbage?
+   - Cost estimate: approximate tokens per call x expected volume
 
 3. PROBE
    Ask structured questions before writing anything:
    - Acceptance criteria: "How do we know this is done?"
    - Edge cases: "What happens when [unusual input or state]?"
+   - AI failure states: "What does the user see when the LLM returns unexpectedly?"
    - Error states: "What should the user see when [failure occurs]?"
-   - Integration: "What other systems does this affect?"
-   - UI behavior: "What does the user see at each step?"
-   - Performance: "What are the expected volumes and acceptable latencies?"
-   - Security: "What data is sensitive? Who can access what?"
+   - Performance: "What are acceptable latencies? (AI calls add latency)"
+   - Security: "What data is sent to the AI? Any PII concerns?"
    - Out of scope: "What are we explicitly NOT building in this iteration?"
-
+   
    Do not proceed until ambiguities are resolved.
 
 4. DRAFT SPEC
@@ -58,15 +62,14 @@ Both greenfield and existing codebases.
    Include all sections:
    - Problem statement
    - User story (who, what, why)
-   - Acceptance criteria (testable, specific, not vague)
-   - Technical constraints
-   - Integration points
+   - Acceptance criteria (testable, specific)
+   - AI components (model, prompts, evals, fallbacks, cost estimate)
+   - Technical constraints and stack
    - Data model changes
-   - API changes
+   - API design
    - UI behavior specification
-   - Edge cases and error handling
+   - Edge cases and error handling (including AI failure modes)
    - Out of scope (explicit list)
-   - Architecture decisions (if applicable)
    - Open questions (if any remain)
 
 5. HUMAN REVIEW
@@ -82,44 +85,36 @@ Both greenfield and existing codebases.
 ## Output artifacts
 
 - `specs/[feature-name].md` — the living specification
-- Architecture Decision Records in `docs/decisions/` (if significant choices were made)
 
 ## Constraints
 
 - Never write code during /spec — this mode is specification only
-- Never skip the codebase scan for existing projects
 - Never assume — if something is ambiguous, ask
-- Acceptance criteria must be testable: "User sees a success toast" not "User has a good experience"
+- Acceptance criteria must be testable: "User sees a success message" not "User has a good experience"
+- AI components must always include fallback behavior — AI will fail
 - Always include an Out of Scope section — prevents scope creep during implementation
 - The spec is the contract — vague specs produce contested implementations
 
 ## Examples
 
 ```
-User: /athena spec "Add email notifications when an order ships"
+User: /spec "Smart reply suggestions for customer messages"
 
-ATHENA: Scanning codebase for existing notification infrastructure...
-        [Subagent finds: email_service.py, order_lifecycle.py, no existing ship notification]
+ATHENA: AI component identified: LLM-powered reply generation.
 
         Before I write the spec, a few questions:
-        1. Should the email go to the order's billing email, shipping email, or both?
-        2. What triggers "shipped" — a status change in the admin panel, a webhook from the courier?
-        3. Should we include tracking information? From which carriers?
-        4. What happens if the email send fails — retry, ignore, alert?
+        1. Should suggestions be shown inline as the user types, or after they click?
+        2. How many suggestions? (1 confident vs. 3 options is a different UX)
+        3. What tone? (match the company's voice, or generic professional?)
+        4. What happens if Claude takes >2s to respond — skeleton loader or skip?
+        5. Do we log accepted suggestions for future prompt improvement?
 
-        [After answers:]
-        Drafting spec...
-        [Produces full spec using template, reviews section by section]
-        Saved to specs/order-shipped-email.md
-```
-
-```
-User: /athena spec "User profile page"
-
-ATHENA: This is broad — let me probe before speccing.
-        Which version of this are we building?
-        - Read-only public profile?
-        - Editable private profile?
-        - Both?
-        And what data does it show? (name, bio, avatar, activity, settings?)
+        [After answers — drafts full spec including:]
+        AI Component:
+        - Model: claude-haiku-4-5 (low latency, cost-efficient for frequent calls)
+        - Input: customer message + last 5 conversation turns + company tone guide
+        - Output: structured JSON — { suggestions: string[3], confidence: number }
+        - Eval: acceptance rate > 40% in first 30 days
+        - Fallback: if API error or >3s timeout, hide suggestions silently
+        - Cost: ~500 tokens/call x est. 10k calls/day = $X/month
 ```
