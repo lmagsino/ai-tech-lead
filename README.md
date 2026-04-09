@@ -6,6 +6,8 @@ ATHENA is a set of nine intelligent modes (skills) that guide AI coding agents t
 
 Works with Claude Code, Codex, Cursor, Gemini CLI, and OpenCode.
 
+![ATHENA overview](assets/overview.png)
+
 ---
 
 ## What it does
