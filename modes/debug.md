@@ -23,7 +23,18 @@ Greenfield projects.
 
 ## Context to load
 
-`templates/rca.md`
+- `templates/rca.md`
+- `references/ai-patterns.md`
+
+## Handoff
+
+**Receives:** Bug report, error message, stack trace, or description of AI misbehavior.
+
+**Produces:**
+- Scoped fix with regression test (or eval test case for AI bugs)
+- `docs/rca/[YYYY-MM-DD]-[description].md`
+
+**Next mode:** None — debug is self-contained. If the fix touches significant code, recommend `/review` on the affected files.
 
 ## Workflow
 
