@@ -24,6 +24,19 @@ Greenfield projects only.
 
 None. This mode operates on product and engineering judgment — not code.
 
+## Handoff
+
+**Receives:** A feature idea, ticket, or product direction question from the CTO.
+
+**Produces:** If GO — save a scope summary to `scopes/[feature-name].md` containing:
+- Problem statement (refined)
+- GO recommendation with reasoning
+- AI components identified (if any)
+- Key constraints and open questions
+- Suggested spec scope
+
+**Next mode:** `/spec scopes/[feature-name].md`
+
 ## Workflow
 
 ```
