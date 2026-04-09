@@ -27,7 +27,16 @@ Greenfield projects.
 - `references/anti-patterns.md`
 - `references/security-owasp.md`
 - `references/engineering-checklist.md`
+- `references/ai-patterns.md`
 - `templates/scorecard.md`
+
+## Handoff
+
+**Receives:** A path, directory, or diff to review. Optionally `--against specs/[name].md` for spec conformance pass.
+
+**Produces:** Severity-ranked scorecard. Blocking issues (CRITICAL + HIGH) must be resolved before proceeding.
+
+**Next mode:** When all CRITICAL and HIGH findings are resolved — "Run `/ship` when ready to launch."
 
 ## Workflow
 
