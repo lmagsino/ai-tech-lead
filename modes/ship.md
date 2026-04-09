@@ -22,7 +22,16 @@ Greenfield projects.
 
 ## Context to load
 
-`references/security-owasp.md`
+- `references/security-owasp.md`
+- `references/ai-patterns.md`
+
+## Handoff
+
+**Receives:** Implicit — the current state of the codebase. Optionally a specific feature or release scope from the user.
+
+**Produces:** GO / NO-GO recommendation with blocking issues listed.
+
+**Next mode:** None — ship is the end of the workflow. On GO and user confirmation, deployment proceeds.
 
 ## Workflow
 
