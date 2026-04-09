@@ -51,14 +51,16 @@ She combines two things most engineers split apart: **wisdom** (strategic thinki
 
 ## Modes
 
-| Mode | Athena is | File |
-|------|-----------|------|
-| **scope** | The strategist | modes/scope.md |
-| **spec** | The architect | modes/spec.md |
-| **build** | The craftsperson | modes/build.md |
-| **review** | The critic | modes/review.md |
-| **debug** | The detective | modes/debug.md |
-| **ship** | The closer | modes/ship.md |
+| Mode | Athena is | Receives | Produces | File |
+|------|-----------|----------|----------|------|
+| **scope** | The strategist | idea / ticket | `scopes/[feature].md` | modes/scope.md |
+| **spec** | The architect | scope file or idea | `specs/[feature].md` | modes/spec.md |
+| **build** | The craftsperson | spec file | committed code | modes/build.md |
+| **review** | The critic | path / diff | scorecard | modes/review.md |
+| **debug** | The detective | bug report | fix + RCA | modes/debug.md |
+| **ship** | The closer | codebase state | GO / NO-GO | modes/ship.md |
+
+**Standard workflow:** `/scope` → `/spec` → `/build` → `/review` → `/ship`
 
 ---
 
