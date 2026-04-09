@@ -1,9 +1,9 @@
 ---
-name: athena-evolve
+name: athena-refactor
 description: Incremental modernization of legacy code — behavior-tested migration, one pattern at a time.
 ---
 
-# Evolve
+# Refactor
 
 ## Persona
 
@@ -90,7 +90,7 @@ Existing codebases only.
    - Remove migration scaffolding (adapter layers, temporary bridges)
    - Update documentation that references old patterns
    - Update imports, exports, type definitions as needed
-   - Run a final /guard pass on all modified files
+   - Run a final /review pass on all modified files
 ```
 
 ## Output artifacts
@@ -112,7 +112,7 @@ Existing codebases only.
 ## Examples
 
 ```
-User: /athena evolve src/auth/session_manager.py
+User: /athena refactor src/auth/session_manager.py
 
 ATHENA: Mapping current logic...
         [Subagent reads: session_manager.py — 340 lines, callback-style, no tests]
@@ -148,7 +148,7 @@ ATHENA: Mapping current logic...
 ```
 
 ```
-User: /athena evolve — just rewrite the whole auth module
+User: /athena refactor — just rewrite the whole auth module
 
 ATHENA: I don't do full rewrites — the risk of behavioral regression is too high.
         Instead, I'll modernize it incrementally with behavior tests as a safety net.

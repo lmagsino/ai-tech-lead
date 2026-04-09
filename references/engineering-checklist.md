@@ -1,6 +1,6 @@
 # Engineering Checklist Reference
 
-Organized checklist for `/guard` to use when reviewing code. Each category lists specific things to check with the signal to look for.
+Organized checklist for `/review` to use when reviewing code. Each category lists specific things to check with the signal to look for.
 
 ---
 

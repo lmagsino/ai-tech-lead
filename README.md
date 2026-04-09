@@ -2,7 +2,7 @@
 
 **Spec-driven engineering intelligence for AI coding agents.**
 
-ATHENA is a set of nine intelligent modes (slash commands) that guide AI coding agents through the full software development lifecycle — from challenging product direction to writing specs, implementing features, reviewing code, investigating bugs, and running retrospectives.
+ATHENA is a set of nine intelligent modes (skills) that guide AI coding agents through the full software development lifecycle — from challenging product direction to writing specs, implementing features, reviewing code, investigating bugs, and running retrospectives.
 
 Works with Claude Code, Codex, Cursor, Gemini CLI, and OpenCode.
 
@@ -12,14 +12,14 @@ Works with Claude Code, Codex, Cursor, Gemini CLI, and OpenCode.
 
 | Mode | Invoke when | What it produces |
 |------|------------|-----------------|
-| `/challenge` | "Should we build this?" | GO / RETHINK / KILL recommendation with reasoning |
+| `/scope` | "Should we build this?" | GO / RETHINK / KILL recommendation with reasoning |
 | `/spec` | "Write a spec" | Approved specification saved to `specs/[name].md` |
-| `/forge` | "Build this" | Implementation with tests, clean code gate |
-| `/investigate` | "There's a bug" | Root cause analysis, scoped fix, RCA document |
-| `/guard` | "Review this code" | 5-pass scorecard with severity-ranked findings |
-| `/vision` | "Check the UI" | Multi-viewport screenshots, a11y check, flow walkthrough |
-| `/evolve` | "Refactor this" | Behavior-tested incremental migration |
-| `/patch` | "Quick fix" | Scoped fix, committed, done |
+| `/build` | "Build this" | Implementation with tests, clean code gate |
+| `/debug` | "There's a bug" | Root cause analysis, scoped fix, RCA document |
+| `/review` | "Review this code" | 5-pass scorecard with severity-ranked findings |
+| `/qa` | "Check the UI" | Multi-viewport screenshots, a11y check, flow walkthrough |
+| `/refactor` | "Refactor this" | Behavior-tested incremental migration |
+| `/fix` | "Quick fix" | Scoped fix, committed, done |
 | `/retro` | "What did we learn?" | Lessons updated, tech debt roadmap |
 
 ---
@@ -61,11 +61,11 @@ cp /path/to/athena/ATHENA.md.template ./ATHENA.md
 
 **3. Use it**
 ```
-/athena challenge "Add real-time notifications"
+/athena scope "Add real-time notifications"
 /athena spec "User authentication with OAuth"
-/athena forge specs/auth.md
-/athena guard src/controllers/
-/athena investigate "checkout fails for EU users"
+/athena build specs/auth.md
+/athena review src/controllers/
+/athena debug "checkout fails for EU users"
 /athena retro --last 7d
 ```
 
@@ -79,7 +79,7 @@ ATHENA uses a **three-tier context architecture**:
 - **Warm tier** — Each mode loads only the reference documents it needs (clean code, SOLID, security, etc.)
 - **Cold tier** — Subagents handle codebase scanning, git history, and dependency mapping on demand
 
-This keeps agent context efficient. `/patch` doesn't need SOLID principles. `/guard` doesn't need to scan your entire codebase.
+This keeps agent context efficient. `/fix` doesn't need SOLID principles. `/review` doesn't need to scan your entire codebase.
 
 ---
 
@@ -99,7 +99,7 @@ ATHENA ships with seven reference documents:
 
 ## Guard: 5-pass code review
 
-`/guard` runs five passes and produces a severity-ranked scorecard:
+`/review` runs five passes and produces a severity-ranked scorecard:
 
 1. **Structural integrity** — SOLID principles
 2. **Code smells & anti-patterns** — 23 smells + N+1, race conditions, missing timeouts, etc.

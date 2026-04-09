@@ -28,17 +28,17 @@ Reference documents loaded only when a specific mode is invoked. Each mode file 
 
 | Mode | References loaded |
 |------|------------------|
-| `/challenge` | None |
+| `/scope` | None |
 | `/spec` | `templates/spec.md` |
-| `/forge` | `references/clean-code.md`, `references/solid-principles.md` |
-| `/investigate` | `templates/rca.md` |
-| `/guard` | `references/solid-principles.md`, `references/code-smells.md`, `references/anti-patterns.md`, `references/security-owasp.md`, `references/engineering-checklist.md`, `templates/scorecard.md` |
-| `/vision` | Active spec (for UI criteria) |
-| `/evolve` | `references/clean-code.md`, `references/design-patterns.md` |
-| `/patch` | None |
+| `/build` | `references/clean-code.md`, `references/solid-principles.md` |
+| `/debug` | `templates/rca.md` |
+| `/review` | `references/solid-principles.md`, `references/code-smells.md`, `references/anti-patterns.md`, `references/security-owasp.md`, `references/engineering-checklist.md`, `templates/scorecard.md` |
+| `/qa` | Active spec (for UI criteria) |
+| `/refactor` | `references/clean-code.md`, `references/design-patterns.md` |
+| `/fix` | None |
 | `/retro` | `templates/retro-report.md` |
 
-This prevents context window bloat — `/patch` doesn't need SOLID principles.
+This prevents context window bloat — `/fix` doesn't need SOLID principles.
 
 ### Cold Tier (on-demand via subagents)
 
@@ -129,6 +129,6 @@ Output artifacts produced
 
 **Blast radius awareness.** Before any change, the affected scope is mapped. Surprises are caught at planning time, not production time.
 
-**Incremental by default.** /evolve never rewrites; it migrates. /forge builds one task at a time. Every step is verified before the next begins.
+**Incremental by default.** /refactor never rewrites; it migrates. /build builds one task at a time. Every step is verified before the next begins.
 
-**Patterns over incidents.** /retro surfaces systemic causes. /investigate produces RCA documents. Individual bugs become institutional learning.
+**Patterns over incidents.** /retro surfaces systemic causes. /debug produces RCA documents. Individual bugs become institutional learning.

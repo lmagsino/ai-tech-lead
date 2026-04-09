@@ -40,7 +40,7 @@ git clone https://github.com/[your-org]/athena.git .claude/skills/athena
 
 Open Claude Code in any project and run:
 ```
-/athena patch "test installation"
+/athena fix "test installation"
 ```
 
 You should see ATHENA respond with the patch workflow.
@@ -132,7 +132,7 @@ Investigate this bug: [description]
 
 Or explicit mode invocation:
 ```
-/athena guard src/
+/athena review src/
 /athena spec "user authentication"
 ```
 
@@ -167,9 +167,9 @@ Reference: ./.athena/references/
 ### Usage
 
 ```
-/athena challenge "Should we build X?"
+/athena scope "Should we build X?"
 /athena spec "Feature description"
-/athena guard src/
+/athena review src/
 ```
 
 ---
@@ -199,6 +199,6 @@ After installing on any platform:
 
 - [ ] `ATHENA.md` created in project root and filled in with stack + rules
 - [ ] `lessons.md` initialized (run `/athena retro --last 30d`)
-- [ ] Test basic invocation: `/athena patch "test"`
+- [ ] Test basic invocation: `/athena fix "test"`
 - [ ] Review `docs/workflows.md` for standard workflows
 - [ ] Review `docs/customization.md` to tune ATHENA for your team

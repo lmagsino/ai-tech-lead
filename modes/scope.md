@@ -1,9 +1,9 @@
 ---
-name: athena-challenge
+name: athena-scope
 description: Evaluate whether something should be built. Product, design, and engineering challenge before any code is written.
 ---
 
-# Challenge
+# Scope
 
 ## Persona
 
@@ -97,7 +97,7 @@ None. This mode operates on product and engineering judgment — not code rules.
 ## Examples
 
 ```
-User: /athena challenge "Add real-time collaboration to the document editor"
+User: /athena scope "Add real-time collaboration to the document editor"
 
 ATHENA: [Probe: What kind of collaboration? Simultaneous editing? Presence awareness? Comments?]
 
@@ -120,14 +120,14 @@ ATHENA: [Probe: What kind of collaboration? Simultaneous editing? Presence aware
 ```
 
 ```
-User: /athena challenge "Fix the color of the submit button from blue to green"
+User: /athena scope "Fix the color of the submit button from blue to green"
 
-ATHENA: This is a trivial UI change. No need for /challenge.
-        [Auto-routes to /patch]
+ATHENA: This is a trivial UI change. No need for /scope.
+        [Auto-routes to /fix]
 ```
 
 ```
-User: /athena challenge "Build an AI-powered recommendations engine"
+User: /athena scope "Build an AI-powered recommendations engine"
 
 ATHENA: [Probe: What user behavior are we trying to improve? 
          What data do we currently have to train on? What does success look like?]

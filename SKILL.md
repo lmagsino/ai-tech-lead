@@ -5,7 +5,7 @@ description: >
   building features, investigating bugs, reviewing code quality, modernizing legacy code,
   writing specifications, visual QA, or challenging product direction. Works on both
   greenfield and existing codebases. Activate with /athena followed by a mode name.
-  Modes: challenge, spec, forge, investigate, guard, vision, evolve, patch, retro.
+  Modes: scope, spec, build, debug, review, qa, refactor, fix, retro.
   Use this skill whenever the user mentions planning a feature, writing a spec,
   building something, reviewing code, debugging, refactoring, investigating a bug,
   or questioning whether something should be built. Even if they don't say "athena."
@@ -43,14 +43,14 @@ description: >
 
 | Mode | Invoke when | File |
 |------|-------------|------|
-| **challenge** | "Should we build this?" / product direction / scope question | modes/challenge.md |
+| **scope** | "Should we build this?" / product direction / feasibility | modes/scope.md |
 | **spec** | "Write a spec" / feature description / requirements | modes/spec.md |
-| **forge** | "Build this" / implement / create feature | modes/forge.md |
-| **investigate** | "There's a bug" / error / production issue / incident | modes/investigate.md |
-| **guard** | "Review this code" / PR review / code quality | modes/guard.md |
-| **vision** | "Check the UI" / visual test / does it look right | modes/vision.md |
-| **evolve** | "Refactor" / modernize / migrate / upgrade | modes/evolve.md |
-| **patch** | "Quick fix" / typo / config change / small update | modes/patch.md |
+| **build** | "Build this" / implement / create feature | modes/build.md |
+| **debug** | "There's a bug" / error / production issue / incident | modes/debug.md |
+| **review** | "Review this code" / PR review / code quality | modes/review.md |
+| **qa** | "Check the UI" / visual test / does it look right | modes/qa.md |
+| **refactor** | "Refactor" / modernize / migrate / upgrade | modes/refactor.md |
+| **fix** | "Quick fix" / typo / config change / small update | modes/fix.md |
 | **retro** | "What did we learn" / retrospective / health check | modes/retro.md |
 
 ---
@@ -59,12 +59,12 @@ description: >
 
 When the user does not specify a mode, select automatically:
 
-- User describes a bug, error, or incident → `/investigate`
-- User asks "should we" or questions value/scope → `/challenge`
-- User says "fix" and the change is clearly trivial → `/patch`
-- User asks to review code or a PR → `/guard`
-- User describes a feature to build → check if a spec exists. If yes → `/forge`. If no → `/spec`
-- User asks to refactor or modernize → `/evolve`
+- User describes a bug, error, or incident → `/debug`
+- User asks "should we" or questions value/scope → `/scope`
+- User says "fix" and the change is clearly trivial → `/fix`
+- User asks to review code or a PR → `/review`
+- User describes a feature to build → check if a spec exists. If yes → `/build`. If no → `/spec`
+- User asks to refactor or modernize → `/refactor`
 - Ambiguous → ask the user which mode to use
 
 ---
@@ -83,14 +83,14 @@ When a mode is invoked:
 ## Usage
 
 ```
-/athena challenge "Add real-time notifications"
+/athena scope "Add real-time notifications"
 /athena spec "User authentication with OAuth"
-/athena forge specs/auth.md
-/athena guard src/controllers/
-/athena guard src/controllers/ --against specs/auth.md
-/athena investigate "checkout fails for EU users"
-/athena vision http://localhost:3000
-/athena evolve src/legacy/
-/athena patch "fix typo in error message"
+/athena build specs/auth.md
+/athena review src/controllers/
+/athena review src/controllers/ --against specs/auth.md
+/athena debug "checkout fails for EU users"
+/athena qa http://localhost:3000
+/athena refactor src/legacy/
+/athena fix "fix typo in error message"
 /athena retro --last 7d
 ```

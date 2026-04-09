@@ -1,9 +1,9 @@
 ---
-name: athena-patch
+name: athena-fix
 description: Fast, minimal fix for trivial changes — typos, config updates, small corrections under 3 files.
 ---
 
-# Patch
+# Fix
 
 ## Persona
 
@@ -40,7 +40,7 @@ None. Patch is intentionally lightweight.
    - Does the change touch more than 3 files?
 
    If any gate fails:
-   - "This is bigger than a patch. Use /forge instead." — explain why.
+   - "This is bigger than a patch. Use /build instead." — explain why.
 
 3. COMMIT
    - Descriptive commit message: what changed and why
@@ -53,16 +53,16 @@ None. Patch is intentionally lightweight.
 
 ## Constraints
 
-- If the change touches more than 3 files → stop, suggest `/forge`
-- If the change requires writing a new test → stop, suggest `/forge`
-- If the change involves adding a new function or class → stop, suggest `/forge`
+- If the change touches more than 3 files → stop, suggest `/build`
+- If the change requires writing a new test → stop, suggest `/build`
+- If the change involves adding a new function or class → stop, suggest `/build`
 - Still runs the lightweight gate — fast does not mean careless
-- Never use `/patch` for feature development
+- Never use `/fix` for feature development
 
 ## Examples
 
 ```
-User: /athena patch "fix typo in the login error message — 'Incorect' should be 'Incorrect'"
+User: /athena fix "fix typo in the login error message — 'Incorect' should be 'Incorrect'"
 ATHENA: Found "Incorect" in src/auth/errors.ts line 14.
         Fixed → "Incorrect"
         Gate: ✓ no new smells, ✓ no tests broken, ✓ 1 file touched
@@ -70,7 +70,7 @@ ATHENA: Found "Incorect" in src/auth/errors.ts line 14.
 ```
 
 ```
-User: /athena patch "update the API timeout from 5s to 10s"
+User: /athena fix "update the API timeout from 5s to 10s"
 ATHENA: Found timeout config in config/api.yml line 8.
         Updated: timeout: 5000 → timeout: 10000
         Gate: ✓ passes all checks
@@ -78,8 +78,8 @@ ATHENA: Found timeout config in config/api.yml line 8.
 ```
 
 ```
-User: /athena patch "add caching to the user lookup"
+User: /athena fix "add caching to the user lookup"
 ATHENA: This isn't a patch — adding caching touches the data layer, 
         may require a new dependency, and should be specced.
-        Use /forge instead. Want me to start a spec?
+        Use /build instead. Want me to start a spec?
 ```

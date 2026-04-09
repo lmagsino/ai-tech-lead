@@ -1,9 +1,9 @@
 ---
-name: athena-investigate
+name: athena-debug
 description: Diagnose bugs, errors, and incidents. Trace to root cause. Fix with regression test. Produce RCA.
 ---
 
-# Investigate
+# Debug
 
 ## Persona
 
@@ -110,7 +110,7 @@ Existing codebases only.
 ## Examples
 
 ```
-User: /athena investigate "Checkout fails for EU users — 'Invalid VAT format' error"
+User: /athena debug "Checkout fails for EU users — 'Invalid VAT format' error"
 
 ATHENA: Ingesting... 
         Symptom: ValidationError: "Invalid VAT format"
@@ -140,7 +140,7 @@ ATHENA: Ingesting...
 ```
 
 ```
-User: /athena investigate "app is slow"
+User: /athena debug "app is slow"
 
 ATHENA: "App is slow" needs more context before I can investigate effectively.
         - Which page or operation?

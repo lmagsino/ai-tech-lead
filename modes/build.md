@@ -1,9 +1,9 @@
 ---
-name: athena-forge
+name: athena-build
 description: Implement exactly what the spec defines — no more, no less. Test first, clean code gate before commit.
 ---
 
-# Forge
+# Build
 
 ## Persona
 
@@ -98,7 +98,7 @@ Both greenfield and existing codebases.
 ## Examples
 
 ```
-User: /athena forge specs/order-shipped-email.md
+User: /athena build specs/order-shipped-email.md
 
 ATHENA: Loading spec... 
         Scanning impact: email_service.py, order_lifecycle.py, tests/test_orders.py
@@ -125,7 +125,7 @@ ATHENA: Loading spec...
 ```
 
 ```
-User: /athena forge "add a dashboard"
+User: /athena build "add a dashboard"
 
 ATHENA: "Add a dashboard" is too broad to implement safely without a spec.
         I found no spec file for this feature.

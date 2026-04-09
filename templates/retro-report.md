@@ -57,11 +57,11 @@
 
 | Priority | Target | Issue | Effort | Mode |
 |----------|--------|-------|--------|------|
-| 1 | [path] | [issue] | S / M / L | /evolve |
-| 2 | [path] | [issue] | S / M / L | /evolve |
-| 3 | [path] | [issue] | S / M / L | /evolve |
-| 4 | [path] | [issue] | S / M / L | /evolve |
-| 5 | [path] | [issue] | S / M / L | /evolve |
+| 1 | [path] | [issue] | S / M / L | /refactor |
+| 2 | [path] | [issue] | S / M / L | /refactor |
+| 3 | [path] | [issue] | S / M / L | /refactor |
+| 4 | [path] | [issue] | S / M / L | /refactor |
+| 5 | [path] | [issue] | S / M / L | /refactor |
 
 ---
 

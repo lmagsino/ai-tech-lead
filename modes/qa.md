@@ -1,9 +1,9 @@
 ---
-name: athena-vision
+name: athena-qa
 description: Visual QA — multi-viewport screenshots, console error scan, accessibility check, and spec UI criteria verification.
 ---
 
-# Vision
+# QA
 
 ## Persona
 
@@ -110,7 +110,7 @@ Active spec (if provided) — for UI acceptance criteria.
 ## Examples
 
 ```
-User: /athena vision http://localhost:3000/checkout
+User: /athena qa http://localhost:3000/checkout
 
 ATHENA: Launching browser... navigating to /checkout
         
@@ -140,7 +140,7 @@ ATHENA: Launching browser... navigating to /checkout
 ```
 
 ```
-User: /athena vision — I just want to check the landing page
+User: /athena qa — I just want to check the landing page
 
 ATHENA: Which URL should I test? Is the dev server running? (e.g., http://localhost:3000)
 ```

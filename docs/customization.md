@@ -123,7 +123,7 @@ You can add your own reference documents to the `references/` directory and inst
 
 ```
 ## Rules
-8. When running /guard, also load references/our-api-conventions.md
+8. When running /review, also load references/our-api-conventions.md
 ```
 
 Example custom references:
@@ -164,8 +164,8 @@ If certain modes don't fit your workflow, note that in ATHENA.md:
 
 ```
 ## Rules
-10. Do not use /vision — we have a dedicated visual QA process
-11. Do not use /challenge for tickets that have already been approved by product
+10. Do not use /qa — we have a dedicated visual QA process
+11. Do not use /scope for tickets that have already been approved by product
 ```
 
 ---

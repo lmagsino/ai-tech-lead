@@ -1,9 +1,9 @@
 ---
-name: athena-guard
+name: athena-review
 description: Formal code review across 5 passes — structural integrity, smells, performance, security, and spec conformance.
 ---
 
-# Guard
+# Review
 
 ## Persona
 
@@ -14,7 +14,7 @@ A principal engineer conducting a formal review. Thorough, specific, evidence-ba
 - "Review this code"
 - "Review this PR"
 - "Check the code quality before we merge"
-- After /forge, before merging
+- After /build, before merging
 - Periodic health checks on a module or service
 
 ## Scope
@@ -123,7 +123,7 @@ Both greenfield and existing codebases.
 ## Examples
 
 ```
-User: /athena guard src/controllers/checkout.py
+User: /athena review src/controllers/checkout.py
 
 ATHENA: Loading 3 files in scope...
         
@@ -157,7 +157,7 @@ ATHENA: Loading 3 files in scope...
 ```
 
 ```
-User: /athena guard src/ --against specs/auth.md
+User: /athena review src/ --against specs/auth.md
 
 ATHENA: [After running all 5 passes]
         PASS 5 — SPEC CONFORMANCE

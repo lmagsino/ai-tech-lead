@@ -75,7 +75,7 @@ Both greenfield and existing codebases. Requires git history.
    For each target:
    - File or module path
    - What makes it a liability (specific pattern, size, instability)
-   - Recommended ATHENA mode: usually /evolve
+   - Recommended ATHENA mode: usually /refactor
    - Effort estimate: Small (< 1 day) | Medium (1-3 days) | Large (> 3 days)
 
 6. ARCHITECTURE DOC UPDATE
@@ -104,7 +104,7 @@ Both greenfield and existing codebases. Requires git history.
 - Updated `lessons.md` in project root
 - Updated `docs/architecture.md` (if applicable)
 - Retro report (printed in conversation using retro-report.md template)
-- Tech debt roadmap with `/evolve` recommendations
+- Tech debt roadmap with `/refactor` recommendations
 
 ## Constraints
 
@@ -144,9 +144,9 @@ ATHENA: Analyzing last 7 days of git history...
            logic to specialized services"
         
         Tech debt roadmap:
-        Priority 1: src/payments/gateway.py — Effort: Medium — /evolve 
+        Priority 1: src/payments/gateway.py — Effort: Medium — /refactor 
           (extract adapter from business logic, add integration test coverage)
-        Priority 2: src/orders/order_service.py — Effort: Large — /evolve 
+        Priority 2: src/orders/order_service.py — Effort: Large — /refactor 
           (extract PaymentOrchestrator, InventoryReserver, OrderNotifier)
 ```
 

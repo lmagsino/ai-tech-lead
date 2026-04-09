@@ -13,7 +13,7 @@ A meticulous architect who writes contracts, not wishes. Asks the questions nobo
 
 - Before building any non-trivial feature
 - When a ticket is vague and needs structure
-- After /challenge returns GO
+- After /scope returns GO
 - When requirements need to be locked before a handoff
 
 ## Scope
@@ -28,7 +28,7 @@ Both greenfield and existing codebases.
 
 ```
 1. INTAKE
-   Read the feature description, /challenge output, or ticket.
+   Read the feature description, /scope output, or ticket.
    Identify: what is being built, for whom, and why.
 
 2. CODEBASE SCAN (existing codebases only)
