@@ -285,13 +285,42 @@
     .flow-pill.scope    { color: #bc8cff; border-color: rgba(188,140,255,0.3); background: rgba(188,140,255,0.08); }
     .flow-pill.spec     { color: #58a6ff; border-color: rgba(88,166,255,0.3); background: rgba(88,166,255,0.08); }
     .flow-pill.build    { color: #3fb950; border-color: rgba(63,185,80,0.3); background: rgba(63,185,80,0.08); }
+    .flow-pill.impact   { color: #3fb950; border-color: rgba(63,185,80,0.3); background: rgba(63,185,80,0.08); }
+    .flow-pill.debug    { color: #f85149; border-color: rgba(248,81,73,0.3); background: rgba(248,81,73,0.08); }
     .flow-pill.review   { color: #d29922; border-color: rgba(210,153,34,0.3); background: rgba(210,153,34,0.08); }
     .flow-pill.qa       { color: #38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.08); }
+    .flow-pill.refactor { color: #fb923c; border-color: rgba(251,146,60,0.3); background: rgba(251,146,60,0.08); }
+    .flow-pill.retro    { color: #2dd4bf; border-color: rgba(45,212,191,0.3); background: rgba(45,212,191,0.08); }
     .flow-pill.ship     { color: #f0f6fc; border-color: rgba(240,246,252,0.2); background: rgba(240,246,252,0.05); }
 
     .flow-arrow {
       color: #30363d;
       font-size: 16px;
+    }
+
+    .flows-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+      max-width: 880px;
+      margin-bottom: 64px;
+    }
+
+    .flow-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #58a6ff;
+      margin-bottom: 6px;
+    }
+
+    .flow-note {
+      margin-top: 12px;
+      font-size: 11px;
+      color: #6e7681;
+      font-style: italic;
     }
 
     /* Footer */
@@ -482,35 +511,61 @@
     </div>
   </div>
 
-  <!-- Standard workflow -->
-  <div class="section-label">Standard Greenfield Workflow</div>
-  <div class="flow">
-    <div class="flow-title">New feature, from idea to ship</div>
-    <div class="flow-steps">
-      <div class="flow-step">
-        <div class="flow-pill scope">/scope</div>
-        <div class="flow-arrow">→</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-pill spec">/spec</div>
-        <div class="flow-arrow">→</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-pill build">/build</div>
-        <div class="flow-arrow">→</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-pill review">/review</div>
-        <div class="flow-arrow">→</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-pill qa">/qa</div>
-        <div class="flow-arrow">→</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-pill ship">ship</div>
+  <!-- Workflows -->
+  <div class="section-label">Standard Workflows</div>
+
+  <div class="flows-grid">
+
+    <div class="flow">
+      <div class="flow-label">Greenfield</div>
+      <div class="flow-title">New feature, from idea to ship</div>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-pill scope">/scope</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill spec">/spec</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill build">/build</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill review">/review</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill qa">/qa</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill ship">ship</div></div>
       </div>
     </div>
+
+    <div class="flow">
+      <div class="flow-label">Existing project — new feature</div>
+      <div class="flow-title">Same flow, with impact analysis before build</div>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-pill scope">/scope</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill spec">/spec</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill build impact">/build *</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill review">/review</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill qa">/qa</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill ship">ship</div></div>
+      </div>
+      <div class="flow-note">* maps blast radius and gets approval before touching any file</div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-label">Existing project — bug</div>
+      <div class="flow-title">Trace to root cause, fix once</div>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-pill debug">/debug</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill review">/review</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill ship">ship</div></div>
+      </div>
+      <div class="flow-note">Scoped fix + regression test. RCA document always produced.</div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-label">Existing project — tech debt</div>
+      <div class="flow-title">Identify hotspots, migrate safely</div>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-pill retro">/retro</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill refactor">/refactor</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill review">/review</div><div class="flow-arrow">→</div></div>
+        <div class="flow-step"><div class="flow-pill ship">ship</div></div>
+      </div>
+      <div class="flow-note">Behavior tests before migration. One pattern at a time. Never rewrites.</div>
+    </div>
+
   </div>
 
   <!-- Footer -->
