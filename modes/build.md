@@ -24,6 +24,15 @@ Greenfield projects only.
 
 - `references/clean-code.md`
 - `references/solid-principles.md`
+- `references/ai-patterns.md`
+
+## Handoff
+
+**Receives:** `specs/[feature-name].md` — the approved specification.
+
+**Produces:** Committed implementation with passing tests.
+
+**Next mode:** After all tasks complete and spec verification passes, tell the user: "Run `/review src/` to gate before merging."
 
 ## Workflow
 
