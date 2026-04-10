@@ -36,6 +36,8 @@ create_mode_wrappers() {
   local core_dir="$2"
 
   declare -A DESCRIPTIONS=(
+    ["strategist"]="Challenge whether a product is worth building — interrogates market, competition, monetization, and distribution before design or code. Use when starting a new product or asking is this worth doing. Produces STRATEGY.md."
+    ["designer"]="Design the product experience — user journeys, AI-first interactions, screen-by-screen specs. Reads STRATEGY.md. Produces DESIGN.md ready for engineering. Use when planning UX or designing a new product."
     ["challenge"]="Challenge whether something should be built — interrogate product direction, feasibility, and approach before any code is written. Always asks if there is an AI-native version. Use when asked should we build this, product direction, or before writing a spec."
     ["blueprint"]="Design the blueprint — probe for gaps, design AI components, produce an approved spec. Includes AI component design by default — model selection, prompt design, evals, fallbacks, cost estimate. Use when asked to write a spec or define requirements."
     ["forge"]="Forge the implementation from the blueprint — AI infrastructure first, then tests, then code. Use when asked to build, implement, or create a feature from a spec."
@@ -45,7 +47,7 @@ create_mode_wrappers() {
   )
 
   echo "  Creating skill commands:"
-  for mode in challenge blueprint forge guard hunt launch; do
+  for mode in strategist designer challenge blueprint forge guard hunt launch; do
     local wrapper_dir="$skills_dir/$mode"
 
     # Warn if a skill with this name already exists (not from athena)
@@ -106,6 +108,8 @@ install_claude_code() {
   echo ""
   echo "  ✓ Done. Call skills directly in Claude Code:"
   echo ""
+  echo "    /strategist \"AI inventory tool for restaurants\""
+  echo "    /designer"
   echo "    /challenge \"Should we add AI-powered recommendations?\""
   echo "    /blueprint \"Conversational onboarding with LLM\""
   echo "    /forge specs/onboarding.md"
@@ -121,7 +125,7 @@ uninstall_claude_code() {
   local skills_dir="${1:-$HOME/.claude/skills}"
   echo "  Removing ATHENA skills from $skills_dir..."
   rm -rf "$skills_dir/athena"
-  for mode in challenge blueprint forge guard hunt launch; do
+  for mode in strategist designer challenge blueprint forge guard hunt launch; do
     if [[ -f "$skills_dir/$mode/SKILL.md" ]] && grep -q "ATHENA" "$skills_dir/$mode/SKILL.md" 2>/dev/null; then
       rm -rf "$skills_dir/$mode"
       echo "    ✓ removed /$mode"
