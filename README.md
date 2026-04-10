@@ -1,8 +1,8 @@
 # ATHENA
 
-**Your senior full stack AI engineer.**
+**Your principal AI engineer.**
 
-ATHENA is a Claude Code skill set that gives you a senior engineer who thinks before she acts, challenges before she builds, and executes with craft. Built for CTOs and founders shipping AI-native products from zero.
+ATHENA is a Claude Code skill set that gives you a principal engineer who thinks before she acts, challenges before she builds, and executes with craft. Built for CTOs and founders shipping AI-native products from zero.
 
 Works with Claude Code (global or per-project install).
 
@@ -35,12 +35,12 @@ Each mode is Athena thinking in a different dimension of her craft:
 
 | Mode | Athena is | Use when |
 |------|-----------|----------|
-| `/scope` | The strategist | "Should we build this?" |
-| `/spec` | The architect | "Define what we're building" |
-| `/build` | The craftsperson | "Build it" |
-| `/review` | The critic | "Is this solid?" |
-| `/debug` | The detective | "Something broke" |
-| `/ship` | The closer | "We're ready to launch" |
+| `/challenge` | The strategist | "Should we build this?" |
+| `/blueprint` | The architect | "Define what we're building" |
+| `/forge` | The craftsperson | "Build it" |
+| `/guard` | The critic | "Is this solid?" |
+| `/hunt` | The detective | "Something broke" |
+| `/launch` | The closer | "We're ready to launch" |
 
 ---
 
@@ -66,12 +66,12 @@ cp /path/to/athena/ATHENA.md.template ./ATHENA.md
 
 **2. Use it**
 ```
-/scope "Add real-time AI recommendations"
-/spec "Conversational onboarding with LLM"
-/build specs/onboarding.md
-/review src/
-/debug "AI responses are hallucinating product names"
-/ship
+/challenge "Add real-time AI recommendations"
+/blueprint "Conversational onboarding with LLM"
+/forge specs/onboarding.md
+/guard src/
+/hunt "AI responses are hallucinating product names"
+/launch
 ```
 
 ---
