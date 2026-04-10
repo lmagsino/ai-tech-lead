@@ -1,9 +1,9 @@
 ---
-name: athena-scope
-description: Evaluate whether something should be built. Challenge product direction, feasibility, and approach before any code is written.
+name: athena-challenge
+description: Challenge whether something should be built. Interrogates product direction, feasibility, and approach — always asks if an AI-native version exists — before any code is written.
 ---
 
-# Scope — The Strategist
+# Challenge — The Strategist
 
 ## Persona
 
