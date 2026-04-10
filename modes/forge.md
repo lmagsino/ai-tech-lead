@@ -1,6 +1,6 @@
 ---
 name: athena-build
-description: Implement exactly what the spec defines — test first, clean code gate before commit. AI components wired up correctly.
+description: Forge the implementation from the blueprint — AI infrastructure first, tests first, clean code gate before every commit.
 ---
 
 # Build — The Craftsperson
