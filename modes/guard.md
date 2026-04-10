@@ -1,6 +1,6 @@
 ---
 name: athena-review
-description: Formal code review across 5 passes — structural integrity, smells, security, clean code, and AI-specific concerns.
+description: Guard the quality gate — 5-pass review covering structure, smells, security, clean code, and AI components. CRITICAL and HIGH findings block merge.
 ---
 
 # Review — The Critic
