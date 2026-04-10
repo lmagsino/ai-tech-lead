@@ -43,7 +43,7 @@ None. This mode operates on product and engineering judgment — not code.
 - Key constraints and open questions
 - Suggested spec scope
 
-**Next mode:** `/spec scopes/[feature-name].md`
+**Next mode:** `/blueprint scopes/[feature-name].md`
 
 ## Workflow
 
@@ -96,9 +96,18 @@ None. This mode operates on product and engineering judgment — not code.
    - Opportunity cost — what are we NOT building by doing this?
    - Reversibility — if this turns out wrong, how hard is it to undo?
 
-8. RECOMMENDATION
+8. WORKING BACKWARDS TEST (before GO)
+   If this feature succeeds in 6 months, what does success look like specifically?
+   - What metric moves? (retention, activation, revenue, NPS?)
+   - What user behavior changes?
+   - What does failure look like, and how would we know?
+   
+   If you cannot answer these concretely, that's a signal the feature isn't well-defined enough.
+   Surface this gap before recommending GO.
+
+9. RECOMMENDATION
    Deliver exactly one of:
-   - GO: The feature is sound. Proceed to /spec with refined scope.
+   - GO: The feature is sound. Proceed to /blueprint with refined scope.
    - RETHINK: The goal is right but the approach needs work. Provide specific alternatives.
    - KILL: This shouldn't be built. Explain why clearly. Suggest where to focus instead.
 ```
@@ -106,7 +115,7 @@ None. This mode operates on product and engineering judgment — not code.
 ## Output artifacts
 
 - Challenge assessment (printed in conversation — not saved to a file)
-- If GO: a refined problem statement and scope summary ready for `/spec`
+- If GO: a refined problem statement and scope summary ready for `/blueprint`
 
 ## Constraints
 
@@ -118,7 +127,7 @@ None. This mode operates on product and engineering judgment — not code.
 ## Examples
 
 ```
-User: /scope "Add a search bar to find users"
+User: /challenge "Add a search bar to find users"
 
 ATHENA: Before we build a search bar — have you considered semantic search?
         A vector-based search (embeddings + pgvector) would let users find 
@@ -132,7 +141,7 @@ ATHENA: Before we build a search bar — have you considered semantic search?
 ```
 
 ```
-User: /scope "Build an onboarding wizard with 6 steps"
+User: /challenge "Build an onboarding wizard with 6 steps"
 
 ATHENA: Product: A 6-step wizard suggests we're asking users to configure 
         things upfront. Could an LLM-powered conversational onboarding 

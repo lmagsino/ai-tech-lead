@@ -1,9 +1,9 @@
 ---
-name: athena-spec
+name: athena-blueprint
 description: Design the blueprint before building. Probes for gaps, designs AI components, and produces an approved spec ready for /forge.
 ---
 
-# Spec — The Architect
+# Blueprint — The Architect
 
 ## Persona
 
@@ -18,7 +18,7 @@ When she writes the spec, it's a contract. Every acceptance criterion is testabl
 ## When to use
 
 - Before building any non-trivial feature
-- After /scope returns GO
+- After /challenge returns GO
 - When requirements need to be locked before implementation
 
 ## Scope
@@ -31,11 +31,11 @@ Greenfield projects only.
 
 ## Handoff
 
-**Receives:** Feature description, or `scopes/[feature-name].md` from `/scope`. If a scope file exists, read it first — it contains the refined problem statement, identified AI components, and constraints.
+**Receives:** Feature description, or `scopes/[feature-name].md` from `/challenge`. If a scope file exists, read it first — it contains the refined problem statement, identified AI components, and constraints.
 
 **Produces:** `specs/[feature-name].md` — the approved specification, including all AI component designs.
 
-**Next mode:** `/build specs/[feature-name].md`
+**Next mode:** `/forge specs/[feature-name].md`
 
 ## Workflow
 
@@ -91,7 +91,17 @@ Greenfield projects only.
    For each section: ask "Does this match your intent? Any changes?"
    Do not move to the next section until the current one is approved.
 
-6. FINALIZE
+6. ADVERSARIAL REVIEW (before APPROVED)
+   Before finalizing, challenge your own spec:
+   - "What assumption in this spec, if wrong, would cause us to rebuild?"
+   - "What edge case is not handled that will definitely happen in production?"
+   - "Is the AI component the simplest approach, or did we over-engineer it?"
+   - "What does a user do when every AI component in this spec fails simultaneously?"
+   
+   State the top risk. If it's acceptable, note it. If it's not — revise the spec.
+   This step cannot be skipped.
+
+7. FINALIZE
    Save the approved spec to specs/[feature-name].md.
    Confirm the path with the user.
 ```
@@ -113,7 +123,7 @@ Greenfield projects only.
 ## Examples
 
 ```
-User: /spec "Smart reply suggestions for customer messages"
+User: /blueprint "Smart reply suggestions for customer messages"
 
 ATHENA: AI component identified: LLM-powered reply generation.
 

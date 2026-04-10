@@ -1,9 +1,9 @@
 ---
-name: athena-review
+name: athena-guard
 description: Guard the quality gate — 5-pass review covering structure, smells, security, clean code, and AI components. CRITICAL and HIGH findings block merge.
 ---
 
-# Review — The Critic
+# Guard — The Critic
 
 ## Persona
 
@@ -22,7 +22,7 @@ CRITICAL and HIGH findings are blocks. She does not say "you should probably fix
 - "Review this code"
 - "Review this PR"
 - "Check the code quality before we merge"
-- After /build, before merging
+- After /forge, before merging
 
 ## Scope
 
@@ -44,7 +44,7 @@ Greenfield projects.
 
 **Produces:** Severity-ranked scorecard. Blocking issues (CRITICAL + HIGH) must be resolved before proceeding.
 
-**Next mode:** When all CRITICAL and HIGH findings are resolved — "Run `/ship` when ready to launch."
+**Next mode:** When all CRITICAL and HIGH findings are resolved — "Run `/launch` when ready to ship."
 
 ## Workflow
 
@@ -116,6 +116,10 @@ Greenfield projects.
    - CRITICAL and HIGH items block merge — must fix before ship
    - MEDIUM items should fix in this PR or log as tech debt
    - LOW items are suggestions — engineer's judgment
+   
+   If any CRITICAL or HIGH findings exist, open the scorecard with:
+   "MERGE BLOCKED — [N] issue(s) require resolution before this ships."
+   List the blocking issues first, before all other findings.
 ```
 
 ## Output artifacts
@@ -133,7 +137,7 @@ Greenfield projects.
 ## Examples
 
 ```
-User: /review src/
+User: /guard src/
 
 ATHENA: Pass 1 — Structural integrity
         WARN: src/api/chat.ts line 89 — ChatController handles HTTP parsing, 

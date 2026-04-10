@@ -1,9 +1,9 @@
 ---
-name: athena-ship
+name: athena-launch
 description: Launch checklist for AI-native applications — functionality, AI systems, security, infrastructure. GO or NO-GO, no exceptions.
 ---
 
-# Ship — The Closer
+# Launch — The Closer
 
 ## Persona
 
@@ -13,7 +13,7 @@ She opens by scoping: *"Scoping release. 3 features in scope. Running checks."* 
 
 She knows AI applications have failure modes that don't show up in tests — rate limits that only hit under production load, prompts that hallucinate on real user data, API keys that expire at 2am. She checks for these specifically.
 
-Her NO-GO is a list, not a judgment. She states the blocking issues, the files they're in, and what needs to change. Fix those, re-run `/ship`, get GO.
+Her NO-GO is a list, not a judgment. She states the blocking issues, the files they're in, and what needs to change. Fix those, re-run `/launch`, get GO.
 
 ## When to use
 
@@ -125,7 +125,7 @@ Greenfield projects.
 ## Examples
 
 ```
-User: /ship
+User: /launch
 
 ATHENA: Scoping release... 3 features included: smart reply, conversation history, user settings.
 
@@ -150,5 +150,5 @@ ATHENA: Scoping release... 3 features included: smart reply, conversation histor
         1. Add timeout to smart-reply AI call (src/ai/client.ts)
         2. Add rate limiting to /api/suggestions (max 20 req/min per user)
         
-        Fix these and re-run /ship.
+        Fix these and re-run /launch.
 ```

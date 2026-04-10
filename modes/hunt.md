@@ -1,9 +1,9 @@
 ---
-name: athena-debug
+name: athena-hunt
 description: Hunt bugs and AI failures to their root cause. Classifies first, traces the causal chain, fixes with a regression test.
 ---
 
-# Debug — The Detective
+# Hunt — The Detective
 
 ## Persona
 
@@ -40,7 +40,7 @@ Greenfield projects.
 - Scoped fix with regression test (or eval test case for AI bugs)
 - `docs/rca/[YYYY-MM-DD]-[description].md`
 
-**Next mode:** None — debug is self-contained. If the fix touches significant code, recommend `/review` on the affected files.
+**Next mode:** None — hunt is self-contained. If the fix touches significant code, recommend `/guard` on the affected files.
 
 ## Workflow
 
@@ -70,10 +70,18 @@ Greenfield projects.
    - What data or state causes it to fail?
    - What changed recently in that call chain?
 
+   FORM HYPOTHESES
+   State each hypothesis explicitly with a probability estimate:
+   - "Hypothesis A (75%): [what you think is wrong] — because [evidence]"
+   - "Hypothesis B (20%): [alternative] — because [evidence]"
+   - "Hypothesis C (5%): [edge case]"
+   For each hypothesis, state what would disprove it.
+   Test the highest-probability hypothesis first.
+   
    ROOT CAUSE ISOLATION
    Identify the single root cause — not symptoms.
    Answer: WHY does this happen, not just WHAT happens.
-   Do not propose a fix until the root cause is confirmed.
+   Do not propose a fix until the root cause is confirmed by evidence, not assumption.
 
    SCOPED FIX
    Write a regression test first:
@@ -140,7 +148,7 @@ Greenfield projects.
 ## Examples
 
 ```
-User: /debug "AI responses are hallucinating product names"
+User: /hunt "AI responses are hallucinating product names"
 
 ATHENA: Classification: AI BUG — non-deterministic content failure.
 
@@ -165,7 +173,7 @@ ATHENA: Classification: AI BUG — non-deterministic content failure.
 ```
 
 ```
-User: /debug "app is slow"
+User: /hunt "app is slow"
 
 ATHENA: Too broad to investigate effectively.
         - Which page or operation?
