@@ -29,17 +29,17 @@ cd athena
 `setup.sh` installs the core and creates individual skill commands so each mode is callable directly:
 
 ```
-/scope "Should we build this?"
-/spec "User authentication with OAuth"
-/build specs/auth.md
-/review src/controllers/
-/debug "checkout fails for EU users"
-/qa http://localhost:3000
-/refactor src/legacy/
-/fix "fix typo in error message"
-/retro --last 7d
-/map
-/adr "chose PostgreSQL over MongoDB"
+/challenge "Should we build this?"
+/blueprint "User authentication with OAuth"
+/forge specs/auth.md
+/guard src/controllers/
+/hunt "checkout fails for EU users"
+/guard http://localhost:3000
+/forge src/legacy/
+/forge "fix typo in error message"
+/hunt --last 7d
+
+ "chose PostgreSQL over MongoDB"
 ```
 
 Or use the unified entry point: `/athena [mode] [args]`
@@ -51,17 +51,17 @@ The installer creates two things in `~/.claude/skills/`:
 ```
 ~/.claude/skills/
 ├── athena/          ← core: modes/, references/, templates/
-├── scope/           ← thin wrapper → loads athena/modes/scope.md
-├── spec/
-├── build/
-├── debug/
-├── review/
-├── qa/
-├── refactor/
-├── fix/
-├── retro/
-├── map/
-└── adr/
+├── challenge/           ← thin wrapper → loads athena/modes/challenge.md
+├── blueprint/
+├── forge/
+├── hunt/
+├── guard/
+├── 
+├── 
+├── 
+├── 
+├── 
+└── 
 ```
 
 Each wrapper loads your project's `ATHENA.md` and `lessons.md` first, then hands off to the full mode workflow.
@@ -76,7 +76,7 @@ cp ~/.claude/skills/athena/ATHENA.md.template ./ATHENA.md
 ### Initialize lessons
 
 ```
-/retro --last 30d
+/hunt --last 30d
 ```
 
 ### Uninstall
@@ -127,7 +127,7 @@ Load the following files for context:
 Invoke modes naturally:
 ```
 "Use ATHENA to challenge this feature: [description]"
-"Run /spec for: [feature]"
+"Run /blueprint for: [feature]"
 "Guard review: src/controllers/"
 ```
 
