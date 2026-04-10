@@ -1,12 +1,33 @@
 # ATHENA
 
-**Your principal AI co-founder.**
+**The co-founder who codes.**
 
-ATHENA is a Claude Code skill set that covers the full startup journey — from raw idea to shipped product. She challenges your strategy, designs AI-native experiences, builds production code, and guards the quality gate. Built for CTOs and founders shipping AI-native products from zero.
+ATHENA is an AI agent skill set that covers the full startup journey — from raw idea to shipped product. She challenges your strategy, designs AI-native experiences, builds production code, and guards the quality gate. Built for CTOs and founders shipping AI-native products from zero.
 
 Works with Claude Code (global or per-project install).
 
-![ATHENA overview](assets/overview.png)
+```
+ ┌─────────────────────────────────────────────────────────────────┐
+ │                         ATHENA                                  │
+ │              The co-founder who codes.                          │
+ └─────────────────────────────────────────────────────────────────┘
+
+  PRODUCT THINKING                 ENGINEERING EXECUTION
+  ─────────────────                ────────────────────────────────────────
+  /strategist                      /challenge → /blueprint → /forge
+  "Is this worth building?"        "Should we?" → "What exactly?" → "Build it"
+       │
+       ▼
+  /designer                        /guard        /hunt        /launch
+  "How should it work?"            "Is it solid?" "What broke?" "Ship it"
+       │
+       ▼
+  STRATEGY.md + DESIGN.md
+  feed into engineering →
+
+  Full workflow:
+  /strategist → /designer → /challenge → /blueprint → /forge → /guard → /launch
+```
 
 ---
 
@@ -61,7 +82,7 @@ cd athena
 ./setup.sh
 ```
 
-`setup.sh` installs each mode as a direct slash command in Claude Code. See [INSTALL.md](INSTALL.md) for manual setup.
+`setup.sh` installs each mode as a direct slash command in Claude Code. See [INSTALL.md](INSTALL.md) for manual setup or [docs/getting-started.md](docs/getting-started.md) for a full walkthrough.
 
 ---
 
@@ -156,6 +177,7 @@ See [docs/customization.md](docs/customization.md) for the full guide.
 
 ## Architecture
 
+See [docs/getting-started.md](docs/getting-started.md) for a step-by-step walkthrough.
 See [docs/architecture.md](docs/architecture.md) for the full design.
 See [docs/workflows.md](docs/workflows.md) for greenfield startup workflows.
 
