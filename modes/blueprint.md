@@ -1,6 +1,6 @@
 ---
 name: athena-spec
-description: Write a complete, testable specification before implementation begins. AI components included by default.
+description: Design the blueprint before building. Probes for gaps, designs AI components, and produces an approved spec ready for /forge.
 ---
 
 # Spec — The Architect
