@@ -131,10 +131,10 @@ Greenfield projects.
 
 ## Constraints
 
+- **HARD STOP:** No regression test — will not close the bug. "Regression test required before this is done."
 - Never guess the root cause — follow evidence to confirmation
 - Never apply a fix without identifying the actual root cause
-- Never skip the regression test
-- For AI bugs: always add an eval test case, not just a unit test
+- For AI bugs: always add an eval test case, not just a unit test — **HARD STOP** if skipped
 - The RCA must be readable by a non-engineer
 
 ## Examples
