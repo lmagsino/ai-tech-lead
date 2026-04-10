@@ -30,22 +30,22 @@ echo "  Detected platform: $PLATFORM"
 echo ""
 
 # Create individual skill wrapper for each mode
-# Each wrapper lets you call /scope, /build, /review etc. directly
+# Each wrapper lets you call /challenge, /forge, /guard etc. directly
 create_mode_wrappers() {
   local skills_dir="$1"
   local core_dir="$2"
 
   declare -A DESCRIPTIONS=(
-    ["scope"]="Evaluate whether something should be built — challenge product direction, feasibility, and approach before any code is written. Always asks if there is an AI-native version. Use when asked should we build this, product direction, or before writing a spec."
-    ["spec"]="Write a complete, testable specification before implementation begins. Includes AI component design by default — model selection, prompt design, evals, fallbacks, cost estimate. Use when asked to write a spec or define requirements."
-    ["build"]="Implement exactly what the spec defines — AI infrastructure first, then tests, then code. Use when asked to build, implement, or create a feature from a spec."
-    ["review"]="Formal 5-pass code review: structural integrity, code smells, security (including prompt injection), clean code, and AI component review. Use when asked to review code or a PR."
-    ["debug"]="Diagnose bugs and AI misbehavior — trace to root cause, regression test, RCA document. Handles both code bugs and AI bugs (hallucinations, prompt drift, output schema failures). Use when there is a bug, error, or AI quality issue."
-    ["ship"]="Pre-launch checklist for AI-native applications — functionality, AI systems, security, infrastructure. Produces GO / NO-GO recommendation. Use when ready to launch or deploy."
+    ["challenge"]="Challenge whether something should be built — interrogate product direction, feasibility, and approach before any code is written. Always asks if there is an AI-native version. Use when asked should we build this, product direction, or before writing a spec."
+    ["blueprint"]="Design the blueprint — probe for gaps, design AI components, produce an approved spec. Includes AI component design by default — model selection, prompt design, evals, fallbacks, cost estimate. Use when asked to write a spec or define requirements."
+    ["forge"]="Forge the implementation from the blueprint — AI infrastructure first, then tests, then code. Use when asked to build, implement, or create a feature from a spec."
+    ["guard"]="Guard the quality gate — 5-pass review: structural integrity, code smells, security (including prompt injection), clean code, and AI component review. Use when asked to review code or a PR."
+    ["hunt"]="Hunt bugs and AI failures to their root cause — classify first, trace the causal chain, regression test, RCA document. Handles both code bugs and AI bugs (hallucinations, prompt drift, output schema failures). Use when there is a bug, error, or AI quality issue."
+    ["launch"]="Launch checklist for AI-native applications — functionality, AI systems, security, infrastructure. Produces GO / NO-GO recommendation. Use when ready to launch or deploy."
   )
 
   echo "  Creating skill commands:"
-  for mode in scope spec build review debug ship; do
+  for mode in challenge blueprint forge guard hunt launch; do
     local wrapper_dir="$skills_dir/$mode"
 
     # Warn if a skill with this name already exists (not from athena)
@@ -106,12 +106,12 @@ install_claude_code() {
   echo ""
   echo "  ✓ Done. Call skills directly in Claude Code:"
   echo ""
-  echo "    /scope \"Should we add AI-powered recommendations?\""
-  echo "    /spec \"Conversational onboarding with LLM\""
-  echo "    /build specs/onboarding.md"
-  echo "    /review src/"
-  echo "    /debug \"AI responses are hallucinating product names\""
-  echo "    /ship"
+  echo "    /challenge \"Should we add AI-powered recommendations?\""
+  echo "    /blueprint \"Conversational onboarding with LLM\""
+  echo "    /forge specs/onboarding.md"
+  echo "    /guard src/"
+  echo "    /hunt \"AI responses are hallucinating product names\""
+  echo "    /launch"
   echo ""
   echo "  Or with the unified entry point: /athena [mode] [args]"
   echo ""
@@ -121,7 +121,7 @@ uninstall_claude_code() {
   local skills_dir="${1:-$HOME/.claude/skills}"
   echo "  Removing ATHENA skills from $skills_dir..."
   rm -rf "$skills_dir/athena"
-  for mode in scope spec build review debug ship; do
+  for mode in challenge blueprint forge guard hunt launch; do
     if [[ -f "$skills_dir/$mode/SKILL.md" ]] && grep -q "ATHENA" "$skills_dir/$mode/SKILL.md" 2>/dev/null; then
       rm -rf "$skills_dir/$mode"
       echo "    ✓ removed /$mode"
@@ -141,9 +141,9 @@ install_cursor() {
   echo "  ✓ ATHENA installed to: $rules_dir"
   echo ""
   echo "  Use natural language in Cursor:"
-  echo "    \"Should we build X?\"  →  scope mode"
-  echo "    \"Write a spec for X\"  →  spec mode"
-  echo "    \"Review this code\"    →  review mode"
+  echo "    \"Should we build X?\"  →  challenge mode"
+  echo "    \"Write a spec for X\"  →  blueprint mode"
+  echo "    \"Review this code\"    →  guard mode"
   echo ""
 }
 
