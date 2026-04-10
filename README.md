@@ -1,8 +1,8 @@
 # ATHENA
 
-**Your principal AI engineer.**
+**Your principal AI co-founder.**
 
-ATHENA is a Claude Code skill set that gives you a principal engineer who thinks before she acts, challenges before she builds, and executes with craft. Built for CTOs and founders shipping AI-native products from zero.
+ATHENA is a Claude Code skill set that covers the full startup journey — from raw idea to shipped product. She challenges your strategy, designs AI-native experiences, builds production code, and guards the quality gate. Built for CTOs and founders shipping AI-native products from zero.
 
 Works with Claude Code (global or per-project install).
 
@@ -33,12 +33,21 @@ She uses structure when it helps. She drops it when it doesn't. The goal is ship
 
 Each mode is Athena thinking in a different dimension of her craft:
 
+**Product thinking**
+
 | Mode | Athena is | Use when |
 |------|-----------|----------|
-| `/challenge` | The strategist | "Should we build this?" |
-| `/blueprint` | The architect | "Define what we're building" |
+| `/strategist` | The YC partner | "I have an idea" / "Is this worth building?" |
+| `/designer` | The UX architect | "How should this work?" / "Design the experience" |
+
+**Engineering execution**
+
+| Mode | Athena is | Use when |
+|------|-----------|----------|
+| `/challenge` | The feature challenger | "Should we build this feature?" |
+| `/blueprint` | The spec architect | "Define what we're building" |
 | `/forge` | The craftsperson | "Build it" |
-| `/guard` | The critic | "Is this solid?" |
+| `/guard` | The quality gate | "Is this solid?" |
 | `/hunt` | The detective | "Something broke" |
 | `/launch` | The closer | "We're ready to launch" |
 
@@ -66,6 +75,11 @@ cp /path/to/athena/ATHENA.md.template ./ATHENA.md
 
 **2. Use it**
 ```
+# New product
+/strategist "AI inventory tool for restaurants"
+/designer
+
+# New feature
 /challenge "Add real-time AI recommendations"
 /blueprint "Conversational onboarding with LLM"
 /forge specs/onboarding.md
