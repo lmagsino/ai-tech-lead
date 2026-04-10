@@ -4,28 +4,46 @@ Standard workflows for greenfield AI-native projects.
 
 ---
 
-## Standard Workflow
+## Full Startup Workflow
+
+Starting a new product from scratch.
 
 ```
-/challenge → /blueprint → /forge → /guard → /launch
+/strategist → /designer → /challenge → /blueprint → /forge → /guard → /launch
 ```
 
 ### Step by step
 
-**1. /challenge — Should we build this?**
-Before writing a line of code, challenge the feature. Is this the right solution to the right problem? Is there an AI-native version that's fundamentally better? What's the smallest version that validates the hypothesis? Produces `scopes/[feature].md` on GO.
+**1. /strategist — Is this worth building?**
+Challenge the idea before anything else. Market research, competitive analysis, AI opportunity, monetization, distribution. GO or STOP with reasoning. Produces `STRATEGY.md`.
 
-**2. /blueprint — Design the contract**
-Define acceptance criteria, AI components, edge cases, API changes, data model changes, and what's explicitly out of scope. Includes AI component design: model selection, prompt design, fallbacks, cost estimate. Review section by section. Produces `specs/[feature].md` on approval.
+**2. /designer — What's the experience?**
+User journeys before screens. AI-first interactions — where does AI replace a manual flow? Screen-by-screen specs detailed enough to build without design questions. Produces `DESIGN.md`.
 
-**3. /forge — Build it**
-AI infrastructure first. Then tests. Then implementation — exactly what the spec says. Clean code gate before each commit. Spec verification when done. Tells you to run `/guard` when complete.
+**3. /challenge — Should we build this feature?**
+For each feature in the MVP, challenge the scope. Is there an AI-native version? What's explicitly out? Produces `scopes/[feature].md` on GO.
 
-**4. /guard — Gate before merging**
-5-pass review: structural integrity, code smells, anti-patterns, security (including prompt injection), AI component quality. CRITICAL and HIGH findings block merge. Tells you to run `/launch` when clear.
+**4. /blueprint — Define the contract**
+Acceptance criteria, AI components (model, prompts, fallbacks, cost), data model changes, API design. Review section by section. Produces `specs/[feature].md` on approval.
 
-**5. /launch — Ship it**
-Pre-launch checklist: functionality, AI systems (timeouts, fallbacks, rate limits, cost), security, infrastructure. GO or NO-GO. On GO, confirms before running any deploy commands.
+**5. /forge — Build it**
+AI infrastructure first. Then tests. Then implementation — exactly what the spec says. Clean code gate before each commit. Spec verification when done.
+
+**6. /guard — Gate before merging**
+5-pass review: structural integrity, code smells, security (including prompt injection), clean code, AI component quality. CRITICAL and HIGH block merge.
+
+**7. /launch — Ship it**
+Pre-launch checklist: functionality, AI systems (timeouts, fallbacks, rate limits, cost), security, infrastructure. GO or NO-GO.
+
+---
+
+## Engineering-Only Workflow
+
+When strategy and design are already settled — working on a specific feature.
+
+```
+/challenge → /blueprint → /forge → /guard → /launch
+```
 
 ---
 
@@ -70,6 +88,8 @@ Checkpoints are not optional. An agent that builds without alignment builds the 
 
 | Mode | Input | Output |
 |------|-------|--------|
+| `/strategist` | raw idea | `STRATEGY.md` |
+| `/designer` | `STRATEGY.md` | `DESIGN.md` |
 | `/challenge` | idea / ticket | `scopes/[feature].md` |
 | `/blueprint` | `scopes/[feature].md` or idea | `specs/[feature].md` |
 | `/forge` | `specs/[feature].md` | committed code + tests |
