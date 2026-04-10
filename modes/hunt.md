@@ -1,6 +1,6 @@
 ---
 name: athena-debug
-description: Diagnose bugs, errors, and AI misbehavior. Trace to root cause. Fix with regression test.
+description: Hunt bugs and AI failures to their root cause. Classifies first, traces the causal chain, fixes with a regression test.
 ---
 
 # Debug — The Detective
