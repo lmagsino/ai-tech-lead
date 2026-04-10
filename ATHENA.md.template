@@ -1,7 +1,8 @@
 # ATHENA — Project Constitution
 
 > Copy this file to your project root as `ATHENA.md` and fill it in.
-> Keep it honest and brief. ATHENA reads this every session.
+> Keep it honest and brief. Athena reads this every session.
+> Delete sections that don't apply. Don't leave placeholders — either fill them in or remove them.
 
 ---
 
@@ -9,82 +10,76 @@
 
 **Name:** [Your project name]
 **Description:** [One sentence: what it does and who it's for]
-**Stage:** [e.g. MVP / Beta / Growth]
+**Stage:** MVP
 
 ---
 
 ## Stack
 
-- **Language(s):** [e.g. TypeScript]
-- **Frontend:** [e.g. Next.js 14, Tailwind CSS]
-- **Backend:** [e.g. Next.js API routes, tRPC]
-- **Database:** [e.g. PostgreSQL via Supabase]
-- **Cache / Queue:** [e.g. Redis, BullMQ]
-- **Infrastructure:** [e.g. Vercel, Fly.io, AWS]
-- **Auth:** [e.g. Supabase Auth, Clerk, NextAuth]
+> Athena's defaults. Override only what's different.
+
+- **Language:** TypeScript (strict mode)
+- **Frontend:** Next.js 14 (App Router), Tailwind CSS, shadcn/ui
+- **Backend:** Next.js API routes + tRPC
+- **Database:** PostgreSQL via Supabase (pgvector enabled)
+- **Auth:** Clerk
+- **Infrastructure:** Vercel (frontend + API), Supabase (DB + storage)
+- **Package manager:** pnpm
 
 ---
 
-## AI Components
+## AI components
 
-> Document every AI component in the product. ATHENA uses this to make AI-first suggestions.
+> Every AI component in the product. Athena defaults to these patterns — override if you've chosen differently.
 
-- **LLM:** [e.g. Claude via Anthropic SDK — used for X, Y, Z]
-- **Embeddings:** [e.g. OpenAI text-embedding-3-small via pgvector]
-- **Vector store:** [e.g. pgvector on Supabase]
-- **Agents:** [e.g. none / Claude tool use for Y]
-- **Evals:** [e.g. Vitest-based eval suite in src/ai/evals/]
+- **LLM:** Anthropic Claude via `@anthropic-ai/sdk` — `claude-sonnet-4-6` as default model
+- **Embeddings:** `text-embedding-3-small` via OpenAI SDK
+- **Vector store:** pgvector on Supabase
+- **Prompt location:** `src/ai/prompts/` — one file per prompt, named functions only
+- **Output schemas:** `src/ai/schemas/` — Zod schemas, validated before use
+- **AI client:** `src/ai/client.ts` — single Anthropic client with timeout + retry
+- **Evals:** `src/ai/evals/` — see `templates/eval-starter.md` for structure
+- **Model fallback:** claude-haiku-4-5 if latency budget exceeded
 
 ---
 
 ## Architecture
 
-[Describe the high-level structure in 3-5 lines. Example:]
-
-- Next.js monorepo — frontend and API routes in one repo
-- AI services isolated in src/ai/ — client, prompts, schemas, evals
-- PostgreSQL as primary store with pgvector for semantic search
-- All AI calls go through a single client with timeout and retry handling
+- Next.js monorepo — frontend and API in one repo
+- AI services isolated in `src/ai/` — client, prompts, schemas, evals
+- Database access via Supabase client — no raw SQL unless pgvector queries
+- All AI calls go through `src/ai/client.ts` — never call Anthropic SDK directly in components
 
 ---
 
 ## Rules
 
-> Only list things ATHENA gets wrong without being told. Max 10.
+> Only add rules for things Athena gets wrong without being told.
 
-1. [e.g. All AI prompts live in src/ai/prompts/ — never inline in business logic]
-2. [e.g. All AI outputs validated against Zod schemas before use]
-3. [e.g. Every AI endpoint has a rate limit and a fallback]
-4. [e.g. PII is stripped before sending to any external AI API]
-5. [e.g. TypeScript strict mode — no any]
-6.
-7.
-8.
-9.
-10.
+1. All AI prompts in `src/ai/prompts/` — never inlined in business logic
+2. All AI outputs validated with Zod schema before use — never trust raw LLM output
+3. Every AI endpoint has a timeout, rate limit, and fallback
+4. PII stripped before sending any user data to AI APIs
+5. TypeScript strict mode — no `any`, no `as unknown as`
+6. Server components by default — client components only when interactivity required
+7. [Add project-specific rules here]
 
 ---
 
 ## How to verify
 
 ```bash
-# Run tests
-[e.g. pnpm test]
-
-# Run linter
-[e.g. pnpm lint]
-
-# Type check
-[e.g. pnpm typecheck]
-
-# Start dev server
-[e.g. pnpm dev]
+pnpm test          # run tests
+pnpm lint          # eslint
+pnpm typecheck     # tsc --noEmit
+pnpm dev           # start dev server
 ```
 
 ---
 
 ## Conventions
 
-- **Branch naming:** [e.g. `feature/`, `fix/`, `chore/`]
-- **Commit format:** [e.g. Conventional Commits — `feat:`, `fix:`, `chore:`]
+- **Branch naming:** `feature/`, `fix/`, `chore/`
+- **Commit format:** Conventional Commits — `feat:`, `fix:`, `chore:`
 - **Spec location:** `specs/` — one file per feature, approved before implementation
+- **Scope location:** `scopes/` — challenge outputs, one file per feature evaluated
