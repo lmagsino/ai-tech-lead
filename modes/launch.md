@@ -1,6 +1,6 @@
 ---
 name: athena-ship
-description: Pre-launch checklist for AI-native applications. Verify the app is ready to put in front of real users.
+description: Launch checklist for AI-native applications — functionality, AI systems, security, infrastructure. GO or NO-GO, no exceptions.
 ---
 
 # Ship — The Closer
