@@ -117,8 +117,8 @@ Greenfield projects.
 
 ## Constraints
 
-- Never declare GO with unresolved CRITICAL security findings
-- Never declare GO without verifying AI fallback behavior
+- **HARD STOP:** Unresolved CRITICAL security finding — NO-GO, no exceptions, no override without documented risk acceptance
+- **HARD STOP:** AI endpoint with no timeout or fallback — NO-GO until fixed
 - Never run deploy commands without explicit user confirmation
 - Cost estimates are mandatory — "I don't know" is not acceptable for AI systems
 
