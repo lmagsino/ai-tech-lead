@@ -1,146 +1,78 @@
 # ATHENA — Workflows
 
-Standard workflows for greenfield and brownfield projects.
+Standard workflows for greenfield AI-native projects.
 
 ---
 
-## Greenfield Workflow
-
-Building something new from scratch.
+## Standard Workflow
 
 ```
-/scope → /spec → /build → /review → /qa (if UI) → ship
+/challenge → /blueprint → /forge → /guard → /launch
 ```
 
 ### Step by step
 
-**1. /scope — Should we build this?**
-Before writing a line of code, challenge the feature. Is this the right solution to the right problem? What's the smallest version that validates the hypothesis?
+**1. /challenge — Should we build this?**
+Before writing a line of code, challenge the feature. Is this the right solution to the right problem? Is there an AI-native version that's fundamentally better? What's the smallest version that validates the hypothesis? Produces `scopes/[feature].md` on GO.
 
-**2. /spec — Write the contract**
-Define acceptance criteria, edge cases, API changes, data model changes, and what's explicitly out of scope. Review section by section. Approve before building.
+**2. /blueprint — Design the contract**
+Define acceptance criteria, AI components, edge cases, API changes, data model changes, and what's explicitly out of scope. Includes AI component design: model selection, prompt design, fallbacks, cost estimate. Review section by section. Produces `specs/[feature].md` on approval.
 
-**3. /build — Build it**
-Implement exactly what the spec says. Test first. Clean code gate before each commit. Verify against spec acceptance criteria when done.
+**3. /forge — Build it**
+AI infrastructure first. Then tests. Then implementation — exactly what the spec says. Clean code gate before each commit. Spec verification when done. Tells you to run `/guard` when complete.
 
-**4. /review — Review before merging**
-Run the 5-pass scorecard: structural integrity, code smells, anti-patterns, security, spec conformance. Fix CRITICAL and HIGH findings.
+**4. /guard — Gate before merging**
+5-pass review: structural integrity, code smells, anti-patterns, security (including prompt injection), AI component quality. CRITICAL and HIGH findings block merge. Tells you to run `/launch` when clear.
 
-**5. /qa — Check the UI (if applicable)**
-Multi-viewport screenshot, console error scan, accessibility check, spec UI criteria verification.
-
-**6. Ship**
+**5. /launch — Ship it**
+Pre-launch checklist: functionality, AI systems (timeouts, fallbacks, rate limits, cost), security, infrastructure. GO or NO-GO. On GO, confirms before running any deploy commands.
 
 ---
 
-## Brownfield Workflow
-
-Working on an existing codebase.
-
-### Adding a new feature
+## Bug workflow
 
 ```
-/scope → /spec → /build (with impact analysis) → /review → /qa (if UI) → ship
+/hunt → fix + regression test → /guard (optional for larger fixes)
 ```
 
-The key difference from greenfield: `/build` always runs an impact analysis first — mapping affected files, dependents, and existing tests — and gets user approval before touching anything.
+**1. /hunt** — Classify first (CODE / AI / INFRASTRUCTURE), trace to root cause, propose minimum fix with regression test.
 
-### Fixing a bug
-
-```
-/debug → fix + regression test → /review (optional, for larger fixes) → ship
-```
-
-**1. /debug** — Trace the bug to its root cause. Never patch symptoms.
-
-**2. Fix + regression test** — Minimum change that fixes the root cause. Regression test that reproduces the bug before the fix and passes after.
-
-**3. /review** — For larger fixes (3+ files), run a guard pass to ensure the fix didn't introduce new issues.
-
-### Refactoring
-
-```
-/retro (identify target) → /refactor → /review → ship
-```
-
-**1. /retro** — Identify which modules are tech debt hotspots worth addressing. Don't refactor randomly.
-
-**2. /refactor** — Write behavior tests first. Migrate one pattern at a time. Verify parity after each step.
-
-**3. /review** — Confirm the refactored code meets the quality bar.
-
-### Trivial changes
-
-```
-/fix → ship
-```
-
-One step. Three-file max. Lightweight gate (no new smells, no broken tests). Commit and done.
+**2. /guard** — For fixes touching 3+ files, run a guard pass to verify the fix didn't introduce new issues.
 
 ---
 
-## Decision Tree
+## Quick fix (trivial changes)
 
-```
-User request arrives
-        ↓
-Is it a trivial fix (< 3 files, no new tests needed)?
-  YES → /fix
-  NO  ↓
-Is it a bug or incident?
-  YES → /debug
-  NO  ↓
-Is it a question about whether to build something?
-  YES → /scope
-  NO  ↓
-Is it a refactor or modernization task?
-  YES → /refactor
-  NO  ↓
-Is it a code review request?
-  YES → /review
-  NO  ↓
-Is it a visual/UI check?
-  YES → /qa
-  NO  ↓
-Does a spec already exist for this feature?
-  YES → /build
-  NO  → /spec (then /build when approved)
-```
+For changes under 3 files with no new logic — typos, config updates, copy changes:
+
+Skip `/challenge` and `/blueprint`. Start directly in `/forge` with an inline 5-line spec confirmed by the user.
 
 ---
 
-## Human Checkpoints
+## Human checkpoints
 
-ATHENA never builds without alignment. The required checkpoints per mode:
+ATHENA never builds without alignment. Required checkpoints per mode:
 
 | Mode | Checkpoint |
 |------|-----------|
-| `/scope` | GO / RETHINK / KILL recommendation — user decides whether to proceed |
-| `/spec` | Section-by-section review — user approves each section |
-| `/build` | Impact analysis approval before touching files |
-| `/build` | Task breakdown approval before implementation |
-| `/refactor` | Pattern list approval before migration begins |
-| `/debug` | Root cause confirmation before applying fix |
+| `/challenge` | GO / RETHINK / KILL — user decides whether to proceed |
+| `/blueprint` | Section-by-section review — user approves each section |
+| `/forge` | Task breakdown approval before any file is touched |
+| `/guard` | CRITICAL / HIGH findings listed — user confirms fixes before merge |
+| `/launch` | GO confirmed by user before any deploy commands run |
+| `/hunt` | Root cause confirmed before fix is applied |
 
-Checkpoints are not optional. An agent that builds without alignment is an agent that builds the wrong thing.
+Checkpoints are not optional. An agent that builds without alignment builds the wrong thing.
 
 ---
 
-## lessons.md Pattern
+## Artifact map
 
-ATHENA maintains a `lessons.md` in the project root. It's updated by `/retro` and read by every mode via the hot tier.
-
-Format:
-```markdown
-# Lessons
-
-## [Module / Area]
-- When [doing X], always [do Y] because [reason]
-- Pattern [X] caused [problem] — prefer [Y]
-- [Component] has [hidden behavior] — check [thing] before modifying
-
-## General
-- [Project-wide lessons]
-```
-
-Good lessons are specific and actionable. Bad lessons are vague warnings ("be careful with the auth module").
+| Mode | Input | Output |
+|------|-------|--------|
+| `/challenge` | idea / ticket | `scopes/[feature].md` |
+| `/blueprint` | `scopes/[feature].md` or idea | `specs/[feature].md` |
+| `/forge` | `specs/[feature].md` | committed code + tests |
+| `/guard` | path / diff | scorecard (in conversation) |
+| `/hunt` | bug report | fix + `docs/rca/[date]-[name].md` |
+| `/launch` | codebase | GO / NO-GO (in conversation) |
