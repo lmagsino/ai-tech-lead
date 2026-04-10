@@ -56,7 +56,7 @@ Greenfield projects only.
    - AI service/client module created (single place for all LLM calls)
    - Structured output schemas defined (TypeScript types / Pydantic models)
    - Error handling wrapper around all AI calls (timeout, rate limit, API error)
-   - Eval harness scaffolded even if empty — tests will live here
+   - Eval harness scaffolded from `templates/eval-starter.md` — copy to `src/ai/evals/[feature].eval.ts`, add baseline + edge case + adversarial cases before launch
    
    This ensures AI components are first-class, not bolted on.
 
@@ -110,10 +110,11 @@ Greenfield projects only.
 
 ## Constraints
 
+- **HARD STOP:** No spec for a non-trivial task — "No spec found. Run `/blueprint` first."
+- **HARD STOP:** AI call without timeout and error handling — will not pass clean code gate.
 - Never implement beyond what the spec defines — no scope creep
 - Never skip tests for non-trivial changes
 - Never inline prompts in business logic — prompts are first-class code
-- Never commit code without handling AI failure paths
 - Never commit code that doesn't pass the clean code gate
 - If a task turns out to be much larger than estimated: stop, re-plan with the user
 
