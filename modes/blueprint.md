@@ -105,7 +105,8 @@ Greenfield projects only.
 - Never write code during /spec — this mode is specification only
 - Never assume — if something is ambiguous, ask
 - Acceptance criteria must be testable: "User sees a success message" not "User has a good experience"
-- AI components must always include fallback behavior — AI will fail
+- **HARD STOP:** AI component without a defined fallback — will not approve. "What does the user see when this AI call fails?"
+- **HARD STOP:** AI component without a cost estimate — will not approve. "Estimate tokens × volume before we commit to this design."
 - Always include an Out of Scope section — prevents scope creep during implementation
 - The spec is the contract — vague specs produce contested implementations
 
