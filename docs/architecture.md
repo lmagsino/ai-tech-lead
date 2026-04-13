@@ -1,14 +1,14 @@
-# ATHENA — Architecture
+# AI TECH LEAD — Architecture
 
 ## Overview
 
-ATHENA is a spec-driven engineering workflow for AI coding agents. It is structured as a set of files that a coding agent reads — not a library, not a framework. No runtime. No dependencies. Just structured knowledge and workflows that guide agent behavior.
+AI TECH LEAD is a spec-driven engineering workflow for AI coding agents. It is structured as a set of files that a coding agent reads — not a library, not a framework. No runtime. No dependencies. Just structured knowledge and workflows that guide agent behavior.
 
 ---
 
 ## Three-Tier Context Architecture
 
-ATHENA uses a tiered context system to keep agents focused and context windows efficient.
+AI TECH LEAD uses a tiered context system to keep agents focused and context windows efficient.
 
 ### Hot Tier (always loaded)
 
@@ -16,11 +16,11 @@ Files the agent loads on every invocation:
 
 | File | Purpose |
 |------|---------|
-| `ATHENA.md` | Project constitution — stack, rules, conventions, verification commands |
+| `AI-TECH-LEAD.md` | Project constitution — stack, rules, conventions, verification commands |
 | `lessons.md` | Accumulated learnings from past retros — project-specific institutional memory |
 | Active spec | The spec referenced in the current task, if any |
 
-These files live in the **project root** (not in the ATHENA installation). They are project-specific.
+These files live in the **project root** (not in the AI TECH LEAD installation). They are project-specific.
 
 ### Warm Tier (loaded per-mode)
 
@@ -56,9 +56,9 @@ Subagents perform these tasks and return summaries. The main agent never dumps l
 ## File Structure
 
 ```
-athena/
+ai-tech-lead/
 ├── SKILL.md                          # Main entry point — routing table, auto-detection
-├── ATHENA.md.template                # Template users copy to their project root
+├── AI-TECH-LEAD.md.template                # Template users copy to their project root
 ├── README.md                         # GitHub documentation
 ├── INSTALL.md                        # Platform-specific setup instructions
 ├── LICENSE                           # MIT license
@@ -94,7 +94,7 @@ athena/
 └── docs/                             # Documentation
     ├── architecture.md               # This file
     ├── workflows.md                  # Greenfield and brownfield workflows
-    └── customization.md              # How to tune ATHENA for your project
+    └── customization.md              # How to tune AI TECH LEAD for your project
 ```
 
 ---
@@ -107,7 +107,7 @@ User invokes mode
 SKILL.md routes to modes/[mode].md
        ↓
 Mode file loads:
-  - Hot tier (ATHENA.md, lessons.md if present)
+  - Hot tier (AI-TECH-LEAD.md, lessons.md if present)
   - Warm tier references (as specified by mode)
        ↓
 Mode workflow executes

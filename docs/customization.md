@@ -1,22 +1,22 @@
-# ATHENA — Customization Guide
+# AI TECH LEAD — Customization Guide
 
-How to tune ATHENA for your project.
+How to tune AI TECH LEAD for your project.
 
 ---
 
-## The Project Constitution (ATHENA.md)
+## The Project Constitution (AI-TECH-LEAD.md)
 
-The most important customization is creating `ATHENA.md` in your project root. This is the hot tier — ATHENA loads it on every invocation.
+The most important customization is creating `AI-TECH-LEAD.md` in your project root. This is the hot tier — AI TECH LEAD loads it on every invocation.
 
-Copy `ATHENA.md.template` to your project root and fill it in:
+Copy `AI-TECH-LEAD.md.template` to your project root and fill it in:
 
 ```bash
-cp /path/to/athena/ATHENA.md.template ./ATHENA.md
+cp /path/to/ai-tech-lead/AI-TECH-LEAD.md.template ./AI-TECH-LEAD.md
 ```
 
-### What to put in ATHENA.md
+### What to put in AI-TECH-LEAD.md
 
-**Stack** — What you're running on. ATHENA adjusts its suggestions based on your language, framework, and database.
+**Stack** — What you're running on. AI TECH LEAD adjusts its suggestions based on your language, framework, and database.
 ```
 ## Stack
 Language: TypeScript (Node 20)
@@ -27,7 +27,7 @@ Testing: Vitest + Supertest
 Infrastructure: AWS (ECS, RDS, S3)
 ```
 
-**Architecture** — Where things live. Helps ATHENA scan the right places.
+**Architecture** — Where things live. Helps AI TECH LEAD scan the right places.
 ```
 ## Architecture
 Monorepo. Services in services/, shared code in packages/.
@@ -67,7 +67,7 @@ PR: requires 1 approval + passing CI
 
 ## lessons.md
 
-ATHENA accumulates project-specific knowledge in `lessons.md` at your project root. This file is updated by `/retro` and read on every invocation.
+AI TECH LEAD accumulates project-specific knowledge in `lessons.md` at your project root. This file is updated by `/retro` and read on every invocation.
 
 You can also edit it manually to pre-seed knowledge:
 
@@ -91,7 +91,7 @@ You can also edit it manually to pre-seed knowledge:
 
 ## Customizing Guard Severity
 
-If your project has different severity standards, document them in ATHENA.md under Rules:
+If your project has different severity standards, document them in AI-TECH-LEAD.md under Rules:
 
 ```
 ## Rules
@@ -100,7 +100,7 @@ If your project has different severity standards, document them in ATHENA.md und
 7. GUARD: console.log in production code is HIGH (not MEDIUM) — we have strict log hygiene
 ```
 
-ATHENA will apply your project-specific severity adjustments during guard passes.
+AI TECH LEAD will apply your project-specific severity adjustments during guard passes.
 
 ---
 
@@ -119,7 +119,7 @@ The template is yours to own.
 
 ## Adding Project-Specific Reference Documents
 
-You can add your own reference documents to the `references/` directory and instruct modes to load them via ATHENA.md:
+You can add your own reference documents to the `references/` directory and instruct modes to load them via AI-TECH-LEAD.md:
 
 ```
 ## Rules
@@ -137,21 +137,21 @@ Example custom references:
 
 ### Claude Code
 
-ATHENA works as a Claude Code skill. The `SKILL.md` frontmatter description triggers ATHENA automatically on relevant queries — you don't always need to type `/athena`.
+AI TECH LEAD works as a Claude Code skill. The `SKILL.md` frontmatter description triggers AI TECH LEAD automatically on relevant queries — you don't always need to type `/ai-tech-lead`.
 
 To suppress auto-triggering and only use explicit invocation:
 ```
 ## Rules
-9. Only invoke ATHENA modes when explicitly asked with /athena
+9. Only invoke AI TECH LEAD modes when explicitly asked with /ai-tech-lead
 ```
 
 ### Codex / Cursor / Gemini CLI
 
-On these platforms, ATHENA works as a reference directory. Point your agent at ATHENA.md in your project root:
+On these platforms, AI TECH LEAD works as a reference directory. Point your agent at AI-TECH-LEAD.md in your project root:
 
 ```
-Context files: ATHENA.md, lessons.md
-Reference dir: /path/to/athena/
+Context files: AI-TECH-LEAD.md, lessons.md
+Reference dir: /path/to/ai-tech-lead/
 ```
 
 See `INSTALL.md` for platform-specific setup.
@@ -160,7 +160,7 @@ See `INSTALL.md` for platform-specific setup.
 
 ## Disabling Modes
 
-If certain modes don't fit your workflow, note that in ATHENA.md:
+If certain modes don't fit your workflow, note that in AI-TECH-LEAD.md:
 
 ```
 ## Rules
@@ -172,10 +172,10 @@ If certain modes don't fit your workflow, note that in ATHENA.md:
 
 ## Minimal Setup (If You're in a Hurry)
 
-If you just want ATHENA running without full customization:
+If you just want AI TECH LEAD running without full customization:
 
-1. Copy `ATHENA.md.template` → `ATHENA.md` in your project root
+1. Copy `AI-TECH-LEAD.md.template` → `AI-TECH-LEAD.md` in your project root
 2. Fill in Stack and How to verify (minimum viable config)
-3. Run: `/athena retro --last 30d` to generate an initial `lessons.md`
+3. Run: `/ai-tech-lead retro --last 30d` to generate an initial `lessons.md`
 
 The rest can be refined over time.

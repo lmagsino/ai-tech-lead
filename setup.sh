@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ATHENA_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+AI_TECH_LEAD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo ""
-echo "  ATHENA — Setup"
+echo "  AI TECH LEAD — Setup"
 echo "  ─────────────────────────────────────────"
 echo ""
 
@@ -51,8 +51,8 @@ create_mode_wrappers() {
     local wrapper_dir="$skills_dir/$mode"
 
     # Warn if a skill with this name already exists (not from athena)
-    if [[ -d "$wrapper_dir" ]] && ! grep -q "ATHENA" "$wrapper_dir/SKILL.md" 2>/dev/null; then
-      echo "    ⚠ /$mode — skipped (a non-ATHENA skill already exists here)"
+    if [[ -d "$wrapper_dir" ]] && ! grep -q "AI TECH LEAD" "$wrapper_dir/SKILL.md" 2>/dev/null; then
+      echo "    ⚠ /$mode — skipped (a non-AI TECH LEAD skill already exists here)"
       continue
     fi
 
@@ -64,10 +64,10 @@ description: >
   ${DESCRIPTIONS[$mode]}
 ---
 
-You are running ATHENA in /$mode mode.
+You are running AI TECH LEAD in /$mode mode.
 
 **Load context in this order before starting:**
-1. If \`ATHENA.md\` exists in the project root — read it (project stack, rules, conventions)
+1. If \`AI-TECH-LEAD.md\` exists in the project root — read it (project stack, rules, conventions)
 2. If \`lessons.md\` exists in the project root — read it (accumulated project learnings)
 3. Read and follow the mode file exactly: $core_dir/modes/$mode.md
 
@@ -82,7 +82,7 @@ install_claude_code() {
   local global_skills="$HOME/.claude/skills"
   local local_skills="$PWD/.claude/skills"
 
-  echo "  Where do you want to install ATHENA?"
+  echo "  Where do you want to install AI TECH LEAD?"
   echo "  [1] Global  — available in all projects (~/.claude/skills/)"
   echo "  [2] Local   — this project only (.claude/skills/)"
   echo ""
@@ -95,9 +95,9 @@ install_claude_code() {
   fi
 
   # Install core files
-  local CORE="$SKILLS_DIR/athena"
+  local CORE="$SKILLS_DIR/ai-tech-lead"
   mkdir -p "$CORE"
-  cp -r "$ATHENA_DIR"/. "$CORE/"
+  cp -r "$AI_TECH_LEAD_DIR"/. "$CORE/"
   echo ""
   echo "  ✓ Core installed: $CORE"
   echo ""
@@ -117,32 +117,32 @@ install_claude_code() {
   echo "    /hunt \"AI responses are hallucinating product names\""
   echo "    /launch"
   echo ""
-  echo "  Or with the unified entry point: /athena [mode] [args]"
+  echo "  Or with the unified entry point: /ai-tech-lead [mode] [args]"
   echo ""
 }
 
 uninstall_claude_code() {
   local skills_dir="${1:-$HOME/.claude/skills}"
-  echo "  Removing ATHENA skills from $skills_dir..."
-  rm -rf "$skills_dir/athena"
+  echo "  Removing AI TECH LEAD skills from $skills_dir..."
+  rm -rf "$skills_dir/ai-tech-lead"
   for mode in strategist designer challenge blueprint forge guard hunt launch; do
-    if [[ -f "$skills_dir/$mode/SKILL.md" ]] && grep -q "ATHENA" "$skills_dir/$mode/SKILL.md" 2>/dev/null; then
+    if [[ -f "$skills_dir/$mode/SKILL.md" ]] && grep -q "AI TECH LEAD" "$skills_dir/$mode/SKILL.md" 2>/dev/null; then
       rm -rf "$skills_dir/$mode"
       echo "    ✓ removed /$mode"
     fi
   done
-  echo "  ✓ ATHENA uninstalled."
+  echo "  ✓ AI TECH LEAD uninstalled."
 }
 
 install_cursor() {
   local rules_dir="$PWD/.cursor/rules"
   mkdir -p "$rules_dir"
 
-  cp "$ATHENA_DIR/SKILL.md" "$rules_dir/athena.md"
-  cp -r "$ATHENA_DIR/modes" "$rules_dir/athena-modes"
-  cp -r "$ATHENA_DIR/references" "$rules_dir/athena-references"
+  cp "$AI_TECH_LEAD_DIR/SKILL.md" "$rules_dir/ai-tech-lead.md"
+  cp -r "$AI_TECH_LEAD_DIR/modes" "$rules_dir/ai-tech-lead-modes"
+  cp -r "$AI_TECH_LEAD_DIR/references" "$rules_dir/ai-tech-lead-references"
 
-  echo "  ✓ ATHENA installed to: $rules_dir"
+  echo "  ✓ AI TECH LEAD installed to: $rules_dir"
   echo ""
   echo "  Use natural language in Cursor:"
   echo "    \"Should we build X?\"  →  challenge mode"
@@ -153,15 +153,15 @@ install_cursor() {
 
 install_generic() {
   local platform="$1"
-  local target="$PWD/.athena"
+  local target="$PWD/.ai-tech-lead"
 
   mkdir -p "$target"
-  cp -r "$ATHENA_DIR"/. "$target/"
+  cp -r "$AI_TECH_LEAD_DIR"/. "$target/"
 
-  echo "  ✓ ATHENA copied to: $target"
+  echo "  ✓ AI TECH LEAD copied to: $target"
   echo ""
   echo "  Manual setup for $platform:"
-  echo "  Point your agent at ATHENA.md in your project root and"
+  echo "  Point your agent at AI-TECH-LEAD.md in your project root and"
   echo "  add the following to your agent's context path: $target"
   echo ""
   echo "  See INSTALL.md for $platform-specific instructions."
@@ -187,22 +187,22 @@ case "$PLATFORM" in
     ;;
 esac
 
-# Copy ATHENA.md.template to project root if not already present
-if [[ ! -f "$PWD/ATHENA.md" ]]; then
-  echo "  Would you like to create ATHENA.md in the current project?"
+# Copy AI-TECH-LEAD.md.template to project root if not already present
+if [[ ! -f "$PWD/AI-TECH-LEAD.md" ]]; then
+  echo "  Would you like to create AI-TECH-LEAD.md in the current project?"
   echo "  (Your stack, rules, and conventions — loaded on every invocation)"
-  read -rp "  Create ATHENA.md? [y/n]: " create_athena
+  read -rp "  Create AI-TECH-LEAD.md? [y/n]: " create_athena
 
   if [[ "$create_athena" == "y" || "$create_athena" == "Y" ]]; then
-    cp "$ATHENA_DIR/ATHENA.md.template" "$PWD/ATHENA.md"
+    cp "$AI_TECH_LEAD_DIR/AI-TECH-LEAD.md.template" "$PWD/AI-TECH-LEAD.md"
     echo ""
-    echo "  ✓ Created ATHENA.md — edit it to add your project's stack and rules."
+    echo "  ✓ Created AI-TECH-LEAD.md — edit it to add your project's stack and rules."
     echo ""
   fi
 fi
 
 echo "  ─────────────────────────────────────────"
-echo "  ATHENA setup complete."
+echo "  AI TECH LEAD setup complete."
 echo ""
 echo "  Docs:          docs/workflows.md"
 echo "  Customization: docs/customization.md"

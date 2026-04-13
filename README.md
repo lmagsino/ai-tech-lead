@@ -1,14 +1,14 @@
-# ATHENA
+# AI TECH LEAD
 
 **The co-founder who codes.**
 
-ATHENA is an AI agent skill set that covers the full startup journey — from raw idea to shipped product. She challenges your strategy, designs AI-native experiences, builds production code, and guards the quality gate. Built for CTOs and founders shipping AI-native products from zero.
+AI TECH LEAD is an AI agent skill set that covers the full startup journey — from raw idea to shipped product. She challenges your strategy, designs AI-native experiences, builds production code, and guards the quality gate. Built for CTOs and founders shipping AI-native products from zero.
 
 Works with Claude Code (global or per-project install).
 
 ```
  ┌─────────────────────────────────────────────────────────────────┐
- │                         ATHENA                                  │
+ │                         AI TECH LEAD                                  │
  │              The co-founder who codes.                          │
  └─────────────────────────────────────────────────────────────────┘
 
@@ -31,14 +31,14 @@ Works with Claude Code (global or per-project install).
 
 ---
 
-## What makes Athena, Athena
+## What makes AI Tech Lead, AI Tech Lead
 
-The goddess Athena isn't just skilled — she's the combination of two things most engineers split apart: **wisdom** and **craft**.
+The goddess AI Tech Lead isn't just skilled — she's the combination of two things most engineers split apart: **wisdom** and **craft**.
 
 She thinks before she acts. She challenges before she builds. She's loyal to the mission, not the task.
 
 **She thinks, she doesn't just do.**
-Before writing a line of code she asks: *should this exist? is this the right shape? what breaks if we're wrong?* Most AI agents jump to execution. Athena pauses.
+Before writing a line of code she asks: *should this exist? is this the right shape? what breaks if we're wrong?* Most AI agents jump to execution. AI Tech Lead pauses.
 
 **She has conviction.**
 She won't just validate your idea. She'll tell you it's wrong if it's wrong — then build it brilliantly if you still want it. A senior engineer who only agrees is useless to a CTO.
@@ -52,18 +52,18 @@ Not just the feature — the system it lives in, the users it serves, the tech d
 **She's loyal to outcomes, not process.**
 She uses structure when it helps. She drops it when it doesn't. The goal is shipping something excellent — not completing a checklist.
 
-Each mode is Athena thinking in a different dimension of her craft:
+Each mode is AI Tech Lead thinking in a different dimension of her craft:
 
 **Product thinking**
 
-| Mode | Athena is | Use when |
+| Mode | AI Tech Lead is | Use when |
 |------|-----------|----------|
 | `/strategist` | The YC partner | "I have an idea" / "Is this worth building?" |
 | `/designer` | The UX architect | "How should this work?" / "Design the experience" |
 
 **Engineering execution**
 
-| Mode | Athena is | Use when |
+| Mode | AI Tech Lead is | Use when |
 |------|-----------|----------|
 | `/challenge` | The feature challenger | "Should we build this feature?" |
 | `/blueprint` | The spec architect | "Define what we're building" |
@@ -77,8 +77,8 @@ Each mode is Athena thinking in a different dimension of her craft:
 ## Install
 
 ```bash
-git clone https://github.com/[your-org]/athena.git
-cd athena
+git clone https://github.com/[your-org]/ai-tech-lead.git
+cd ai-tech-lead
 ./setup.sh
 ```
 
@@ -90,7 +90,7 @@ cd athena
 
 **1. Create your project constitution**
 ```bash
-cp /path/to/athena/ATHENA.md.template ./ATHENA.md
+cp /path/to/ai-tech-lead/AI-TECH-LEAD.md.template ./AI-TECH-LEAD.md
 # Edit: stack, AI components, architecture, rules
 ```
 
@@ -113,9 +113,9 @@ cp /path/to/athena/ATHENA.md.template ./ATHENA.md
 
 ## How it works
 
-ATHENA uses a **three-tier context architecture**:
+AI TECH LEAD uses a **three-tier context architecture**:
 
-- **Hot tier** — `ATHENA.md` (your project constitution) is loaded on every invocation
+- **Hot tier** — `AI-TECH-LEAD.md` (your project constitution) is loaded on every invocation
 - **Warm tier** — Each mode loads only the references it needs (clean code, security, AI patterns, etc.)
 - **Cold tier** — Subagents handle codebase scanning, dependency mapping, and research on demand
 
@@ -125,7 +125,7 @@ This keeps context lean. `/debug` doesn't load SOLID principles. `/review` doesn
 
 ## AI-first defaults
 
-ATHENA treats AI as infrastructure, not a feature. Her defaults:
+AI TECH LEAD treats AI as infrastructure, not a feature. Her defaults:
 
 - **LLM integration** — Claude API with structured outputs, prompt caching, and tool use
 - **Agent patterns** — multi-step reasoning, tool orchestration, subagent delegation
@@ -138,7 +138,7 @@ ATHENA treats AI as infrastructure, not a feature. Her defaults:
 
 ## Reference library
 
-ATHENA ships with reference documents loaded per-mode:
+AI TECH LEAD ships with reference documents loaded per-mode:
 
 - `references/clean-code.md` — Naming, functions, error handling, DRY, YAGNI
 - `references/solid-principles.md` — SOLID with violation examples and corrected code
@@ -166,7 +166,7 @@ Every finding includes: severity, `file:line`, description, and a concrete fix.
 
 ## Customization
 
-Edit `ATHENA.md` in your project root:
+Edit `AI-TECH-LEAD.md` in your project root:
 - Define your stack and AI components
 - Set project-specific rules
 - Document your architecture decisions

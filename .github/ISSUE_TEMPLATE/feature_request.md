@@ -10,7 +10,7 @@ assignees: ''
 
 Describe the workflow or outcome you're trying to achieve.
 
-## What's the gap in ATHENA today?
+## What's the gap in AI TECH LEAD today?
 
 Which mode is missing this, or what's the specific behavior that's wrong?
 
@@ -20,4 +20,4 @@ How would you improve it? Be specific — a behavioral description or example ou
 
 ## Is this greenfield-only?
 
-ATHENA is greenfield-only by design. Does your proposal fit within that scope?
+AI TECH LEAD is greenfield-only by design. Does your proposal fit within that scope?

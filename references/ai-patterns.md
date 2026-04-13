@@ -35,7 +35,7 @@ model: "claude-sonnet-4-6"
 ### System prompt structure
 
 A well-structured system prompt has three parts:
-1. **Role** — who Athena is in this context
+1. **Role** — who AI Tech Lead is in this context
 2. **Task** — what she's being asked to do
 3. **Constraints** — what she must not do
 

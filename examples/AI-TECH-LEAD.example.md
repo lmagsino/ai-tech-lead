@@ -1,8 +1,8 @@
-# ATHENA — Project Constitution
+# AI TECH LEAD — Project Constitution
 # Example: AI-powered customer support platform
 
-> This is a filled example showing what a complete ATHENA.md looks like.
-> Copy ATHENA.md.template to your project root and fill it in for your own project.
+> This is a filled example showing what a complete AI-TECH-LEAD.md looks like.
+> Copy AI-TECH-LEAD.md.template to your project root and fill it in for your own project.
 
 ---
 

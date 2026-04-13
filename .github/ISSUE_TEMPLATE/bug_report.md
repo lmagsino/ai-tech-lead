@@ -12,7 +12,7 @@ Which mode has the bug? (challenge / blueprint / forge / guard / hunt / launch)
 
 ## What happened
 
-What did Athena do or produce?
+What did AI Tech Lead do or produce?
 
 ## What should have happened
 
@@ -22,11 +22,11 @@ What was the expected behavior or output?
 
 Steps to reproduce:
 1. Invoked `/[mode]` with: [your input]
-2. Athena responded with: [paste response]
+2. AI Tech Lead responded with: [paste response]
 3. Expected: [what it should have done]
 
 ## Context
 
 - Claude Code version:
-- ATHENA install type: global / local
-- ATHENA.md present: yes / no
+- AI TECH LEAD install type: global / local
+- AI-TECH-LEAD.md present: yes / no

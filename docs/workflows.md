@@ -1,4 +1,4 @@
-# ATHENA — Workflows
+# AI TECH LEAD — Workflows
 
 Standard workflows for greenfield AI-native projects.
 
@@ -69,7 +69,7 @@ Skip `/challenge` and `/blueprint`. Start directly in `/forge` with an inline 5-
 
 ## Human checkpoints
 
-ATHENA never builds without alignment. Required checkpoints per mode:
+AI TECH LEAD never builds without alignment. Required checkpoints per mode:
 
 | Mode | Checkpoint |
 |------|-----------|

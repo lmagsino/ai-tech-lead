@@ -1,6 +1,6 @@
-# Contributing to ATHENA
+# Contributing to AI TECH LEAD
 
-ATHENA is open source. Contributions are welcome — modes, references, templates, and fixes.
+AI TECH LEAD is open source. Contributions are welcome — modes, references, templates, and fixes.
 
 ---
 
@@ -9,10 +9,10 @@ ATHENA is open source. Contributions are welcome — modes, references, template
 - **Mode improvements** — better workflows, tighter personas, sharper examples
 - **Reference additions** — new `references/` docs (AI patterns, security, architecture)
 - **Bug fixes** — broken handoffs, incorrect file references, typos
-- **New examples** — filled `ATHENA.md` examples for different stack configurations
+- **New examples** — filled `AI-TECH-LEAD.md` examples for different stack configurations
 
 **What's not worth contributing:**
-- Brownfield or legacy-focused modes — ATHENA is greenfield-only by design
+- Brownfield or legacy-focused modes — AI TECH LEAD is greenfield-only by design
 - Generic engineering content not specific to AI-native development
 - Complexity for its own sake — if it makes the system harder to understand, it's wrong
 
@@ -24,11 +24,11 @@ Each mode is a markdown file in `modes/` with this structure:
 
 ```
 ---
-name: athena-[mode]
+name: ai-tech-lead-[mode]
 description: [one-liner for Claude's skill picker]
 ---
 
-# [Mode Name] — [Athena's role]
+# [Mode Name] — [AI Tech Lead's role]
 
 ## Persona        — how she sounds and behaves in this mode
 ## When to use    — trigger conditions
@@ -67,8 +67,8 @@ The persona section is the most important. It must be behavioral — what she do
 ## Installing locally for testing
 
 ```bash
-git clone https://github.com/[owner]/athena.git
-cd athena
+git clone https://github.com/[owner]/ai-tech-lead.git
+cd ai-tech-lead
 ./setup.sh
 ```
 
