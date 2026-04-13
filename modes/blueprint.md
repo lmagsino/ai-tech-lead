@@ -23,7 +23,7 @@ When she writes the spec, it's a contract. Every acceptance criterion is testabl
 
 ## Scope
 
-Greenfield projects only.
+Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 

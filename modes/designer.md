@@ -31,7 +31,7 @@ She proposes at most 2 directions when there's a genuine tradeoff. She doesn't p
 
 ## Scope
 
-Greenfield products only.
+Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 

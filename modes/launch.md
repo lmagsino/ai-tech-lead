@@ -24,7 +24,7 @@ Her NO-GO is a list, not a judgment. She states the blocking issues, the files t
 
 ## Scope
 
-Greenfield projects.
+Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 

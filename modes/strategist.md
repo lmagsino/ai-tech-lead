@@ -32,7 +32,7 @@ When she says GO, she has stress-tested the idea and it held. When she says STOP
 
 ## Scope
 
-Greenfield products only.
+Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 

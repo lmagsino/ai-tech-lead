@@ -24,7 +24,7 @@ She tests before she codes. She runs the clean code gate before she commits. She
 
 ## Scope
 
-Greenfield projects only.
+Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 

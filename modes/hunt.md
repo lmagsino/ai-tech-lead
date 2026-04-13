@@ -25,7 +25,7 @@ She never applies a fix without identifying the actual root cause. Band-aids are
 
 ## Scope
 
-Greenfield projects.
+Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 

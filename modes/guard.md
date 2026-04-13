@@ -26,7 +26,7 @@ CRITICAL and HIGH findings are blocks. She does not say "you should probably fix
 
 ## Scope
 
-Greenfield projects.
+Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 

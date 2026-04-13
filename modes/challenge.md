@@ -26,7 +26,7 @@ When she says GO, she's already framing the scope for `/spec`.
 
 ## Scope
 
-Greenfield projects only.
+Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 
@@ -82,8 +82,8 @@ None. This mode operates on product and engineering judgment — not code.
    - What are the accessibility and mobile requirements?
 
 6. ENGINEERING CHALLENGE
-   For greenfield:
-   - What architecture does this commit you to?
+   Evaluate the technical implications:
+   - What architecture does this commit you to? (If existing codebase: does it fit or fight the current architecture?)
    - What AI infrastructure does this require (models, embeddings, vector DB, evals)?
    - What are the technology choices and long-term implications?
    - What's the operational complexity (deployment, monitoring, model costs, incidents)?
