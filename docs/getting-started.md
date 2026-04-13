@@ -9,7 +9,7 @@ You don't learn AI TECH LEAD. You just describe what you're working on and call 
 ## Install
 
 ```bash
-git clone https://github.com/your-org/ai-tech-lead.git
+git clone https://github.com/lmagsino/ai-tech-lead.git
 cd ai-tech-lead
 ./setup.sh
 ```

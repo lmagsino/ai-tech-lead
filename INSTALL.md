@@ -7,7 +7,7 @@ Platform-specific setup for Claude Code, Codex, Cursor, Gemini CLI, and OpenCode
 ## Quick install (all platforms)
 
 ```bash
-git clone https://github.com/[your-org]/ai-tech-lead.git
+git clone https://github.com/lmagsino/ai-tech-lead.git
 cd ai-tech-lead
 ./setup.sh
 ```
@@ -21,7 +21,7 @@ cd ai-tech-lead
 ### Install
 
 ```bash
-git clone https://github.com/[your-org]/ai-tech-lead.git
+git clone https://github.com/lmagsino/ai-tech-lead.git
 cd ai-tech-lead
 ./setup.sh
 ```
@@ -96,7 +96,7 @@ Codex uses a `.codex/` directory or a `AGENTS.md` file for agent context.
 ### Setup
 
 ```bash
-git clone https://github.com/[your-org]/ai-tech-lead.git /path/to/ai-tech-lead
+git clone https://github.com/lmagsino/ai-tech-lead.git /path/to/ai-tech-lead
 
 # Copy AI TECH LEAD files to your project
 mkdir -p .codex/ai-tech-lead
@@ -140,7 +140,7 @@ Cursor reads rules from `.cursor/rules/` in the project directory.
 ### Setup
 
 ```bash
-git clone https://github.com/[your-org]/ai-tech-lead.git /path/to/ai-tech-lead
+git clone https://github.com/lmagsino/ai-tech-lead.git /path/to/ai-tech-lead
 
 mkdir -p .cursor/rules
 cp /path/to/ai-tech-lead/SKILL.md .cursor/rules/ai-tech-lead.md
@@ -174,7 +174,7 @@ Gemini CLI supports context files via `GEMINI.md` or project-specific context co
 ### Setup
 
 ```bash
-git clone https://github.com/[your-org]/ai-tech-lead.git /path/to/ai-tech-lead
+git clone https://github.com/lmagsino/ai-tech-lead.git /path/to/ai-tech-lead
 
 # Copy to project
 cp -r /path/to/ai-tech-lead /path/to/your-project/.ai-tech-lead
@@ -210,7 +210,7 @@ OpenCode supports skills directories similar to Claude Code.
 ### Setup
 
 ```bash
-git clone https://github.com/[your-org]/ai-tech-lead.git ~/.opencode/skills/ai-tech-lead
+git clone https://github.com/lmagsino/ai-tech-lead.git ~/.opencode/skills/ai-tech-lead
 cp ~/.opencode/skills/ai-tech-lead/AI-TECH-LEAD.md.template ./AI-TECH-LEAD.md
 ```
 

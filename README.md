@@ -77,7 +77,7 @@ Each mode is AI Tech Lead thinking in a different dimension of her craft:
 ## Install
 
 ```bash
-git clone https://github.com/[your-org]/ai-tech-lead.git
+git clone https://github.com/lmagsino/ai-tech-lead.git
 cd ai-tech-lead
 ./setup.sh
 ```

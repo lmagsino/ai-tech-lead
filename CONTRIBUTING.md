@@ -67,7 +67,7 @@ The persona section is the most important. It must be behavioral — what she do
 ## Installing locally for testing
 
 ```bash
-git clone https://github.com/[owner]/ai-tech-lead.git
+git clone https://github.com/lmagsino/ai-tech-lead.git
 cd ai-tech-lead
 ./setup.sh
 ```
