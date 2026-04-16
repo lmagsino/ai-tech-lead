@@ -26,23 +26,26 @@ cd ai-tech-lead
 ./setup.sh
 ```
 
-`setup.sh` installs the core and creates individual skill commands so each mode is callable directly:
+`setup.sh` installs the core and creates individual skill commands. Start with:
 
 ```
+/start
+```
+
+Then use any mode directly:
+
+```
+/strategist "AI tool for restaurants"
+/designer
+/roadmap
+/review "Review this requirement..."
 /challenge "Should we build this?"
 /blueprint "User authentication with OAuth"
 /forge specs/auth.md
-/guard src/controllers/
+/guard src/
 /hunt "checkout fails for EU users"
-/guard http://localhost:3000
-/forge src/legacy/
-/forge "fix typo in error message"
-/hunt --last 7d
-
- "chose PostgreSQL over MongoDB"
+/launch
 ```
-
-Or use the unified entry point: `/ai-tech-lead [mode] [args]`
 
 ### How it works
 
@@ -51,33 +54,28 @@ The installer creates two things in `~/.claude/skills/`:
 ```
 ~/.claude/skills/
 ├── ai-tech-lead/          ← core: modes/, references/, templates/
-├── challenge/           ← thin wrapper → loads ai-tech-lead/modes/challenge.md
+├── start/               ← thin wrapper → loads ai-tech-lead/modes/start.md
+├── strategist/
+├── designer/
+├── roadmap/
+├── review/
+├── challenge/
 ├── blueprint/
 ├── forge/
-├── hunt/
 ├── guard/
-├── 
-├── 
-├── 
-├── 
-├── 
-└── 
+├── hunt/
+└── launch/
 ```
 
 Each wrapper loads your project's `AI-TECH-LEAD.md` and `lessons.md` first, then hands off to the full mode workflow.
 
-### Setup project constitution
-
-```bash
-cp ~/.claude/skills/ai-tech-lead/AI-TECH-LEAD.md.template ./AI-TECH-LEAD.md
-# Edit: stack, architecture, rules, test commands
-```
-
-### Initialize lessons
+### Setup project
 
 ```
-/hunt --last 30d
+/start
 ```
+
+She'll create `AI-TECH-LEAD.md` through conversation. No manual template editing needed.
 
 ### Uninstall
 
@@ -226,8 +224,7 @@ cp ~/.opencode/skills/ai-tech-lead/AI-TECH-LEAD.md.template ./AI-TECH-LEAD.md
 
 After installing on any platform:
 
-- [ ] `AI-TECH-LEAD.md` created in project root and filled in with stack + rules
-- [ ] `lessons.md` initialized (run `/ai-tech-lead retro --last 30d`)
-- [ ] Test basic invocation: `/forge "test"`
-- [ ] Review `docs/workflows.md` for standard workflows
-- [ ] Review `docs/customization.md` to tune AI TECH LEAD for your team
+- [ ] Run `/start` to create `AI-TECH-LEAD.md` in your project root
+- [ ] Test a mode: `/strategist "your idea"` (founder) or `/challenge "a feature"` (developer)
+- [ ] Review [docs/workflows.md](docs/workflows.md) for your persona's workflow
+- [ ] Review [docs/customization.md](docs/customization.md) to tune for your project
