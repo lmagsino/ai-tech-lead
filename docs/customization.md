@@ -1,90 +1,91 @@
-# AI TECH LEAD — Customization Guide
+# Customization
 
-How to tune AI TECH LEAD for your project.
+How to tune AI Tech Lead for your project and team.
 
 ---
 
 ## The Project Constitution (AI-TECH-LEAD.md)
 
-The most important customization is creating `AI-TECH-LEAD.md` in your project root. This is the hot tier — AI TECH LEAD loads it on every invocation.
+The most important customization. AI Tech Lead loads this file on every invocation.
 
-Copy `AI-TECH-LEAD.md.template` to your project root and fill it in:
+The fastest way to create it:
+
+```
+/start
+```
+
+She'll ask what you're building and who you are, then generate the file automatically.
+
+Or copy the template manually:
 
 ```bash
 cp /path/to/ai-tech-lead/AI-TECH-LEAD.md.template ./AI-TECH-LEAD.md
 ```
 
-### What to put in AI-TECH-LEAD.md
+### What goes in AI-TECH-LEAD.md
 
-**Stack** — What you're running on. AI TECH LEAD adjusts its suggestions based on your language, framework, and database.
+**For founders:**
+
+```markdown
+## About you
+Role: founder
+Technical level: non-technical
+
+## Project
+Name: DentAI
+Description: AI scheduling tool for independent dental practices
+Stage: idea
 ```
+
+That's enough. She'll adapt her language and recommend the right modes.
+
+**For developers:**
+
+```markdown
+## About you
+Role: developer
+Technical level: technical
+
+## Project
+Name: DentAI
+Description: AI scheduling tool for independent dental practices
+Stage: building
+
 ## Stack
 Language: TypeScript (Node 20)
-Framework: Express.js
-Database: PostgreSQL 15
-ORM: Prisma
-Testing: Vitest + Supertest
-Infrastructure: AWS (ECS, RDS, S3)
-```
+Framework: Next.js 14
+Database: PostgreSQL via Supabase
+Testing: Vitest
 
-**Architecture** — Where things live. Helps AI TECH LEAD scan the right places.
-```
-## Architecture
-Monorepo. Services in services/, shared code in packages/.
-API gateway in services/api/. Auth service in services/auth/.
-Frontend in apps/web/ (Next.js).
-```
-
-**Rules** — Only the rules the agent gets wrong without being told. Don't list obvious things.
-```
 ## Rules
-1. Never import from services/ into packages/ — packages are shared, services are not
-2. All new API endpoints require an OpenAPI annotation
-3. Database migrations go in db/migrations/ and must be backward-compatible
-4. No direct database queries in controllers — use repository layer
-5. Feature flags are in config/features.ts — check before adding conditional logic
+1. All AI prompts in src/ai/prompts/ — never inlined
+2. No direct database queries in API routes — use repository layer
 ```
 
-**How to verify** — Exact commands to run tests, lint, and type check.
-```
-## How to verify
-Tests: npm test
-Lint: npm run lint
-Types: npm run typecheck
-Dev server: npm run dev (port 3000)
-DB migrations: npm run db:migrate
-```
-
-**Team conventions** — Branch naming, commit format, PR process.
-```
-## Team conventions
-Branches: feature/[ticket-id]-[description]
-Commits: conventional commits (feat, fix, refactor, chore)
-PR: requires 1 approval + passing CI
-```
+The more context you give, the more specific her suggestions will be. But you can start minimal and add over time.
 
 ---
 
 ## lessons.md
 
-AI TECH LEAD accumulates project-specific knowledge in `lessons.md` at your project root. This file is updated by `/retro` and read on every invocation.
+AI Tech Lead reads `lessons.md` from your project root on every invocation. This file captures project-specific knowledge that's hard to derive from code alone.
 
-You can also edit it manually to pre-seed knowledge:
+You can create and edit it manually:
 
 ```markdown
 # Lessons
 
 ## Auth
-- The JWT middleware checks expiry but not token revocation — check the revocation cache separately
-- Changing session TTL requires updating both the JWT expiry and the Redis TTL
+- The JWT middleware checks expiry but not token revocation — check the cache separately
+- Changing session TTL requires updating both JWT expiry and Redis TTL
 
 ## Payments
-- The Stripe webhook handler is idempotent — duplicate events are safe, but test with ngrok locally
-- Never mock Stripe in integration tests — use their test mode with real API calls
+- Stripe webhook handler is idempotent — duplicate events are safe
+- Never mock Stripe in integration tests — use their test mode
 
 ## Database
-- The users table has a full-text search index on email — avoid LIKE queries, use to_tsquery
-- Migrations on the orders table take 10+ minutes in prod due to table size — plan maintenance windows
+- The users table has a full-text search index on email — avoid LIKE queries
+- Migrations on the orders table take 10+ minutes in prod — plan maintenance windows
 ```
 
 ---
@@ -95,35 +96,34 @@ If your project has different severity standards, document them in AI-TECH-LEAD.
 
 ```
 ## Rules
-...
 6. GUARD: treat missing pagination as CRITICAL (not HIGH) — our datasets are large
-7. GUARD: console.log in production code is HIGH (not MEDIUM) — we have strict log hygiene
+7. GUARD: console.log in production code is HIGH (not MEDIUM) — strict log hygiene
 ```
 
-AI TECH LEAD will apply your project-specific severity adjustments during guard passes.
+---
+
+## Customizing Templates
+
+Templates in `templates/` control the structure of output documents. Edit them to fit your team:
+
+| Template | Used by | Common customizations |
+|----------|---------|----------------------|
+| `templates/strategy.md` | `/strategist` | Add industry-specific sections |
+| `templates/design.md` | `/designer` | Add accessibility requirements |
+| `templates/roadmap.md` | `/roadmap` | Add timeline columns for sprints |
+| `templates/spec.md` | `/blueprint` | Add QA notes, analytics events, rollout plan |
+| `templates/rca.md` | `/hunt` | Add incident severity classification |
+| `templates/scorecard.md` | `/guard` | Add custom review passes |
 
 ---
 
-## Customizing Spec Templates
+## Adding Custom References
 
-If `templates/spec.md` doesn't fit your team's workflow, edit it directly. Common customizations:
-
-- Add a **QA notes** section for your QA team
-- Add a **Analytics events** section for product tracking
-- Add a **Rollout plan** section for gradual feature flags
-- Remove sections that don't apply (e.g., remove API changes if your project is frontend-only)
-
-The template is yours to own.
-
----
-
-## Adding Project-Specific Reference Documents
-
-You can add your own reference documents to the `references/` directory and instruct modes to load them via AI-TECH-LEAD.md:
+Add your own reference documents and instruct modes to load them via AI-TECH-LEAD.md:
 
 ```
 ## Rules
-8. When running /review, also load references/our-api-conventions.md
+8. When running /guard, also load references/our-api-conventions.md
 ```
 
 Example custom references:
@@ -133,49 +133,44 @@ Example custom references:
 
 ---
 
-## Platform-Specific Notes
+## Disabling Modes
+
+If certain modes don't fit your workflow:
+
+```
+## Rules
+9. Do not use /roadmap — we track priorities in Linear
+10. Do not use /challenge for tickets already approved by product
+```
+
+---
+
+## Platform Notes
 
 ### Claude Code
 
-AI TECH LEAD works as a Claude Code skill. The `SKILL.md` frontmatter description triggers AI TECH LEAD automatically on relevant queries — you don't always need to type `/ai-tech-lead`.
+AI Tech Lead works as a Claude Code skill. The `SKILL.md` frontmatter triggers auto-detection — she'll pick the right mode based on what you say, even without a slash command.
 
-To suppress auto-triggering and only use explicit invocation:
+To require explicit invocation only:
 ```
 ## Rules
-9. Only invoke AI TECH LEAD modes when explicitly asked with /ai-tech-lead
+11. Only invoke AI Tech Lead modes when explicitly asked with a slash command
 ```
 
 ### Codex / Cursor / Gemini CLI
 
-On these platforms, AI TECH LEAD works as a reference directory. Point your agent at AI-TECH-LEAD.md in your project root:
+On these platforms, AI Tech Lead works as a reference directory. Point your agent at AI-TECH-LEAD.md in your project root.
 
-```
-Context files: AI-TECH-LEAD.md, lessons.md
-Reference dir: /path/to/ai-tech-lead/
-```
-
-See `INSTALL.md` for platform-specific setup.
+See [INSTALL.md](../INSTALL.md) for platform-specific setup.
 
 ---
 
-## Disabling Modes
+## Minimal Setup
 
-If certain modes don't fit your workflow, note that in AI-TECH-LEAD.md:
+If you just want AI Tech Lead running without full customization:
 
 ```
-## Rules
-10. Do not use /qa — we have a dedicated visual QA process
-11. Do not use /scope for tickets that have already been approved by product
+/start
 ```
 
----
-
-## Minimal Setup (If You're in a Hurry)
-
-If you just want AI TECH LEAD running without full customization:
-
-1. Copy `AI-TECH-LEAD.md.template` → `AI-TECH-LEAD.md` in your project root
-2. Fill in Stack and How to verify (minimum viable config)
-3. Run: `/ai-tech-lead retro --last 30d` to generate an initial `lessons.md`
-
-The rest can be refined over time.
+That's it. She creates `AI-TECH-LEAD.md` through conversation. Everything else can be refined over time.
