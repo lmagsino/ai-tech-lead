@@ -1,7 +1,7 @@
-# ATHENA — Project Constitution
+# AI Tech Lead — Project Constitution
 
-> Copy this file to your project root as `ATHENA.md` and fill it in.
-> Keep it honest and brief. Athena reads this every session.
+> Copy this file to your project root as `AI-TECH-LEAD.md` and fill it in.
+> Keep it honest and brief. AI Tech Lead reads this every session.
 > Delete sections that don't apply. Don't leave placeholders — either fill them in or remove them.
 
 ---
@@ -16,7 +16,7 @@
 
 ## Stack
 
-> Athena's defaults. Override only what's different.
+> AI Tech Lead's defaults. Override only what's different.
 
 - **Language:** TypeScript (strict mode)
 - **Frontend:** Next.js 14 (App Router), Tailwind CSS, shadcn/ui
@@ -30,7 +30,7 @@
 
 ## AI components
 
-> Every AI component in the product. Athena defaults to these patterns — override if you've chosen differently.
+> Every AI component in the product. AI Tech Lead defaults to these patterns — override if you've chosen differently.
 
 - **LLM:** Anthropic Claude via `@anthropic-ai/sdk` — `claude-sonnet-4-6` as default model
 - **Embeddings:** `text-embedding-3-small` via OpenAI SDK
@@ -54,7 +54,7 @@
 
 ## Rules
 
-> Only add rules for things Athena gets wrong without being told.
+> Only add rules for things AI Tech Lead gets wrong without being told.
 
 1. All AI prompts in `src/ai/prompts/` — never inlined in business logic
 2. All AI outputs validated with Zod schema before use — never trust raw LLM output

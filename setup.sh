@@ -50,7 +50,7 @@ create_mode_wrappers() {
   for mode in strategist designer challenge blueprint forge guard hunt launch; do
     local wrapper_dir="$skills_dir/$mode"
 
-    # Warn if a skill with this name already exists (not from athena)
+    # Warn if a skill with this name already exists (not from ai-tech-lead)
     if [[ -d "$wrapper_dir" ]] && ! grep -q "AI TECH LEAD" "$wrapper_dir/SKILL.md" 2>/dev/null; then
       echo "    ⚠ /$mode — skipped (a non-AI TECH LEAD skill already exists here)"
       continue
@@ -191,9 +191,9 @@ esac
 if [[ ! -f "$PWD/AI-TECH-LEAD.md" ]]; then
   echo "  Would you like to create AI-TECH-LEAD.md in the current project?"
   echo "  (Your stack, rules, and conventions — loaded on every invocation)"
-  read -rp "  Create AI-TECH-LEAD.md? [y/n]: " create_athena
+  read -rp "  Create AI-TECH-LEAD.md? [y/n]: " create_config
 
-  if [[ "$create_athena" == "y" || "$create_athena" == "Y" ]]; then
+  if [[ "$create_config" == "y" || "$create_config" == "Y" ]]; then
     cp "$AI_TECH_LEAD_DIR/AI-TECH-LEAD.md.template" "$PWD/AI-TECH-LEAD.md"
     echo ""
     echo "  ✓ Created AI-TECH-LEAD.md — edit it to add your project's stack and rules."
