@@ -62,6 +62,32 @@
 
 ---
 
+## Technical feasibility
+
+**Stack recommendation:** [What technology this needs — web app, mobile, API, etc.]
+
+**Hardest technical problem:** [The one thing that might not work or will take the longest to solve.]
+
+**Complexity estimate:** WEEKEND PROJECT | 1-MONTH MVP | 3+ MONTHS
+
+**Build vs buy:**
+
+| Component | Build / Buy / Skip | Why |
+|-----------|-------------------|-----|
+| [component] | [decision] | [reasoning] |
+
+**AI components:**
+
+| Component | Pattern | Proven? | Risk |
+|-----------|---------|---------|------|
+| [what it does] | [classification / generation / search / agent] | [yes/no] | [what could go wrong] |
+
+**Key technical risks:** [Scaling, data, integrations, regulatory, or other risks that could block or slow the build.]
+
+**Developer brief:** [What a developer needs to know to build this — 2-3 sentences.]
+
+---
+
 ## MVP scope
 
 ### In scope

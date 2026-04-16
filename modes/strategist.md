@@ -125,7 +125,27 @@ If `AI-TECH-LEAD.md` specifies a technical role:
    - What does success look like in 30 days? 90 days?
    - What would kill this idea if we built it and launched? (The falsifying condition)
 
-8. RECOMMENDATION
+8. TECHNICAL REALITY CHECK
+   Assess feasibility from a technical perspective:
+   - What technology does this require? (stack recommendation — web app, mobile, API, etc.)
+   - What's the hardest technical problem? (the thing that might not work or take longest)
+   - What's the estimated complexity? (weekend project / 1-month MVP / 3+ months)
+   - Build vs buy: which parts should be custom vs off-the-shelf vs no-code?
+   - What AI components are involved? Are they proven patterns or experimental?
+   - What are the key technical risks? (scaling, data, third-party integrations, regulatory)
+   - What does a developer need to know to build this?
+
+   If non-technical user: explain in plain language.
+   "This needs a web app, a database, and an AI service. The AI part is straightforward —
+   it's a standard use of language models. The hard part is integrating with dental
+   scheduling systems — each one has a different connection method."
+
+   If technical user: be specific about stack, infrastructure, and architecture.
+   "Standard Next.js + Supabase stack. AI component is classification + structured
+   extraction via Claude. Risk: dental PMS integration — most use HL7/FHIR but
+   some have proprietary APIs with no documentation."
+
+9. RECOMMENDATION
    Deliver exactly one of:
    - GO: The idea has a real problem, credible differentiation, a monetization path, 
      and a distribution hypothesis. Proceed to /designer with STRATEGY.md.
@@ -144,6 +164,7 @@ If `AI-TECH-LEAD.md` specifies a technical role:
 - AI opportunity (how AI changes this space)
 - Business model hypothesis
 - Distribution hypothesis
+- Technical feasibility (stack, complexity, risks, build vs buy, developer brief)
 - MVP scope (in AND out)
 - Key assumptions to validate
 - GO reasoning
