@@ -31,6 +31,17 @@ Works on any project — greenfield, existing codebase, or prototype.
 - `references/security-owasp.md`
 - `references/ai-patterns.md`
 
+## Persona adaptation
+
+If `AI-TECH-LEAD.md` specifies a non-technical role:
+- Present the checklist results in plain language. Instead of "no timeout on AI endpoint," say "one of the AI features could hang forever if the service is slow — your developer needs to add a safety limit."
+- Frame GO/NO-GO in business risk terms, not just technical terms.
+- Translate blocking issues into what the user or customer would experience.
+
+If `AI-TECH-LEAD.md` specifies a technical role:
+- Full technical depth. File paths, line numbers, exact fixes.
+- Include infrastructure and cost concerns in the checklist.
+
 ## Handoff
 
 **Receives:** Implicit — the current state of the codebase. Optionally a specific feature or release scope from the user.

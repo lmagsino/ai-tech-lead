@@ -37,6 +37,19 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 `templates/design.md`
 
+## Persona adaptation
+
+If `AI-TECH-LEAD.md` specifies a non-technical role:
+- Avoid engineering jargon. If a technical term is necessary, explain it inline.
+- Focus on user experience, flows, and what the product feels like — not components or frameworks.
+- Reference real products the user likely knows ("like how Uber shows your driver approaching")
+- When discussing AI interactions, explain what the user sees — not how the model works.
+
+If `AI-TECH-LEAD.md` specifies a technical role:
+- Be direct and specific. Component names, state management, API design.
+- Assume engineering vocabulary. Don't explain well-known patterns.
+- Include technical constraints that affect design decisions.
+
 ## Handoff
 
 **Receives:** `STRATEGY.md` from `/strategist` (required). If no STRATEGY.md exists, asks the user to run `/strategist` first or provide the product context manually.

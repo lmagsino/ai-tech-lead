@@ -32,6 +32,10 @@ Works on any project — greenfield, existing codebase, or prototype.
 - `references/solid-principles.md`
 - `references/ai-patterns.md`
 
+## Persona adaptation
+
+This mode is primarily used by developers and technical founders. If `AI-TECH-LEAD.md` specifies a non-technical role, suggest they hand this off to a developer: "This mode builds code from a spec. If you don't have a developer yet, your STRATEGY.md and DESIGN.md are ready to hand off — a developer can run `/forge` from here."
+
 ## Handoff
 
 **Receives:** `specs/[feature-name].md` — the approved specification.

@@ -6,17 +6,28 @@
 
 ---
 
+## About you
+
+**Role:** founder | developer | tech-founder
+**Technical level:** non-technical | some-technical | technical
+
+> AI Tech Lead adapts how she communicates based on your role.
+> Founders get plain language. Developers get file paths and token counts.
+
+---
+
 ## Project
 
 **Name:** [Your project name]
 **Description:** [One sentence: what it does and who it's for]
-**Stage:** MVP
+**Stage:** idea | building | launched
 
 ---
 
 ## Stack
 
-> AI Tech Lead's defaults. Override only what's different.
+> Delete this section if you're a non-technical founder — your developer will fill it in later.
+> AI Tech Lead's defaults below. Override only what's different.
 
 - **Language:** TypeScript (strict mode)
 - **Frontend:** Next.js 14 (App Router), Tailwind CSS, shadcn/ui
@@ -30,7 +41,8 @@
 
 ## AI components
 
-> Every AI component in the product. AI Tech Lead defaults to these patterns — override if you've chosen differently.
+> Delete this section if you're a non-technical founder.
+> AI Tech Lead defaults to these patterns — override if you've chosen differently.
 
 - **LLM:** Anthropic Claude via `@anthropic-ai/sdk` — `claude-sonnet-4-6` as default model
 - **Embeddings:** `text-embedding-3-small` via OpenAI SDK
@@ -44,6 +56,8 @@
 ---
 
 ## Architecture
+
+> Delete this section if you're a non-technical founder.
 
 - Next.js monorepo — frontend and API in one repo
 - AI services isolated in `src/ai/` — client, prompts, schemas, evals

@@ -38,6 +38,10 @@ Works on any project — greenfield, existing codebase, or prototype.
 - `references/ai-patterns.md`
 - `templates/scorecard.md`
 
+## Persona adaptation
+
+This mode is for developers and technical founders. If `AI-TECH-LEAD.md` specifies a non-technical role, redirect: "This mode reviews code quality. Your developer should run this before merging — have them type `/guard src/`."
+
 ## Handoff
 
 **Receives:** A path, directory, or diff to review. Optionally `--against specs/[name].md` for spec conformance pass.

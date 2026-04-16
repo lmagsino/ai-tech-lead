@@ -32,6 +32,10 @@ Works on any project — greenfield, existing codebase, or prototype.
 - `templates/rca.md`
 - `references/ai-patterns.md`
 
+## Persona adaptation
+
+This mode is for developers and technical founders. If `AI-TECH-LEAD.md` specifies a non-technical role, redirect: "This mode hunts bugs in code. If you're seeing a problem with your product, describe it and I'll help you write a clear bug report for your developer."
+
 ## Handoff
 
 **Receives:** Bug report, error message, stack trace, or description of AI misbehavior.

@@ -29,6 +29,19 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 `templates/spec.md`
 
+## Persona adaptation
+
+If `AI-TECH-LEAD.md` specifies a non-technical role:
+- Write acceptance criteria in plain language ("the user should see X when they do Y").
+- Explain AI component decisions in terms of what the user experiences, not how it's built.
+- Skip implementation details — focus on what it does, not how.
+- Frame cost estimates with real-world comparisons.
+
+If `AI-TECH-LEAD.md` specifies a technical role:
+- Full technical depth: model selection, schema definitions, API contracts, data models.
+- Include implementation notes where they affect the spec.
+- Be precise about token budgets, latency targets, and infrastructure requirements.
+
 ## Handoff
 
 **Receives:** Feature description, or `scopes/[feature-name].md` from `/challenge`. If a scope file exists, read it first — it contains the refined problem statement, identified AI components, and constraints.

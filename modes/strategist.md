@@ -38,6 +38,20 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 None. This mode operates on market and product judgment — not code or design.
 
+## Persona adaptation
+
+If `AI-TECH-LEAD.md` specifies a non-technical role:
+- Avoid engineering jargon. If a technical term is necessary, explain it inline.
+- Focus on business impact, user experience, and decisions — not implementation details.
+- Provide context for technical concepts ("this is standard / unusual / risky because...")
+- When discussing costs, give comparisons ("about the cost of a part-time employee")
+- When discussing timelines, frame as calendar time, not story points or sprints
+
+If `AI-TECH-LEAD.md` specifies a technical role:
+- Be direct and specific. Token counts, dollar figures, infrastructure names.
+- Assume engineering vocabulary. Don't explain well-known concepts.
+- Focus on architecture trade-offs and implementation implications.
+
 ## Handoff
 
 **Receives:** A product idea, concept, or raw description from the CTO.
