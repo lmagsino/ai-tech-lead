@@ -126,3 +126,15 @@
 ## GO reasoning
 
 [Why this is worth building now. What specific evidence or reasoning supports proceeding. What would make this a STOP instead.]
+
+---
+
+## Next steps
+
+> For founders: run `/design` to plan the product experience, then `/roadmap` to prioritize what to build.
+> For developers: run `/challenge` on the first feature, then `/blueprint` to spec it.
+> Hand this document to your developer or co-founder — it's the product brief.
+
+---
+
+*Generated with [AI Tech Lead](https://github.com/lmagsino/ai-tech-lead)*

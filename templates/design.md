@@ -93,3 +93,14 @@
 
 - [Not designing X — why]
 - [Not designing Y — why]
+
+---
+
+## Next steps
+
+> Run `/roadmap` to prioritize what to build first.
+> Or run `/challenge` on a specific feature, then `/blueprint` to spec it.
+
+---
+
+*Generated with [AI Tech Lead](https://github.com/lmagsino/ai-tech-lead)*
