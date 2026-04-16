@@ -1,8 +1,8 @@
-# Getting Started with AI TECH LEAD
+# Getting Started
 
-AI TECH LEAD is a set of AI agent modes for Claude Code. Each mode is a specialist: one challenges your strategy, one designs the experience, one builds the code, one reviews it, one hunts bugs, one ships it.
+AI Tech Lead is your AI technical co-founder. She adapts to who you are — founder, developer, or both.
 
-You don't learn AI TECH LEAD. You just describe what you're working on and call the right mode.
+Pick your track below and follow along. The whole setup takes about 2 minutes.
 
 ---
 
@@ -14,147 +14,180 @@ cd ai-tech-lead
 ./setup.sh
 ```
 
-Choose **global** install to use AI TECH LEAD in every project, or **local** if you want it scoped to one project.
+Then open Claude Code and type:
 
-After install, each mode is a slash command in Claude Code: `/strategist`, `/designer`, `/challenge`, `/blueprint`, `/forge`, `/guard`, `/hunt`, `/launch`.
+```
+/start
+```
+
+She'll ask what you're building and who you are, then create your project file automatically. No templates to fill in manually.
 
 ---
 
-## Set up your project
+## Track 1: I'm a founder
 
-Copy the project constitution template into your repo root:
+You have an idea. You may or may not have a technical background. Here's how to go from idea to something a developer can build.
 
-```bash
-cp /path/to/ai-tech-lead/AI-TECH-LEAD.md.template ./AI-TECH-LEAD.md
-```
-
-Open it and fill in:
-- Your **stack** (framework, database, auth)
-- Your **AI components** (what you're building with LLMs)
-- Your **architecture decisions** (monorepo, serverless, etc.)
-
-AI TECH LEAD reads this file at the start of every session. Without it, she'll still work — but she won't know your project.
-
----
-
-## Your first session: new product
-
-Say you have an idea: "AI-powered inventory management for restaurants."
-
-**Step 1 — Challenge the idea**
+### Step 1 — Validate the idea
 
 ```
-/strategist "AI inventory tool for restaurants"
+/strategist "AI scheduling tool for dentists"
 ```
 
-AI Tech Lead acts as a skeptical investor. She'll probe: who's the user, what's the real pain, who already built this, where does AI actually help, how do you make money. She produces `STRATEGY.md`.
+She'll challenge your idea like a tough investor: Who's the user? What's the real pain? Who already built this? Is it technically feasible? How do you make money?
 
-**Step 2 — Design the experience**
+She produces `STRATEGY.md` with a GO or STOP decision.
+
+### Step 2 — Design the product
 
 ```
 /designer
 ```
 
-AI Tech Lead reads `STRATEGY.md` and designs the product: user journeys, where AI replaces manual steps, screen-by-screen specs. She produces `DESIGN.md`.
+She reads your `STRATEGY.md` and designs the experience: user journeys, where AI replaces manual steps, screen-by-screen specs. She produces `DESIGN.md`.
 
-**Step 3 — Challenge a specific feature**
-
-```
-/challenge "Add AI-powered demand forecasting"
-```
-
-Before writing any spec, AI Tech Lead challenges whether this should be built and how. Is there an AI-native version? What's out of scope? She produces `scopes/demand-forecasting.md` on GO.
-
-**Step 4 — Write the spec**
+### Step 3 — Prioritize what to build
 
 ```
-/blueprint scopes/demand-forecasting.md
+/roadmap
 ```
 
-AI Tech Lead probes for gaps, designs the AI component (model, prompt, fallback, cost estimate), defines acceptance criteria, and produces `specs/demand-forecasting.md`. She reviews section-by-section with you before approving.
+She reads your strategy and design, then prioritizes: what's in the MVP, what to buy vs build, what to skip. She produces `ROADMAP.md` with a phased plan and a developer handoff brief.
 
-**Step 5 — Build it**
+### Step 4 — Hand off to a developer
+
+Your `STRATEGY.md`, `DESIGN.md`, and `ROADMAP.md` are everything a developer needs. Hand them over and have the developer install AI Tech Lead. They'll run `/blueprint` and `/forge` to build what you've defined.
+
+No meetings needed — the documents are the brief.
+
+### What else you can do
 
 ```
-/forge specs/demand-forecasting.md
+/review "Here's the requirement from our developer..."
 ```
 
-AI Tech Lead builds AI infrastructure first, then tests, then implementation — exactly what the spec says. She won't start without a spec for anything non-trivial.
+Review any plan, requirement, or proposal. She finds gaps, challenges assumptions, and tells you what's missing.
 
-**Step 6 — Review the code**
+---
+
+## Track 2: I'm a developer
+
+You're building software and want a senior tech lead who actually pushes back.
+
+### Evaluate a feature
+
+```
+/challenge "Add real-time AI recommendations"
+```
+
+Before you build anything, she challenges whether it's worth building and how. Is there an AI-native version? What's the simpler alternative? She gives you GO, RETHINK, or KILL.
+
+### Write the spec
+
+```
+/blueprint scopes/recommendations.md
+```
+
+She probes for gaps, designs AI components (model, prompt, fallback, cost), defines testable acceptance criteria, and produces `specs/recommendations.md`. She reviews section-by-section with you before approving.
+
+### Build it
+
+```
+/forge specs/recommendations.md
+```
+
+AI infrastructure first, then tests, then implementation — exactly what the spec says. She won't start without a spec for anything non-trivial.
+
+### Review the code
 
 ```
 /guard src/
 ```
 
-Five-pass review: structural integrity, code smells, security (including prompt injection), clean code, AI component quality. CRITICAL and HIGH findings block merge.
+Five-pass review: structure, smells, security (including prompt injection), clean code, AI components. CRITICAL and HIGH findings block merge.
 
-**Step 7 — Ship it**
+### Fix a bug
+
+```
+/hunt "AI responses are hallucinating product names"
+```
+
+She classifies first (CODE / AI / INFRASTRUCTURE), traces to root cause, fixes with a regression test, and writes an RCA document. She won't close the bug without a test.
+
+### Ship it
 
 ```
 /launch
 ```
 
-Pre-launch checklist: functionality, AI systems (timeouts, fallbacks, rate limits, cost), security, infrastructure. GO or NO-GO.
+Pre-launch checklist: functionality, AI systems, security, infrastructure. GO or NO-GO.
 
----
+### Quick fixes
 
-## Working on an existing feature
-
-When strategy and design are already settled, skip to engineering:
+For trivial changes — config updates, copy changes, typos:
 
 ```
-/challenge "Add user notifications"
-/blueprint scopes/notifications.md
-/forge specs/notifications.md
-/guard src/notifications/
-/launch
+/forge "Update the error message from 'Invalid credentials' to 'Email or password is incorrect'"
 ```
 
 ---
 
-## Something broke
+## Track 3: I'm a technical founder
 
+You do both — product and code. Use all the modes.
+
+**When you're thinking about product:**
 ```
-/hunt "Users are seeing hallucinated product names in recommendations"
+/strategist → /designer → /roadmap
 ```
 
-AI Tech Lead classifies first (CODE / AI / INFRASTRUCTURE), traces to root cause, and proposes a minimum fix with a regression test. She won't close the bug without a test.
+**When you're building:**
+```
+/challenge → /blueprint → /forge → /guard → /launch
+```
+
+**When something breaks:**
+```
+/hunt "description of the problem"
+```
+
+The full journey looks like this:
+```
+/start → /strategist → /designer → /roadmap → /challenge → /blueprint → /forge → /guard → /launch
+```
+
+You can skip steps when it makes sense. But each step catches things the next one can't.
 
 ---
 
-## Quick fixes
+## What she won't do
 
-For trivial changes under 3 files — config updates, copy changes, typos — skip `/challenge` and `/blueprint`. Start directly in `/forge` with an inline spec:
-
-```
-/forge "Update the error message on the login page from 'Invalid credentials' to 'Email or password is incorrect'"
-```
-
----
-
-## What AI Tech Lead won't do
+These are hard stops. She will not proceed past them, even if you ask nicely.
 
 - **Build without a spec** — non-trivial features require `/blueprint` first
-- **Approve AI components without fallbacks** — what does the user see when the LLM fails?
-- **Approve AI components without a cost estimate** — tokens × volume before any commit
-- **Merge CRITICAL or HIGH security findings** — they block, period
-- **Ship with unresolved CRITICAL issues** — NO-GO until fixed
+- **Approve AI without fallbacks** — "what does the user see when the AI fails?"
+- **Approve AI without cost estimate** — tokens x volume before any commit
+- **Merge CRITICAL findings** — they block, period
+- **Close bugs without tests** — regression test required
+- **Ship with CRITICAL issues** — NO-GO until fixed
 
-These aren't settings. They're how she works.
+If you know the risk, say "I know the risk, ship it." She'll document the decision and proceed — but she won't silently skip the warning.
 
 ---
 
-## Checkpoint flow
+## Checkpoints
 
-Every mode has a moment where AI Tech Lead stops and waits for you:
+Every mode has a moment where she stops and waits for your input:
 
 | Mode | What she waits for |
 |------|--------------------|
-| `/challenge` | GO / RETHINK / KILL |
-| `/blueprint` | Section-by-section approval |
+| `/strategist` | Your answers to her challenges |
+| `/designer` | Confirmation of user journey and screen specs |
+| `/challenge` | GO / RETHINK / KILL decision |
+| `/blueprint` | Section-by-section spec approval |
 | `/forge` | Task breakdown approval before touching files |
-| `/guard` | CRITICAL/HIGH findings confirmed fixed before merge |
+| `/guard` | CRITICAL/HIGH findings confirmed fixed |
+| `/roadmap` | Feature inventory confirmation before prioritizing |
 | `/launch` | Your GO before any deploy commands run |
 | `/hunt` | Root cause confirmed before fix is applied |
 
@@ -164,10 +197,8 @@ She will not skip these. An agent that builds without alignment builds the wrong
 
 ## Tips
 
-**Give her your AI-TECH-LEAD.md.** The more context she has about your stack and AI components, the more specific her suggestions will be. Generic project = generic output.
+**Run `/start` first.** It creates your project file so every mode has context. Without it, she'll still work — but she won't know your project.
 
-**Follow the mode chain.** Modes hand off artifacts to each other. `/blueprint` feeds `/forge`. `/forge` feeds `/guard`. Skipping steps skips the checks those steps enforce.
+**Follow the mode chain.** Modes hand off artifacts to each other. `/strategist` feeds `/designer`. `/blueprint` feeds `/forge`. `/forge` feeds `/guard`. Skipping steps skips the checks those steps enforce.
 
-**Override with context, not instructions.** If she blocks on a hard stop and you want to proceed anyway, say "I know the risk, ship it." She'll document the decision and move forward — but she won't silently skip the warning.
-
-**Use subagents.** AI Tech Lead delegates expensive operations (codebase scans, dependency research, API lookups) to subagents so the main context stays clean. You'll see her spin one up when she needs it.
+**She says no.** That's the point. If she says KILL, RETHINK, or NO-GO — listen. She's catching something you might miss when you're moving fast.
