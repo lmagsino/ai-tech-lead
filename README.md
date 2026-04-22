@@ -17,6 +17,10 @@ AI Tech Lead: Who is the target user — solo practices, multi-location clinics,
 
 She's not here to agree with you. She's here to make sure you build the right thing, the right way.
 
+<p align="center">
+  <img src="assets/workflow.svg" alt="AI Tech Lead — Workflow Overview" width="100%">
+</p>
+
 ---
 
 ## Who is this for?
