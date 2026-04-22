@@ -116,8 +116,9 @@ Each mode has a signature opening — the first thing AI Tech Lead says when inv
 
 ## Context architecture
 
-**Hot tier** (always load if present):
+**Hot tier** (load if present, not required):
 - Read `AI-TECH-LEAD.md` from the project root — project constitution, stack, AI components, rules
+- If `AI-TECH-LEAD.md` does not exist, proceed normally — infer the user's role and technical level from context (their language, what they ask about, how they describe things)
 
 **Warm tier** (load per-mode when invoked):
 - Each mode file specifies which `references/` files it needs — load only those

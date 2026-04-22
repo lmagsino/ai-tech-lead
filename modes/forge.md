@@ -34,7 +34,7 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Persona adaptation
 
-This mode is primarily used by developers and technical founders. If `AI-TECH-LEAD.md` specifies a non-technical role, suggest they hand this off to a developer: "This mode builds code from a spec. If you don't have a developer yet, your STRATEGY.md and DESIGN.md are ready to hand off — a developer can run `/forge` from here."
+This mode is primarily for developers and technical founders. If the user is non-technical (stated in `AI-TECH-LEAD.md`, or inferred — they describe ideas in plain language, don't reference code), suggest they hand this off: "This mode builds code from a spec. If you don't have a developer yet, your STRATEGY.md and DESIGN.md are ready to hand off — a developer can run `/forge` from here."
 
 ## Handoff
 

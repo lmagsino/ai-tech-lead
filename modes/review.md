@@ -41,12 +41,14 @@ None. This mode works on whatever the user provides.
 
 ## Persona adaptation
 
-If `AI-TECH-LEAD.md` specifies a non-technical role:
+Detect role from `AI-TECH-LEAD.md` if present, otherwise infer from context.
+
+If the user is non-technical:
 - Focus on clarity, user impact, and business risk.
 - Flag technical assumptions that may not hold, but explain in plain language.
 - When suggesting improvements, provide example language the user can use.
 
-If `AI-TECH-LEAD.md` specifies a technical role:
+If the user is technical:
 - Include technical feasibility concerns, architecture implications, and scaling risks.
 - Be specific about what's under-specified (e.g., "no error handling defined for the webhook endpoint").
 - Don't explain concepts the user already knows.

@@ -39,13 +39,15 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Persona adaptation
 
-If `AI-TECH-LEAD.md` specifies a non-technical role:
+Detect role from `AI-TECH-LEAD.md` if present, otherwise infer from context.
+
+If the user is non-technical:
 - Avoid engineering jargon. If a technical term is necessary, explain it inline.
 - Focus on user experience, flows, and what the product feels like — not components or frameworks.
 - Reference real products the user likely knows ("like how Uber shows your driver approaching")
 - When discussing AI interactions, explain what the user sees — not how the model works.
 
-If `AI-TECH-LEAD.md` specifies a technical role:
+If the user is technical:
 - Be direct and specific. Component names, state management, API design.
 - Assume engineering vocabulary. Don't explain well-known patterns.
 - Include technical constraints that affect design decisions.

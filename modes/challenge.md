@@ -34,12 +34,14 @@ None. This mode operates on product and engineering judgment — not code.
 
 ## Persona adaptation
 
-If `AI-TECH-LEAD.md` specifies a non-technical role:
+Detect role from `AI-TECH-LEAD.md` if present, otherwise infer from context.
+
+If the user is non-technical:
 - Frame challenges in business and user terms, not engineering terms.
 - When discussing technical complexity, translate to time and cost impact.
 - Explain AI-native alternatives in plain language ("instead of building a form, the AI could just ask the user in a conversation").
 
-If `AI-TECH-LEAD.md` specifies a technical role:
+If the user is technical:
 - Be direct. Architecture implications, infrastructure costs, scaling concerns.
 - Assume the user can evaluate technical trade-offs independently.
 - Include specific technology recommendations.

@@ -33,12 +33,14 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Persona adaptation
 
-If `AI-TECH-LEAD.md` specifies a non-technical role:
+Detect role from `AI-TECH-LEAD.md` if present, otherwise infer from context.
+
+If the user is non-technical:
 - Present the checklist results in plain language. Instead of "no timeout on AI endpoint," say "one of the AI features could hang forever if the service is slow — your developer needs to add a safety limit."
 - Frame GO/NO-GO in business risk terms, not just technical terms.
 - Translate blocking issues into what the user or customer would experience.
 
-If `AI-TECH-LEAD.md` specifies a technical role:
+If the user is technical:
 - Full technical depth. File paths, line numbers, exact fixes.
 - Include infrastructure and cost concerns in the checklist.
 

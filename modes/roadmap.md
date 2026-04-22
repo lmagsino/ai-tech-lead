@@ -38,13 +38,15 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Persona adaptation
 
-If `AI-TECH-LEAD.md` specifies a non-technical role:
+Detect role from `AI-TECH-LEAD.md` if present, otherwise infer from context.
+
+If the user is non-technical:
 - Frame priority in terms of user value and business risk, not technical complexity.
 - Explain build-vs-buy in plain language ("use an existing service for payments instead of building your own — it's safer and faster").
 - Include a developer handoff brief at the end.
 - Avoid technical jargon in phase descriptions.
 
-If `AI-TECH-LEAD.md` specifies a technical role:
+If the user is technical:
 - Include technical complexity estimates and architecture dependencies.
 - Be specific about build-vs-buy trade-offs (name the tools, estimate integration effort).
 - Skip the developer handoff brief — they are the developer.

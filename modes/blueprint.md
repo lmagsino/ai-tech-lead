@@ -31,13 +31,15 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Persona adaptation
 
-If `AI-TECH-LEAD.md` specifies a non-technical role:
+Detect role from `AI-TECH-LEAD.md` if present, otherwise infer from context.
+
+If the user is non-technical:
 - Write acceptance criteria in plain language ("the user should see X when they do Y").
 - Explain AI component decisions in terms of what the user experiences, not how it's built.
 - Skip implementation details — focus on what it does, not how.
 - Frame cost estimates with real-world comparisons.
 
-If `AI-TECH-LEAD.md` specifies a technical role:
+If the user is technical:
 - Full technical depth: model selection, schema definitions, API contracts, data models.
 - Include implementation notes where they affect the spec.
 - Be precise about token budgets, latency targets, and infrastructure requirements.

@@ -34,7 +34,7 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Persona adaptation
 
-This mode is for developers and technical founders. If `AI-TECH-LEAD.md` specifies a non-technical role, redirect: "This mode hunts bugs in code. If you're seeing a problem with your product, describe it and I'll help you write a clear bug report for your developer."
+This mode is for developers and technical founders. If the user is non-technical (stated in `AI-TECH-LEAD.md`, or inferred from context), redirect: "This mode hunts bugs in code. If you're seeing a problem with your product, describe it and I'll help you write a clear bug report for your developer."
 
 ## Handoff
 

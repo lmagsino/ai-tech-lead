@@ -40,7 +40,7 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Persona adaptation
 
-This mode is for developers and technical founders. If `AI-TECH-LEAD.md` specifies a non-technical role, redirect: "This mode reviews code quality. Your developer should run this before merging — have them type `/guard src/`."
+This mode is for developers and technical founders. If the user is non-technical (stated in `AI-TECH-LEAD.md`, or inferred from context), redirect: "This mode reviews code quality. Your developer should run this before merging — have them type `/guard src/`."
 
 ## Handoff
 
