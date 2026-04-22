@@ -11,14 +11,10 @@ Founders get a CTO who never sleeps. Developers get a senior tech lead who chall
 > **Why not just use Claude?** Claude is a general-purpose assistant. AI Tech Lead is a structured workflow — she enforces specs before code, blocks merges on security findings, produces artifacts that chain together, and says KILL when your idea shouldn't be built. She has opinions, hard stops, and a process. That's the difference between a chatbot and a co-founder.
 
 ```
-You: I want to build an AI scheduling tool for dentists.
+You: /strategy "AI scheduling tool for dentists"
 
-AI Tech Lead: Who is the target user — solo practices, multi-location clinics, or both?
-             What does scheduling look like for them today?
-
-             Before we go further: the scheduling space has incumbents (Dentrix, Curve,
-             Open Dental). Why would a dentist switch? What does AI unlock here that
-             their current tool can't do?
+AI Tech Lead: The scheduling space has incumbents — Dentrix, Curve, Open Dental.
+             Why would a dentist switch? What does AI unlock that their current tool can't?
 ```
 
 She's not here to agree with you. She's here to make sure you build the right thing, the right way.
@@ -61,9 +57,7 @@ She challenges requirements before you waste time building, writes specs with te
 
 ### Technical Founders & CTOs
 
-You wear both hats. So does she.
-
-Use the founder modes when you're thinking about product and market. Use the developer modes when you're writing code. She adapts based on context.
+You wear both hats. So does she — founder modes for product thinking, developer modes for building. She adapts based on context.
 
 ---
 
@@ -94,28 +88,18 @@ Works with **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, and **OpenCod
 ```
 You: /strategy "AI-powered inventory management for restaurants"
 
-AI Tech Lead: Who is the target user — independent restaurants, chains, or both?
-             What does inventory management look like for them today?
+AI Tech Lead: Competitive scan: MarketMan, BlueCart, Restaurant365, Toast inventory.
+             Established players but none are AI-native.
 
-             [After your answer]
+             The gap: existing tools require manual data entry. An AI-native tool
+             could infer inventory from POS data and auto-generate purchase orders.
+             That's structural, not cosmetic.
 
-             Competitive scan running...
-             Direct: MarketMan, BlueCart, Restaurant365, Toast inventory
-             Adjacent: Craftybase, Square for Restaurants
+             Technical feasibility: straightforward. The hard part is POS integration —
+             start with one (Square or Toast) and expand.
 
-             There are established players but none are AI-native. The gap:
-             existing tools require manual data entry. An AI-native tool could
-             infer inventory from POS data, flag anomalies, and auto-generate
-             purchase orders. That's structural, not cosmetic.
-
-             Technical feasibility: straightforward. Standard web app + AI
-             classification. The hard part is POS integration — every system
-             has a different API. Start with one (Square or Toast) and expand.
-
-             Business model challenge: independent restaurant owners are
-             price-sensitive and churn is high. What's your CAC/LTV math?
-
-             ...
+             Business model concern: independent restaurant owners are price-sensitive
+             and churn is high. What's your CAC/LTV math?
 
              GO — proceed to /design with STRATEGY.md.
 ```
@@ -127,37 +111,12 @@ You: /challenge "Add a search bar to find users"
 
 AI Tech Lead: Before we build a search bar — have you considered semantic search?
 
-             A vector-based search (embeddings + pgvector) would let users find
-             "that designer who worked on our mobile app" instead of requiring
-             exact name recall. Same effort to build, dramatically better UX.
+             Embeddings + pgvector lets users find "that designer who worked on
+             our mobile app" instead of requiring exact name recall.
+             Same effort to build, dramatically better UX.
 
-             If the answer is "just names and emails" — a simple DB query with
-             a LIKE filter ships in 2 hours and is right-sized.
-
-             Which problem are we solving?
-```
-
-### A code review catches a real problem
-
-```
-You: /guard src/
-
-AI Tech Lead: CRITICAL — src/ai/prompts/chat.ts:34: user message concatenated
-             directly into system prompt without sanitization.
-             Prompt injection risk. Fix before merge.
-
-             HIGH — src/ai/client.ts:12: no timeout on API calls.
-             A hanging Claude call blocks the request indefinitely.
-             Fix: add AbortController with 30s timeout.
-
-             Scorecard:
-             Structural integrity  PASS
-             Code smells           PASS
-             Security              FAIL (1 CRITICAL — blocks merge)
-             Clean code            PASS
-             AI components         FAIL (1 HIGH)
-
-             Fix these 2 issues before merge.
+             If the answer is "just names and emails" — a LIKE filter ships
+             in 2 hours. Which problem are we solving?
 ```
 
 ---
@@ -211,6 +170,12 @@ AI Tech Lead: CRITICAL — src/ai/prompts/chat.ts:34: user message concatenated
 - [Workflows](docs/workflows.md) — common workflows for founders and developers
 - [Architecture](docs/architecture.md) — how AI Tech Lead is structured
 - [Customization](docs/customization.md) — tune it for your project and team
+
+---
+
+## Contributing
+
+Open an issue or PR. Bug reports, new mode ideas, and improvements to existing modes are all welcome.
 
 ---
 
