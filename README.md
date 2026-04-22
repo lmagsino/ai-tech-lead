@@ -1,8 +1,14 @@
 # AI Tech Lead
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Built for Claude Code](https://img.shields.io/badge/Built%20for-Claude%20Code-blueviolet)](https://claude.ai/code)
+[![Modes](https://img.shields.io/badge/Modes-11-green)]()
+
 **Your AI technical co-founder.**
 
 Founders get a CTO who never sleeps. Developers get a senior tech lead who challenges, reviews, and ships with you. Built on [Claude Code](https://claude.ai/code) — works in your terminal, desktop app, or browser.
+
+> **Why not just use Claude?** Claude is a general-purpose assistant. AI Tech Lead is a structured workflow — she enforces specs before code, blocks merges on security findings, produces artifacts that chain together, and says KILL when your idea shouldn't be built. She has opinions, hard stops, and a process. That's the difference between a chatbot and a co-founder.
 
 ```
 You: I want to build an AI scheduling tool for dentists.
@@ -76,6 +82,8 @@ Then open Claude Code and go:
 ```
 
 No setup needed. Just tell her what you're working on.
+
+Works with **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, and **OpenCode**. See [INSTALL.md](INSTALL.md) for platform-specific details.
 
 ---
 
@@ -185,87 +193,15 @@ AI Tech Lead: CRITICAL — src/ai/prompts/chat.ts:34: user message concatenated
 
 ## How she works
 
-### She adapts to you
+**She adapts to you.** She figures out who you are from what you say — founders get plain language, developers get file paths and dollar figures. No setup step required.
 
-She figures out who you are from what you say and how you say it. No setup step required.
+**She's opinionated.** She doesn't list five options and ask you to choose. She has a recommendation and she states it. She says KILL when something shouldn't be built.
 
-- **Founders** get plain language, business context, and no jargon
-- **Developers** get file paths, line numbers, token counts, and dollar figures
-- **Technical founders** get both, depending on which mode they're in
+**She enforces hard stops.** No spec = no build. CRITICAL finding = merge blocked. No fallback on AI = won't approve. No regression test = bug stays open. These are non-negotiable.
 
-### She's opinionated
+**She chains artifacts.** Each mode produces something the next mode reads: `/strategy` → `STRATEGY.md` → `/design` → `DESIGN.md` → `/blueprint` → `specs/` → `/forge` → code → `/guard` → scorecard → `/launch` → GO or NO-GO.
 
-She doesn't list five options and ask you to choose. She has a recommendation and she states it. She pushes back when your idea has a hole. She says KILL when something shouldn't be built.
-
-### She enforces discipline
-
-These are hard stops. She will not proceed past them, even if you ask nicely.
-
-| Rule | Mode | What happens |
-|------|------|-------------|
-| No spec for a non-trivial feature | `/forge` | Won't build. "Run `/blueprint` first." |
-| AI component without a fallback | `/blueprint` | Won't approve. "What does the user see when this fails?" |
-| AI component without cost estimate | `/blueprint` | Won't approve. "Estimate tokens x volume first." |
-| CRITICAL or HIGH security finding | `/guard` | Blocks merge. Lists exactly what to fix. |
-| Bug fix without regression test | `/hunt` | Won't close. "Regression test required." |
-| Unresolved CRITICAL before launch | `/launch` | NO-GO. Period. |
-
-If you know the risk and want to proceed anyway, say so. She'll document the decision and move on — but she won't silently skip the warning.
-
-### She hands off between modes
-
-Each mode produces an artifact that the next mode reads:
-
-```
-/strategy  → STRATEGY.md
-/design    → DESIGN.md     (reads STRATEGY.md)
-/challenge → scopes/       (reads STRATEGY.md)
-/blueprint → specs/        (reads scopes/)
-/forge     → code          (reads specs/)
-/guard     → scorecard     (reads code)
-/launch    → GO / NO-GO    (reads everything)
-```
-
-You can skip steps when it makes sense. But the chain exists because each step catches things the next step can't.
-
-### Founder-to-developer handoff
-
-If you're a founder and you've completed `/strategy` + `/design` + `/roadmap`, you have everything a developer needs. Hand them:
-
-- `STRATEGY.md` — what you're building and why
-- `DESIGN.md` — how the product should work
-- `ROADMAP.md` — what to build first
-
-Have them install AI Tech Lead and run `/blueprint` to start speccing. They'll have the full context of your product decisions without a single meeting.
-
----
-
-## Install
-
-```bash
-git clone https://github.com/lmagsino/ai-tech-lead.git
-cd ai-tech-lead
-./setup.sh
-```
-
-Works with **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, and **OpenCode**. The setup script detects your platform automatically.
-
-See [INSTALL.md](INSTALL.md) for platform-specific details and manual setup.
-
----
-
-## Reference library
-
-Each mode loads only the references it needs:
-
-- `references/clean-code.md` — naming, function size, readability
-- `references/solid-principles.md` — structural integrity
-- `references/code-smells.md` — what bad code looks like
-- `references/anti-patterns.md` — common mistakes
-- `references/security-owasp.md` — OWASP Top 10 + AI security
-- `references/design-patterns.md` — proven solutions
-- `references/ai-patterns.md` — AI-native implementation patterns
-- `references/engineering-checklist.md` — pre-merge checklist
+**Founders can hand off to developers.** Complete `/strategy` + `/design` + `/roadmap` and you have everything a developer needs — no meetings required.
 
 ---
 
