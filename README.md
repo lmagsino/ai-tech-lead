@@ -28,7 +28,6 @@ You have an idea but no technical co-founder. AI Tech Lead fills that gap.
 Tell her your idea. She'll challenge it, research competitors, assess technical feasibility, help you design the product, prioritize what to build first, and produce documents you can hand directly to a developer.
 
 ```
-/start                              — set up your project (takes 2 minutes)
 /strategy "AI tool for X"           — validate the idea: market, tech, business model
 /design                             — plan the product experience
 /roadmap                            — prioritize: what to build first, what to skip
@@ -66,13 +65,13 @@ cd ai-tech-lead
 ./setup.sh
 ```
 
-Then open Claude Code and type:
+Then open Claude Code and go:
 
 ```
-/start
+/strategy "your idea here"
 ```
 
-She'll ask what you're building and who you are, then set everything up for you. No config files to fill in manually.
+No setup needed. Just tell her what you're working on.
 
 ---
 
@@ -157,7 +156,6 @@ AI Tech Lead: CRITICAL — src/ai/prompts/chat.ts:34: user message concatenated
 
 | Mode | What it does | What you get |
 |------|-------------|--------------|
-| `/start` | Sets up your project through a quick conversation | `AI-TECH-LEAD.md` — your project context |
 | `/strategy` | Validates your idea — market, competition, tech feasibility, business model | `STRATEGY.md` with GO or STOP |
 | `/design` | Plans the product experience — user journeys, AI interactions, screen specs | `DESIGN.md` |
 | `/review` | Reviews a requirement, plan, or approach — finds gaps and challenges assumptions | Assessment: READY, NEEDS WORK, or RETHINK |
@@ -185,7 +183,7 @@ AI Tech Lead: CRITICAL — src/ai/prompts/chat.ts:34: user message concatenated
 
 ### She adapts to you
 
-When you run `/start`, she asks who you are — founder, developer, or both. She remembers this and adjusts how she talks to you:
+She figures out who you are from what you say and how you say it. No setup step required.
 
 - **Founders** get plain language, business context, and no jargon
 - **Developers** get file paths, line numbers, token counts, and dollar figures
@@ -247,8 +245,6 @@ cd ai-tech-lead
 ```
 
 Works with **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, and **OpenCode**. The setup script detects your platform automatically.
-
-After install, type `/start` to set up your first project.
 
 See [INSTALL.md](INSTALL.md) for platform-specific details and manual setup.
 

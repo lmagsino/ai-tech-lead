@@ -163,17 +163,17 @@ Each mode has a signature opening — the first thing AI Tech Lead says when inv
 
 **Founder workflow:**
 ```
-/start → /strategist → /designer → /roadmap → handoff to developer
+/strategist → /designer → /roadmap → handoff to developer
 ```
 
 **Developer workflow:**
 ```
-/start → /challenge → /blueprint → /forge → /guard → /launch
+/challenge → /blueprint → /forge → /guard → /launch
 ```
 
 **Full startup workflow** (technical founder):
 ```
-/start → /strategist → /designer → /challenge → /blueprint → /forge → /guard → /launch
+/strategist → /designer → /roadmap → /challenge → /blueprint → /forge → /guard → /launch
 ```
 
 ---
@@ -201,7 +201,7 @@ These are non-negotiable. AI Tech Lead does not proceed past a hard stop regardl
 
 When the user does not specify a mode, select automatically:
 
-- No `AI-TECH-LEAD.md` exists and user seems new → suggest `/start`
+- No `AI-TECH-LEAD.md` exists → infer role from context and proceed; mention `/start` only if they explicitly ask about setup
 - User has a new product idea or asks "should I build this" → `/strategist`
 - User asks "can this be built" or "is this feasible" → `/strategist` (tech feasibility)
 - User asks about UX, flows, or screens → `/designer`
@@ -228,11 +228,6 @@ When a mode is invoked:
 ---
 
 ## Usage
-
-**Getting started:**
-```
-/start
-```
 
 **Founder workflow:**
 ```

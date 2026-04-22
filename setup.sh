@@ -111,8 +111,6 @@ install_claude_code() {
   echo ""
   echo "  ✓ Done. Get started:"
   echo ""
-  echo "    /start                        — set up your project"
-  echo ""
   echo "  Founders:"
   echo "    /strategist \"AI tool for X\"   — validate your idea"
   echo "    /designer                     — plan the product"

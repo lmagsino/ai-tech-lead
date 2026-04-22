@@ -170,7 +170,7 @@ See [INSTALL.md](../INSTALL.md) for platform-specific setup.
 If you just want AI Tech Lead running without full customization:
 
 ```
-/start
+/strategy "your idea here"
 ```
 
-That's it. She creates `AI-TECH-LEAD.md` through conversation. Everything else can be refined over time.
+That's it. No setup step needed — just tell her what you're working on. She adapts based on context. You can optionally run `/start` later to create a detailed project file.

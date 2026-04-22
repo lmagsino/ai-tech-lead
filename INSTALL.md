@@ -26,13 +26,7 @@ cd ai-tech-lead
 ./setup.sh
 ```
 
-`setup.sh` installs the core and creates individual skill commands. Start with:
-
-```
-/start
-```
-
-Then use any mode directly:
+`setup.sh` installs the core and creates individual skill commands. Then use any mode directly:
 
 ```
 /strategist "AI tool for restaurants"
@@ -224,7 +218,6 @@ cp ~/.opencode/skills/ai-tech-lead/AI-TECH-LEAD.md.template ./AI-TECH-LEAD.md
 
 After installing on any platform:
 
-- [ ] Run `/start` to create `AI-TECH-LEAD.md` in your project root
 - [ ] Test a mode: `/strategist "your idea"` (founder) or `/challenge "a feature"` (developer)
 - [ ] Review [docs/workflows.md](docs/workflows.md) for your persona's workflow
 - [ ] Review [docs/customization.md](docs/customization.md) to tune for your project

@@ -14,13 +14,13 @@ cd ai-tech-lead
 ./setup.sh
 ```
 
-Then open Claude Code and type:
+Then open Claude Code and go:
 
 ```
-/start
+/strategy "your idea here"
 ```
 
-She'll ask what you're building and who you are, then create your project file automatically. No templates to fill in manually.
+No setup needed. Just tell her what you're working on.
 
 ---
 
@@ -153,7 +153,7 @@ You do both — product and code. Use all the modes.
 
 The full journey looks like this:
 ```
-/start → /strategist → /designer → /roadmap → /challenge → /blueprint → /forge → /guard → /launch
+/strategist → /designer → /roadmap → /challenge → /blueprint → /forge → /guard → /launch
 ```
 
 You can skip steps when it makes sense. But each step catches things the next one can't.
@@ -197,7 +197,7 @@ She will not skip these. An agent that builds without alignment builds the wrong
 
 ## Tips
 
-**Run `/start` first.** It creates your project file so every mode has context. Without it, she'll still work — but she won't know your project.
+**She learns as you go.** The more you use her, the more context she has about your project. You can optionally run `/start` to create a project file upfront, but it's not required.
 
 **Follow the mode chain.** Modes hand off artifacts to each other. `/strategist` feeds `/designer`. `/blueprint` feeds `/forge`. `/forge` feeds `/guard`. Skipping steps skips the checks those steps enforce.
 
