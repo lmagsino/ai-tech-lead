@@ -14,7 +14,7 @@ Every mode checks `AI-TECH-LEAD.md` for the user's role and adapts:
 
 | Role | Language | Modes they typically use |
 |------|----------|------------------------|
-| Founder (non-technical) | Plain language, business context, no jargon | start, strategist, designer, roadmap, review |
+| Founder (non-technical) | Plain language, business context, no jargon | start, strategy, design, roadmap, review |
 | Developer | File paths, line numbers, token counts | start, challenge, blueprint, forge, guard, hunt, launch |
 | Tech founder / CTO | Both, depending on mode | All |
 
@@ -45,8 +45,8 @@ Reference documents loaded only when a specific mode is invoked. Each mode file 
 | Mode | References loaded |
 |------|------------------|
 | `/start` | None |
-| `/strategist` | None |
-| `/designer` | `templates/design.md` |
+| `/strategy` | None |
+| `/design` | `templates/design.md` |
 | `/roadmap` | None (reads STRATEGY.md and DESIGN.md from hot tier) |
 | `/review` | None |
 | `/challenge` | None |
@@ -64,7 +64,7 @@ Heavy operations that should not block the main context:
 
 - Codebase scanning (file search, dependency mapping)
 - Git history analysis
-- Competitive research (for /strategist)
+- Competitive research (for /strategy)
 - Large file reads across many files
 
 Subagents perform these tasks and return summaries.
@@ -84,8 +84,8 @@ ai-tech-lead/
 │
 ├── modes/                            # One file per mode
 │   ├── start.md                      # Onboarding — creates AI-TECH-LEAD.md
-│   ├── strategist.md                 # Idea validation + tech feasibility
-│   ├── designer.md                   # Product design + UX architecture
+│   ├── strategy.md                 # Idea validation + tech feasibility
+│   ├── design.md                   # Product design + UX architecture
 │   ├── roadmap.md                    # MVP prioritization + developer handoff
 │   ├── review.md                     # Requirements/plans/proposals review
 │   ├── challenge.md                  # Feature challenge (GO/RETHINK/KILL)

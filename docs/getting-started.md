@@ -31,7 +31,7 @@ You have an idea. You may or may not have a technical background. Here's how to 
 ### Step 1 — Validate the idea
 
 ```
-/strategist "AI scheduling tool for dentists"
+/strategy "AI scheduling tool for dentists"
 ```
 
 She'll challenge your idea like a tough investor: Who's the user? What's the real pain? Who already built this? Is it technically feasible? How do you make money?
@@ -41,7 +41,7 @@ She produces `STRATEGY.md` with a GO or STOP decision.
 ### Step 2 — Design the product
 
 ```
-/designer
+/design
 ```
 
 She reads your `STRATEGY.md` and designs the experience: user journeys, where AI replaces manual steps, screen-by-screen specs. She produces `DESIGN.md`.
@@ -138,7 +138,7 @@ You do both — product and code. Use all the modes.
 
 **When you're thinking about product:**
 ```
-/strategist → /designer → /roadmap
+/strategy → /design → /roadmap
 ```
 
 **When you're building:**
@@ -153,7 +153,7 @@ You do both — product and code. Use all the modes.
 
 The full journey looks like this:
 ```
-/strategist → /designer → /roadmap → /challenge → /blueprint → /forge → /guard → /launch
+/strategy → /design → /roadmap → /challenge → /blueprint → /forge → /guard → /launch
 ```
 
 You can skip steps when it makes sense. But each step catches things the next one can't.
@@ -181,8 +181,8 @@ Every mode has a moment where she stops and waits for your input:
 
 | Mode | What she waits for |
 |------|--------------------|
-| `/strategist` | Your answers to her challenges |
-| `/designer` | Confirmation of user journey and screen specs |
+| `/strategy` | Your answers to her challenges |
+| `/design` | Confirmation of user journey and screen specs |
 | `/challenge` | GO / RETHINK / KILL decision |
 | `/blueprint` | Section-by-section spec approval |
 | `/forge` | Task breakdown approval before touching files |
@@ -199,6 +199,6 @@ She will not skip these. An agent that builds without alignment builds the wrong
 
 **She learns as you go.** The more you use her, the more context she has about your project. You can optionally run `/start` to create a project file upfront, but it's not required.
 
-**Follow the mode chain.** Modes hand off artifacts to each other. `/strategist` feeds `/designer`. `/blueprint` feeds `/forge`. `/forge` feeds `/guard`. Skipping steps skips the checks those steps enforce.
+**Follow the mode chain.** Modes hand off artifacts to each other. `/strategy` feeds `/design`. `/blueprint` feeds `/forge`. `/forge` feeds `/guard`. Skipping steps skips the checks those steps enforce.
 
 **She says no.** That's the point. If she says KILL, RETHINK, or NO-GO — listen. She's catching something you might miss when you're moving fast.

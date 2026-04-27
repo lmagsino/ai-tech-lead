@@ -9,12 +9,12 @@ Standard workflows for each persona. Pick the one that fits your role.
 From idea to developer handoff.
 
 ```
-/strategist → /designer → /roadmap → handoff
+/strategy → /design → /roadmap → handoff
 ```
 
-**1. /strategist** — Validate the idea. Market, competition, AI opportunity, business model, technical feasibility. Produces `STRATEGY.md` with GO or STOP.
+**1. /strategy** — Validate the idea. Market, competition, AI opportunity, business model, technical feasibility. Produces `STRATEGY.md` with GO or STOP.
 
-**2. /designer** — Design the product experience. User journeys, AI interactions, screen-by-screen specs. Produces `DESIGN.md`.
+**2. /design** — Design the product experience. User journeys, AI interactions, screen-by-screen specs. Produces `DESIGN.md`.
 
 **3. /roadmap** — Prioritize what to build. MVP scoping, sequencing, build vs buy. Produces `ROADMAP.md` with a developer handoff brief.
 
@@ -24,7 +24,7 @@ From idea to developer handoff.
 
 ```
 /review "Here's the PRD for notifications..."    — review a plan or requirement
-/strategist "Should we pivot to B2B?"             — re-evaluate strategy
+/strategy "Should we pivot to B2B?"             — re-evaluate strategy
 /roadmap                                          — re-prioritize after new learnings
 ```
 
@@ -69,7 +69,7 @@ For trivial changes (typos, config, copy) — skip challenge and blueprint:
 Full journey — product thinking to shipped code.
 
 ```
-/strategist → /designer → /roadmap → /challenge → /blueprint → /forge → /guard → /launch
+/strategy → /design → /roadmap → /challenge → /blueprint → /forge → /guard → /launch
 ```
 
 Use the founder modes when you're thinking about product. Use the developer modes when you're writing code.
@@ -88,7 +88,7 @@ Use the founder modes when you're thinking about product. Use the developer mode
 
 **Re-evaluating direction:**
 ```
-/strategist "new hypothesis" → /roadmap
+/strategy "new hypothesis" → /roadmap
 ```
 
 ---
@@ -100,8 +100,8 @@ Every mode produces an artifact that the next mode reads.
 | Mode | Input | Output |
 |------|-------|--------|
 | `/start` | nothing | `AI-TECH-LEAD.md` |
-| `/strategist` | idea | `STRATEGY.md` |
-| `/designer` | `STRATEGY.md` | `DESIGN.md` |
+| `/strategy` | idea | `STRATEGY.md` |
+| `/design` | `STRATEGY.md` | `DESIGN.md` |
 | `/roadmap` | `STRATEGY.md`, `DESIGN.md` | `ROADMAP.md` |
 | `/review` | any document or plan | assessment (in conversation) |
 | `/challenge` | idea / ticket | `scopes/[feature].md` |
@@ -119,8 +119,8 @@ Every mode has a moment where she stops and waits for you. These are not optiona
 
 | Mode | Checkpoint |
 |------|-----------|
-| `/strategist` | Your answers to her challenges before GO/STOP |
-| `/designer` | User journey and screen spec confirmation |
+| `/strategy` | Your answers to her challenges before GO/STOP |
+| `/design` | User journey and screen spec confirmation |
 | `/roadmap` | Feature inventory confirmation before prioritizing |
 | `/challenge` | GO / RETHINK / KILL — you decide whether to proceed |
 | `/blueprint` | Section-by-section spec approval |

@@ -108,8 +108,8 @@ Templates in `templates/` control the structure of output documents. Edit them t
 
 | Template | Used by | Common customizations |
 |----------|---------|----------------------|
-| `templates/strategy.md` | `/strategist` | Add industry-specific sections |
-| `templates/design.md` | `/designer` | Add accessibility requirements |
+| `templates/strategy.md` | `/strategy` | Add industry-specific sections |
+| `templates/design.md` | `/design` | Add accessibility requirements |
 | `templates/roadmap.md` | `/roadmap` | Add timeline columns for sprints |
 | `templates/spec.md` | `/blueprint` | Add QA notes, analytics events, rollout plan |
 | `templates/rca.md` | `/hunt` | Add incident severity classification |
