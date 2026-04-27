@@ -37,8 +37,8 @@ create_mode_wrappers() {
 
   declare -A DESCRIPTIONS=(
     ["start"]="Zero-friction onboarding. Asks who you are and what you're building, creates your project constitution (AI-TECH-LEAD.md) through conversation, and routes you to the right modes. Use on first session with any new project."
-    ["strategist"]="Validate whether a product is worth building — interrogates market, competition, monetization, distribution, and technical feasibility. Use when starting a new product or asking is this worth doing. Produces STRATEGY.md."
-    ["designer"]="Design the product experience — user journeys, AI-first interactions, screen-by-screen specs. Reads STRATEGY.md. Produces DESIGN.md ready for engineering. Use when planning UX or designing a new product."
+    ["strategy"]="Validate whether a product is worth building — interrogates market, competition, monetization, distribution, and technical feasibility. Use when starting a new product or asking is this worth doing. Produces STRATEGY.md."
+    ["design"]="Design the product experience — user journeys, AI-first interactions, screen-by-screen specs. Reads STRATEGY.md. Produces DESIGN.md ready for engineering. Use when planning UX or designing a new product."
     ["challenge"]="Challenge whether something should be built — interrogate product direction, feasibility, and approach before any code is written. Always asks if there is an AI-native version. Use when asked should we build this, product direction, or before writing a spec."
     ["blueprint"]="Design the blueprint — probe for gaps, design AI components, produce an approved spec. Includes AI component design by default — model selection, prompt design, evals, fallbacks, cost estimate. Use when asked to write a spec or define requirements."
     ["forge"]="Forge the implementation from the blueprint — AI infrastructure first, then tests, then code. Use when asked to build, implement, or create a feature from a spec."
@@ -50,7 +50,7 @@ create_mode_wrappers() {
   )
 
   echo "  Creating skill commands:"
-  for mode in start strategist designer challenge blueprint forge guard hunt launch roadmap review; do
+  for mode in start strategy design challenge blueprint forge guard hunt launch roadmap review; do
     local wrapper_dir="$skills_dir/$mode"
 
     # Warn if a skill with this name already exists (not from ai-tech-lead)
@@ -112,8 +112,8 @@ install_claude_code() {
   echo "  ✓ Done. Get started:"
   echo ""
   echo "  Founders:"
-  echo "    /strategist \"AI tool for X\"   — validate your idea"
-  echo "    /designer                     — plan the product"
+  echo "    /strategy \"AI tool for X\"   — validate your idea"
+  echo "    /design                       — plan the product"
   echo "    /roadmap                      — prioritize what to build"
   echo "    /review                       — review a plan or requirement"
   echo ""
@@ -131,7 +131,7 @@ uninstall_claude_code() {
   local skills_dir="${1:-$HOME/.claude/skills}"
   echo "  Removing AI TECH LEAD skills from $skills_dir..."
   rm -rf "$skills_dir/ai-tech-lead"
-  for mode in start strategist designer challenge blueprint forge guard hunt launch roadmap review; do
+  for mode in start strategy design challenge blueprint forge guard hunt launch roadmap review; do
     if [[ -f "$skills_dir/$mode/SKILL.md" ]] && grep -q "AI TECH LEAD" "$skills_dir/$mode/SKILL.md" 2>/dev/null; then
       rm -rf "$skills_dir/$mode"
       echo "    ✓ removed /$mode"

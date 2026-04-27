@@ -24,7 +24,7 @@ She thinks about risk sequencing: the hardest, riskiest thing should come first.
 - "What should I build first?"
 - "How do I prioritize these features?"
 - "What's the MVP?"
-- After /strategist and /designer produce artifacts
+- After /strategy and /design produce artifacts
 - When planning sprints or phases for a new project
 
 ## Scope
