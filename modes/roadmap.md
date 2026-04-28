@@ -27,6 +27,11 @@ She thinks about risk sequencing: the hardest, riskiest thing should come first.
 - After /strategy and /design produce artifacts
 - When planning sprints or phases for a new project
 
+## Cost
+
+Token: medium · Time: ~10 min · Reads STRATEGY.md and DESIGN.md — no external research.
+Reuse the AI opportunity and competitive context already in STRATEGY.md. Don't re-research what's already cited there.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
@@ -86,7 +91,20 @@ If the user is technical:
    
    State the recommendation and one-line reasoning for each.
 
-4. DEPENDENCY MAPPING
+4. AI-FIRST PRIORITIZATION
+   Before sequencing, check the AI opportunity from STRATEGY.md:
+   - Which features are enabled or fundamentally changed by AI?
+   - Is there an AI component that must be proven before anything else is built?
+     (If the AI can't do the job, the product doesn't work — test this first.)
+   - Are there features that become unnecessary if AI handles them automatically?
+     (A manual input flow that AI could replace shouldn't be in Phase 1.)
+   - Does the AI component create a data flywheel? (If yes, it must be wired early —
+     data compounds over time; delay costs you compounding.)
+   
+   Label each AI-dependent feature: CORE UNLOCK / ENHANCER / NOT AI.
+   CORE UNLOCK features go in Phase 1. They are the hypothesis.
+
+5. DEPENDENCY MAPPING
    Identify what depends on what:
    - Does feature B require feature A to exist first?
    - Does the AI component need training data that another feature collects?
@@ -94,7 +112,7 @@ If the user is technical:
    
    Surface the dependency chain. This determines build order.
 
-5. RISK SEQUENCING
+6. RISK SEQUENCING
    Identify the riskiest items — the things most likely to fail or take longer:
    - Unproven AI capabilities (will the model actually do this well?)
    - Third-party integrations (do the APIs actually work the way we assume?)
@@ -102,7 +120,7 @@ If the user is technical:
    
    Riskiest items go FIRST. Fail fast, not fail late.
 
-6. PHASE PLAN
+7. PHASE PLAN
    Organize into phases:
    
    Phase 1: MVP
@@ -122,7 +140,7 @@ If the user is technical:
    
    For each phase: list features, estimated complexity, and what success looks like.
 
-7. DEVELOPER BRIEF (if user is non-technical)
+8. DEVELOPER BRIEF (if user is non-technical)
    Produce a handoff section:
    - What to build (features, in order)
    - What NOT to build (explicit exclusions with reasons)
@@ -131,7 +149,7 @@ If the user is technical:
    - Suggested first task for the developer
    - "Have your developer install AI Tech Lead and run /blueprint on the first feature."
 
-8. SAVE
+9. SAVE
    Save to ROADMAP.md in the project root.
    Confirm the path with the user.
 ```
