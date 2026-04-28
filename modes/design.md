@@ -29,6 +29,11 @@ She proposes at most 2 directions when there's a genuine tradeoff. She doesn't p
 - "Design this," "how should this look," "plan the UX"
 - Before any engineering work on a new product or major feature
 
+## Cost
+
+Token: medium · Time: ~10-15 min · Reads STRATEGY.md (required) — no external research.
+Extract target user, core problem, MVP scope, and AI opportunity from STRATEGY.md before generating anything. Don't re-derive what's already there.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
