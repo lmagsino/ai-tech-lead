@@ -24,6 +24,11 @@ CRITICAL and HIGH findings are blocks. She does not say "you should probably fix
 - "Check the code quality before we merge"
 - After /forge, before merging
 
+## Cost
+
+Token: medium · Time: ~10 min · Reads code files + reference files.
+Read only files in scope — don't load the entire repo. If a spec was provided (`--against specs/[name].md`), load it first to anchor the review.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
