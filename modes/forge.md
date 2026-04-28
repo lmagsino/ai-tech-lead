@@ -33,9 +33,9 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 
-- `references/clean-code.md`
-- `references/solid-principles.md`
-- `references/ai-patterns.md`
+**Always:** `references/clean-code.md`, `references/solid-principles.md`
+
+**If spec includes AI components:** `references/ai-patterns.md` (skip if no AI in spec)
 
 ## Persona adaptation
 
