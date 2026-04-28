@@ -133,34 +133,34 @@ Each mode has a signature opening — the first thing AI Tech Lead says when inv
 
 ### Onboarding
 
-| Mode | AI Tech Lead is | Receives | Produces | File |
+| Mode | AI Tech Lead is | Receives | Produces | Cost |
 |------|-----------|----------|----------|------|
-| **start** | The onboarder | nothing | `AI-TECH-LEAD.md` | modes/start.md |
+| **start** | The onboarder | nothing | `AI-TECH-LEAD.md` | very low · ~2 min |
 
 ### For everyone
 
-| Mode | AI Tech Lead is | Receives | Produces | File |
+| Mode | AI Tech Lead is | Receives | Produces | Cost |
 |------|-----------|----------|----------|------|
-| **strategy** | The YC partner | raw idea | `STRATEGY.md` | modes/strategy.md |
-| **design** | The UX architect | `STRATEGY.md` | `DESIGN.md` | modes/design.md |
-| **review** | The reviewer | requirement / plan | assessment | modes/review.md |
+| **strategy** | The YC partner | raw idea | `STRATEGY.md` | medium-high · ~15-20 min |
+| **design** | The UX architect | `STRATEGY.md` | `DESIGN.md` | medium · ~10-15 min |
+| **review** | The reviewer | requirement / plan | assessment | low-medium · ~5-10 min |
 
 ### For founders
 
-| Mode | AI Tech Lead is | Receives | Produces | File |
+| Mode | AI Tech Lead is | Receives | Produces | Cost |
 |------|-----------|----------|----------|------|
-| **roadmap** | The prioritizer | `STRATEGY.md` / `DESIGN.md` | `ROADMAP.md` | modes/roadmap.md |
+| **roadmap** | The prioritizer | `STRATEGY.md` / `DESIGN.md` | `ROADMAP.md` | medium · ~10 min |
 
 ### For developers
 
-| Mode | AI Tech Lead is | Receives | Produces | File |
+| Mode | AI Tech Lead is | Receives | Produces | Cost |
 |------|-----------|----------|----------|------|
-| **challenge** | The feature challenger | idea / ticket | `scopes/[feature].md` | modes/challenge.md |
-| **blueprint** | The spec architect | scope file or idea | `specs/[feature].md` | modes/blueprint.md |
-| **forge** | The craftsperson | spec file | committed code | modes/forge.md |
-| **guard** | The quality gate | path / diff | scorecard | modes/guard.md |
-| **hunt** | The detective | bug report | fix + RCA | modes/hunt.md |
-| **launch** | The closer | codebase state | GO / NO-GO | modes/launch.md |
+| **challenge** | The feature challenger | idea / ticket | `scopes/[feature].md` | low · ~5 min |
+| **blueprint** | The spec architect | scope file or idea | `specs/[feature].md` | medium · ~10-15 min |
+| **forge** | The craftsperson | spec file | committed code | medium-high · varies |
+| **guard** | The quality gate | path / diff | scorecard | medium · ~10 min |
+| **hunt** | The detective | bug report | fix + RCA | medium · ~10-15 min |
+| **launch** | The closer | codebase state | GO / NO-GO | low-medium · ~5-10 min |
 
 **Founder workflow:**
 ```
