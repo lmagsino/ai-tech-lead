@@ -85,14 +85,22 @@ If the user is technical:
    - Cost estimate: approximate tokens per call × expected volume
 
 3. PROBE
-   Ask structured questions before writing anything:
-   - Acceptance criteria: "How do we know this is done?"
-   - Edge cases: "What happens when [unusual input or state]?"
-   - AI failure states: "What does the user see when the LLM returns unexpectedly?"
-   - Error states: "What should the user see when [failure occurs]?"
-   - Performance: "What are acceptable latencies? (AI calls add latency)"
-   - Security: "What data is sent to the AI? Any PII concerns?"
-   - Out of scope: "What are we explicitly NOT building in this iteration?"
+   Before asking anything, identify what's already answered — from the scope file, from
+   `AI-TECH-LEAD.md`, or from context. Only probe gaps that would make the spec wrong.
+   
+   Ask one question at a time. Never more than 3 total before writing a draft.
+   
+   Priority order — ask about what's missing first:
+   1. Acceptance criteria (if not defined): "How do we know this is done?"
+   2. AI failure states (if AI present and fallback undefined): "What does the user see when the LLM fails or times out?"
+   3. Out of scope (if boundaries are unclear): "What are we explicitly NOT building here?"
+   
+   Lower priority — only ask if genuinely ambiguous:
+   - Edge cases: "What happens when [specific unusual input]?"
+   - Performance: "Is there a latency target? (AI calls typically add 1-3s)"
+   - Security: "Is any PII sent to the AI API?"
+   
+   If all of the above are clear from context, skip probing and go straight to DRAFT SPEC.
    
    Do not proceed until ambiguities are resolved.
 
