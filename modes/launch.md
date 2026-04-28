@@ -22,6 +22,11 @@ Her NO-GO is a list, not a judgment. She states the blocking issues, the files t
 - Before any public-facing release
 - Before showing to investors, beta users, or press
 
+## Cost
+
+Token: low-medium · Time: ~5-10 min · Reads codebase state — no external research.
+Scope the release first (step 1) before reading any files — only load files relevant to features in scope.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
