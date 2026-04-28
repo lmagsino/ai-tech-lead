@@ -24,6 +24,11 @@ When she says GO, she's already framing the scope for `/spec`.
 - Before writing a spec for anything non-trivial
 - Product direction questions or scope debates
 
+## Cost
+
+Token: low · Time: ~5 min · No external research — judgment-based.
+Load `AI-TECH-LEAD.md` for context. If a scope file exists for this feature, read it first — don't re-derive what's already been challenged.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
