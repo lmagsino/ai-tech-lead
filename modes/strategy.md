@@ -106,15 +106,23 @@ If the user is technical:
    If the market is saturated with well-funded incumbents, name them and ask what the wedge is.
 
 4. AI-FIRST LENS
-   Before evaluating the proposed solution, ask:
+   Before evaluating the proposed solution, classify the AI role:
+   - **CORE UNLOCK** — the product can't exist or is 10× harder without AI; AI is the hypothesis
+   - **ENHANCER** — AI improves the experience but isn't the main mechanism
+   - **NOT AI** — no meaningful AI in the current shape
+   
+   Then ask:
    - How does AI change the competitive dynamics in this space?
-   - Is there an AI-native version of this that's structurally better — not just faster?
+   - Is there a CORE UNLOCK version of this that's structurally better — not just faster?
    - Which part of the current painful workflow could AI fully replace (not just assist)?
    - Do incumbents have an AI disadvantage? (data moats being disrupted, legacy architecture)
-   - Is the AI core to the value prop, or cosmetic?
    
-   If the AI angle is weak: "You're describing [X] with a chat interface. That's not an AI product — 
+   If classified ENHANCER or NOT AI but the problem has obvious AI leverage (unstructured data,
+   repetitive judgment, language tasks, personalization at scale): flag it.
+   "You're describing [X] with a chat interface. That's not a CORE UNLOCK — 
    it's a UI pattern. What does AI actually unlock here that wasn't possible before?"
+   
+   State the classification explicitly before moving on.
 
 5. BUSINESS MODEL
    Challenge monetization before scope:
@@ -179,7 +187,7 @@ If the user is technical:
 - Problem statement
 - Target user profile
 - Competitive landscape summary (name competitors, tag findings `[high]`/`[med]`/`[low]`)
-- AI opportunity (how AI changes this space — core unlock / feature / not present)
+- AI opportunity (classification: CORE UNLOCK / ENHANCER / NOT AI — and why)
 - Business model hypothesis
 - Distribution hypothesis
 - Technical feasibility (stack, complexity, risks, build vs buy, developer brief)
