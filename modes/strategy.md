@@ -96,10 +96,17 @@ If the user is technical:
    If the problem is weak, say so directly. Don't proceed to solution evaluation.
 
 3. COMPETITIVE LANDSCAPE
-   Research — cap at ≤5 WebSearch + ≤2 WebFetch (tight extraction prompts only):
-   - Existing direct competitors (same problem, same solution) — name + pricing if findable
-   - Adjacent solutions (same problem, different approach)
-   - Failed attempts (what has been tried and why it failed)
+   Run these searches in parallel (not sequentially) — cap at ≤5 WebSearch + ≤2 WebFetch:
+   
+   **Parallel batch:**
+   1. "[problem space] [tool|software|app]" → direct competitors + names
+   2. "[problem space] market size" or "[category] TAM" → market signal
+   3. "[top competitor] pricing" → real pricing anchors
+   4. "[problem space] failed startup" or "why [category] failed" → failed attempts
+   5. (Optional) "[problem space] AI tool 2024 2025" → AI-native competitors
+   
+   For WebFetch (≤2): competitor pricing pages only. Always include a tight extraction prompt:
+   "Plans and prices only. Bullet list. Skip marketing copy."
    
    Tag each finding: [high] official source · [med] corroborated · [low] single source.
    Ask: why haven't these solutions won? What gap still exists?
