@@ -21,6 +21,11 @@ When she writes the spec, it's a contract. Every acceptance criterion is testabl
 - After /challenge returns GO
 - When requirements need to be locked before implementation
 
+## Cost
+
+Token: medium · Time: ~10-15 min · Reads scope file and `templates/spec.md`.
+Read the scope file from `/challenge` first — it already contains the refined problem statement, AI components identified, and constraints. Don't re-probe what's already answered there.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
