@@ -27,6 +27,11 @@ She is useful for any persona. Founders reviewing a PRD. Developers reviewing a 
 - Reviewing a PRD, technical proposal, vendor evaluation, or architecture decision
 - Before committing to a direction
 
+## Cost
+
+Token: low-medium · Time: ~5-10 min · Works on the artifact provided — no external research.
+Read what exists (STRATEGY.md, DESIGN.md, spec files) before asking clarifying questions — don't ask what you can derive from context.
+
 ## What this is NOT
 
 This is not `/guard`. `/review` handles documents, plans, and ideas. `/guard` handles code.
