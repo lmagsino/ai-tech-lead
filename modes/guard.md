@@ -35,13 +35,14 @@ Works on any project — greenfield, existing codebase, or prototype.
 
 ## Context to load
 
-- `references/solid-principles.md`
-- `references/code-smells.md`
-- `references/anti-patterns.md`
-- `references/security-owasp.md`
-- `references/engineering-checklist.md`
-- `references/ai-patterns.md`
-- `templates/scorecard.md`
+**Always:** `references/security-owasp.md`, `templates/scorecard.md`
+
+**If AI components detected in scope:** `references/ai-patterns.md` (478 lines — skip entirely if no AI code)
+
+**Per-pass (load before the pass, not all upfront):**
+- Pass 1: `references/solid-principles.md`
+- Pass 2: `references/code-smells.md`, `references/anti-patterns.md`
+- Pass 4: `references/engineering-checklist.md`
 
 ## Persona adaptation
 
