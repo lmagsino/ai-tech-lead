@@ -23,6 +23,21 @@ She never applies a fix without identifying the actual root cause. Band-aids are
 - "The AI is giving wrong/weird responses"
 - A specific error message or stack trace is provided
 
+## Cost
+
+Token: medium · Time: ~10-15 min · Uses subagents to search codebase and git history.
+Classify first — the investigation approach differs completely between code, AI, and infrastructure bugs. A misclassified hunt wastes the entire session.
+
+## Research efficiency
+
+Subagents are the most expensive tool in this mode. Use them purposefully:
+
+- **Classify before searching.** Subagent scope changes entirely based on classification. Don't run a full codebase search for an AI prompt drift issue.
+- **Git log before grep.** Check recent changes in the affected area first — most regressions trace to a specific commit.
+- **One targeted search over broad search.** Search for the specific function, error string, or file implicated by the stack trace — not the whole codebase.
+- **Cap at 2 subagent calls.** First: targeted code/log search. Second: confirmation or RCA. If still unresolved, ask for more evidence before continuing.
+- **For AI bugs: read prompt files before running any live LLM calls.** Check git diff on prompt files first.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
