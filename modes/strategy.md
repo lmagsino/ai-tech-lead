@@ -30,6 +30,21 @@ When she says GO, she has stress-tested the idea and it held. When she says STOP
 - Questioning whether to pivot or double down
 - Before any design or engineering work on a new product
 
+## Cost
+
+Token: medium-high · Time: ~15-20 min · Requires competitive research via subagent or web tools.
+If re-running on the same project, load existing `STRATEGY.md` and treat this as an update — reuse prior research, don't repeat it.
+
+## Research efficiency
+
+Research is the most expensive part of this mode. Keep it purposeful:
+
+- **Reuse before researching.** If `STRATEGY.md` already exists, load its competitive landscape and AI opportunity sections first. Only re-search if the idea has changed significantly.
+- **Prefer `WebSearch` snippets over `WebFetch`.** Snippets surface pricing, names, and market signals 10-20× cheaper. Fetch only when a specific page (competitor pricing, market report) is the canonical source.
+- **Tight extraction on `WebFetch`.** Always state exactly what to extract: "Plans and prices only. Bullet list. Skip marketing copy." Never summarize a whole page.
+- **Cap at ≤5 WebSearch + ≤2 WebFetch.** If no web tools are available, mark affected findings `[low]` confidence and proceed.
+- **Tag every finding.** `[high]` = official source. `[med]` = corroborated secondary. `[low]` = single source or inferred. Low-confidence findings that change the GO/STOP decision must be flagged explicitly.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
@@ -81,11 +96,12 @@ If the user is technical:
    If the problem is weak, say so directly. Don't proceed to solution evaluation.
 
 3. COMPETITIVE LANDSCAPE
-   Use a subagent to research:
-   - Existing direct competitors (same problem, same solution)
+   Research — cap at ≤5 WebSearch + ≤2 WebFetch (tight extraction prompts only):
+   - Existing direct competitors (same problem, same solution) — name + pricing if findable
    - Adjacent solutions (same problem, different approach)
    - Failed attempts (what has been tried and why it failed)
    
+   Tag each finding: [high] official source · [med] corroborated · [low] single source.
    Ask: why haven't these solutions won? What gap still exists?
    If the market is saturated with well-funded incumbents, name them and ask what the wedge is.
 
@@ -162,8 +178,8 @@ If the user is technical:
 `STRATEGY.md` in the project root — saved only on GO. Contains:
 - Problem statement
 - Target user profile
-- Competitive landscape summary
-- AI opportunity (how AI changes this space)
+- Competitive landscape summary (name competitors, tag findings `[high]`/`[med]`/`[low]`)
+- AI opportunity (how AI changes this space — core unlock / feature / not present)
 - Business model hypothesis
 - Distribution hypothesis
 - Technical feasibility (stack, complexity, risks, build vs buy, developer brief)
