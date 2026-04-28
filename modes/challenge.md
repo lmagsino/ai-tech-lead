@@ -76,14 +76,20 @@ If the user is technical:
    - Never challenge a feature you don't understand
 
 3. AI-FIRST CHALLENGE
-   Before evaluating the proposed solution, ask:
-   - Is there an AI-powered version of this that's fundamentally better?
-   - Could an LLM replace a manual flow the user described?
+   Classify the AI role in the proposed feature:
+   - **CORE UNLOCK** — AI makes this feature fundamentally better or possible; without it the feature is table stakes
+   - **ENHANCER** — AI improves it but a non-AI version is still viable
+   - **NOT AI** — no meaningful AI leverage; build it clean and simple
+   
+   Then ask:
+   - Could an LLM replace a manual flow the user described? (CORE UNLOCK candidate)
    - Could embeddings + retrieval replace a search or filter they're planning?
    - Could an agent handle a workflow they're trying to UI-ify?
    - What AI capabilities (Claude API, voice, vision, structured outputs) apply here?
    
-   Always present the AI-native alternative if one exists, even if not requested.
+   State the classification. If CORE UNLOCK: present the AI-native version as the recommendation.
+   If ENHANCER: present it as an improvement to consider, not the default.
+   If NOT AI: skip AI discussion and move to product challenge.
 
 4. PRODUCT CHALLENGE
    Evaluate the proposed approach:
