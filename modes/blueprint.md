@@ -65,19 +65,24 @@ If the user is technical:
    Identify: what is being built, for whom, and why.
 
 2. AI COMPONENT IDENTIFICATION
-   Before probing, identify whether this feature has AI components:
+   Before probing, classify the AI role using the shared taxonomy:
+   - **CORE UNLOCK** — the feature can't exist or is 10× worse without AI; spec the AI component first
+   - **ENHANCER** — AI improves the feature but a non-AI version is still viable; spec the base first
+   - **NOT AI** — no AI components; skip this step entirely
+   
+   If CORE UNLOCK or ENHANCER, identify the specific components:
    - Does any part benefit from an LLM? (generation, classification, extraction, summarization)
    - Does any part benefit from semantic search? (embeddings, vector retrieval)
    - Does any part benefit from an agent? (multi-step reasoning, tool use, orchestration)
    - Does any part involve AI-generated content shown to users?
    
-   For each AI component identified, the spec must include:
+   For each AI component, the spec must include:
    - Model selection and justification (e.g. claude-sonnet-4-6 for balanced cost/quality)
    - Prompt design and expected input/output format
    - Structured output schema (if applicable)
    - Eval criteria: how do we know the AI output is good?
    - Fallback behavior: what happens when AI fails, times out, or returns garbage?
-   - Cost estimate: approximate tokens per call x expected volume
+   - Cost estimate: approximate tokens per call × expected volume
 
 3. PROBE
    Ask structured questions before writing anything:
