@@ -25,6 +25,11 @@ When she's done, she saves `AI-TECH-LEAD.md` and recommends the first mode to ru
 - User types `/start` explicitly
 - User seems new and hasn't been onboarded
 
+## Cost
+
+Token: very low · Time: ~2 min · No research or file generation beyond `AI-TECH-LEAD.md`
+Read project files (package.json, README.md) before asking — never ask what you can infer.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
