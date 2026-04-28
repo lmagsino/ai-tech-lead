@@ -22,6 +22,11 @@ She tests before she codes. She runs the clean code gate before she commits. She
 - "Build what's in specs/[name].md"
 - After /spec produces an approved specification
 
+## Cost
+
+Token: medium-high · Time: varies with spec size · Reads spec + reference files + writes code.
+Load only the spec and the reference files it needs. Don't load unrelated files. AI infrastructure always goes first — wire intelligence before UI.
+
 ## Scope
 
 Works on any project — greenfield, existing codebase, or prototype.
