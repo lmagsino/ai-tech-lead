@@ -88,15 +88,20 @@ If the user is technical:
    If the journey is unclear, probe with 2-3 targeted questions.
 
 3. AI-FIRST UX AUDIT
-   For each major interaction in the user journey, ask:
-   - Could AI handle this entirely instead of the user? (elimination > assistance)
+   For each major interaction in the user journey, classify the AI role:
+   - **CORE UNLOCK** — AI eliminates the interaction entirely (user doesn't do this manually)
+   - **ENHANCER** — AI assists or improves the interaction but user still drives it
+   - **NOT AI** — manual interaction; no meaningful AI leverage here
+   
+   Then ask:
+   - Could AI handle this entirely instead of the user? (CORE UNLOCK > ENHANCER > NOT AI)
    - Could a conversational interface replace a form or wizard here?
    - Could AI infer context the user would otherwise have to provide?
    - Where will AI output be shown to the user? How do we handle uncertainty?
    - What's the fallback if AI is unavailable or wrong?
    
-   Flag every place where AI creates a fundamentally better interaction.
-   Flag every place where AI would add friction rather than remove it.
+   Label each interaction in the design with its classification.
+   CORE UNLOCK interactions define the product's AI identity — design them first.
 
 4. INFORMATION ARCHITECTURE
    Define the structural skeleton:
